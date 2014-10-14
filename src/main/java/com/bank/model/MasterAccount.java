@@ -1,23 +1,38 @@
 package com.bank.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.bank.utils.AccountType;
 import com.bank.utils.InterestCalculationMode;
 
 /**
- * This class represent Account creation class. Using this administrator can
+ * This class represent a template to create different types of Account. Using this administrator can
  * create different kind of accounts according to their need.
  * 
  * @author Ajay
  * 
  */
-public class AccountMaster extends NamedEntity {
+public class MasterAccount extends NamedEntity {
 
+	@NotEmpty
 	private AccountType accountType;
+	
+	@NotEmpty
 	private double interestRate;
+	
+	@NotEmpty
 	private double minimumBalance;
+	
+	@NotEmpty
 	private InterestCalculationMode interestCalculationMode;
+	
+	@NotEmpty
 	private boolean GranterRequired;
+	
+	@NotEmpty
 	private boolean PanNumberRequired;
+	
+	@NotEmpty
 	private boolean addressProofRequired;
 
 	public AccountType getAccountType() {

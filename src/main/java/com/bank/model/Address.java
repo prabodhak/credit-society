@@ -1,15 +1,34 @@
 package com.bank.model;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+/**
+ * This class represent an Address. It can be used for any kind of address.
+ * 
+ * @author Ajay
+ *
+ */
 public class Address extends BaseEntity {
 
+	@NotEmpty
 	private String houseNumber;
 	private String landmark;
+	
+	@NotEmpty
 	private String street;
 	private String policeStation;
+	
+	@NotEmpty
 	private String city;
 	private String district;
+	
+	@NotEmpty
 	private String state;
+	
+	@NotEmpty
 	private String country;
+	
+	@NotEmpty
 	private String pincode;
 
 	public Address() {

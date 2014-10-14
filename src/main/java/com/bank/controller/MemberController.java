@@ -25,7 +25,6 @@ import com.bank.service.MemberService;
  * @author Ajay
  *
  */
-@Controller
 public class MemberController {
 	private final MemberService memberService;
 

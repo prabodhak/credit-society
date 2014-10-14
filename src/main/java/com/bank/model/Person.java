@@ -3,7 +3,9 @@ package com.bank.model;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.NotBlank;
+
+
 
 /**
  * Simple JavaBean domain object representing an person.
@@ -14,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")
-    @NotEmpty
+    @NotBlank
     protected String firstName;
     
     @Column(name = "middle_name")

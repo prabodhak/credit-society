@@ -17,7 +17,7 @@ public interface MemberService {
 	Set<Member> findMemberByLastName(String lastName) throws DataAccessException;
 	Set<Member> findMemberByMiddleName(String middleName) throws DataAccessException;
 	Set<Member> findMemberByFirstName(String firsttName) throws DataAccessException;
-	Set<Member> searchByAddress(String address);
+	Set<Member> findByAddress(String address);
 	boolean updateAddress(Address newAddress);
 	boolean updateEmailId(String newEmail);
 	boolean updateMobile(String newMobile);
