@@ -180,16 +180,26 @@ function fix_sidebar() {
         return this.each(function() {
             var btn = $(this).children("a").first();
             var menu = $(this).children(".treeview-menu").first();
-            var isActive = $(this).hasClass('active');
 
-            //initialize already active menus
-            if (isActive) {
-                menu.show();
-                btn.children(".fa-angle-left").first().removeClass("fa-angle-left").addClass("fa-angle-down");
-            }
             //Slide open or close the menu on link click
             btn.click(function(e) {
-                e.preventDefault();
+            	e.preventDefault();
+            	var isActive = $(this).parent().hasClass('active');
+            	
+            	if( $(this).parent().parent().children().hasClass('active') ){
+            		var prevActiveObj = $(this).parent().parent().children('.active');
+
+            		prevActiveObj.children(".treeview-menu").slideUp();
+                	prevActiveObj.find(".fa-angle-down").first().removeClass("fa-angle-down").addClass("fa-angle-left");
+                	
+                	
+                	//if( (prevActiveObj.children(".treeview-menu")).is(menu) ){
+                	//	return;
+                	//}
+
+                	prevActiveObj.removeClass("active");
+            	}
+            	
                 if (isActive) {
                     //Slide up to close menu
                     menu.slideUp();
