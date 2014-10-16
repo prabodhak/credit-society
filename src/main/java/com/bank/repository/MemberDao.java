@@ -5,6 +5,11 @@ import java.util.List;
 import com.bank.model.Address;
 import com.bank.model.Member;
 
+/**
+ * 
+ * @author Ajay
+ *
+ */
 public interface MemberDao extends Dao<Member>{
 	boolean updateAddress(Address newAddress);
 	boolean updateEmailId(String newEmail);

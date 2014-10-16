@@ -16,21 +16,40 @@
     <import resource="datasource-config.xml"/>
 
     <context:component-scan
-            base-package="org.springframework.samples.petclinic.service"/>
+            base-package="com.bank"/>
 
     <!-- Configurer that replaces ${...} placeholders with values from a properties file -->
     <!-- (in this case, JDBC-related settings for the JPA EntityManager definition below) -->
     <context:property-placeholder location="classpath:spring/data-access.properties" system-properties-mode="OVERRIDE"/>
 
      <!-- enables scanning for @Transactional annotations -->
-    <tx:annotation-driven />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
  
 	
-	<!-- ==================		 3 Profiles to choose from 			=================== 
+	<!-- ==================		 4 Profiles to choose from 			=================== 
+									- hibernate
 									- jdbc (uses Spring" JdbcTemplate)
 									- jpa
 									- spring-data-jpa	
 		  =============================================================================-->
+	<beans profile="hibernate">
+		<bean id="sessionFactory"
+	        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	        <property name="dataSource" ref="dataSource" />
+	        <property name="packagesToScan"
+					value="com.bank" />
+	        <property name="hibernateProperties">
+	            <props>
+	                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+	                <prop key="hibernate.show_sql">true</prop>
+	            </props>
+	        </property>
+	    </bean>
+	    <bean id="transactionManager"
+	        class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	        <property name="sessionFactory" ref="sessionFactory" />
+	    </bean> 
+	</beans>
 	
     <beans profile="jpa,spring-data-jpa">
         <!-- JPA EntityManagerFactory -->
@@ -47,7 +66,7 @@
             </property>
             <!-- gDickens: BOTH Persistence Unit and Packages to Scan are NOT compatible, persistenceUnit will win -->
             <property name="persistenceUnitName" value="petclinic"/>
-            <property name="packagesToScan" value="org.springframework.samples.petclinic"/>
+            <property name="packagesToScan" value="com.bank"/>
         </bean>
 
         <!-- Transaction manager for a single JPA EntityManagerFactory (alternative to JTA) -->
@@ -77,7 +96,7 @@
             <constructor-arg ref="dataSource"/>
         </bean>
 
-        <context:component-scan base-package="org.springframework.samples.petclinic.repository.jdbc"/>
+        <context:component-scan base-package="com.bank.repository.jdbc"/>
     </beans>
 
     <beans profile="jpa">
@@ -87,10 +106,10 @@
             EntityManager will be auto-injected due to @PersistenceContext.
             PersistenceExceptions will be auto-translated due to @Repository.
         -->
-        <context:component-scan base-package="org.springframework.samples.petclinic.repository.jpa"/>
+        <context:component-scan base-package="com.bank.repository.jpa"/>
     </beans>
 
     <beans profile="spring-data-jpa">
-        <jpa:repositories base-package="org.springframework.samples.petclinic.repository.springdatajpa"/>
+        <jpa:repositories base-package="com.bank.repository.springdatajpa"/>
     </beans>
 </beans>
