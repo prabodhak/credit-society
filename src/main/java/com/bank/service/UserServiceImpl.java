@@ -2,12 +2,13 @@ package com.bank.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.bank.model.Address;
 import com.bank.model.User;
 import com.bank.repository.UserDao;
+
+import exception.UserNotRegisteredException;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,8 +26,8 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 	
-	@Transactional(propagation=Propagation.REQUIRES_NEW)
-	public boolean checkLogin(String username, String password) {
+	@Transactional
+	public boolean checkLogin(String username, String password) throws UserNotRegisteredException {
 		return userDao.checkLogin(username, password);
 	}
 

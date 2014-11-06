@@ -3,11 +3,13 @@ package com.bank.service;
 import com.bank.model.Address;
 import com.bank.model.User;
 
+import exception.UserNotRegisteredException;
+
 public interface UserService {
 	
 	User getByUsername(String username);
 
-	boolean checkLogin(String username, String password);
+	boolean checkLogin(String username, String password) throws UserNotRegisteredException;
 
 	boolean checkIsRegistered(String username);
 

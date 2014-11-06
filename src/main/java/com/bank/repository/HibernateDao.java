@@ -24,7 +24,6 @@ public abstract class HibernateDao<T> implements Dao<T> {
 	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
-		System.out.println("Setting session factory");
 	}
 
 	public Object findById(Long id) {

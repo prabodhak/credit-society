@@ -13,8 +13,9 @@ import com.bank.model.User;
 import com.bank.service.UserService;
 import com.bank.validator.UserValidator;
 
+import exception.UserNotRegisteredException;
+
 @Controller
-@RequestMapping("/user")
 public class UserController {
 	
 	private static Logger logger = LoggerFactory
@@ -58,7 +59,7 @@ public class UserController {
 		}
 	}*/
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
 	public String showLoginPage(@ModelAttribute("user") User user) {
 		logger.debug("Received request to show login page");
 		return "login";
@@ -69,15 +70,22 @@ public class UserController {
 		userValidator.validate(user, result);
 		if (result.hasErrors()) {
 			return "login";
-		} else if (userService.checkLogin(user.getUsername(),
-				user.getPassword())) {
-			userService.setCurrentUser(userService.getByUsername(user
-					.getUsername()));
-			logger.info("User " + user.getUsername() + "logged in");
-			return "redirect:/home";
-		} else {
-			return "redirect:/user/login";
-		}
+		} else
+			try {
+				if (userService.checkLogin(user.getUsername(),
+						user.getPassword())) {
+					userService.setCurrentUser(userService.getByUsername(user
+							.getUsername()));
+					logger.info("User " + user.getUsername() + "logged in");
+					return "redirect:/home";
+				} else {
+					return "redirect:/user/login";
+				}
+			} catch (UserNotRegisteredException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "redirect:/user/login";
+			}
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
