@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import javax.transaction.Transactional;
 
-import com.bank.model.MasterAccount;
+import com.bank.model.AccountMaster;
 
 
 public class MasterAccountServiceImpl implements MasterAccountService {
@@ -16,7 +16,7 @@ public class MasterAccountServiceImpl implements MasterAccountService {
 	}
 
 	@Transactional
-	public void saveAccount(MasterAccount accountMaster) {
+	public void saveAccount(AccountMaster accountMaster) {
 		// TODO Auto-generated method stub
 		
 	}

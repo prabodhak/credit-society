@@ -14,6 +14,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class User extends Person {
 
+	@NotNull
 	@Size(min=4, max=15)
 	private String username;
 	

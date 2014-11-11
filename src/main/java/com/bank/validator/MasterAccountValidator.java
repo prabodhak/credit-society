@@ -3,7 +3,7 @@ package com.bank.validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.bank.model.MasterAccount;
+import com.bank.model.AccountMaster;
 
 public class MasterAccountValidator implements Validator{
 
@@ -13,7 +13,7 @@ public class MasterAccountValidator implements Validator{
 	}
 
 	public void validate(Object target, Errors errors) {
-		MasterAccount masterAccount = (MasterAccount) target;
+		AccountMaster masterAccount = (AccountMaster) target;
 		if(masterAccount.getInterestRate() < 0) {
 		}
 	}

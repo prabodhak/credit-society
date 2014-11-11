@@ -1,10 +1,14 @@
 package com.bank.model;
 
+import java.math.BigDecimal;
+
 /**
  * 
  * @author Ajay
  *
  */
-public class Account extends NamedEntity {
+public class Account extends BaseEntity {
 
+	BigDecimal currentBalance;
+	
 }

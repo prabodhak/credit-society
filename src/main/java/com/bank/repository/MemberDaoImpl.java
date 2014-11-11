@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.bank.model.Address;
 import com.bank.model.Member;
 
-@Repository
+
 public class MemberDaoImpl extends HibernateDao<Member> implements MemberDao {
 
 	public boolean updateAddress(Address newAddress) {

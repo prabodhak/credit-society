@@ -2,16 +2,16 @@ package com.bank.repository;
 
 import org.springframework.dao.DataAccessException;
 
-import com.bank.model.MasterAccount;
+import com.bank.model.AccountMaster;
 
 /**
- * Repository class for {@link com.bank.model.MasterAccount} domain objects All method names are compliant with Spring Data naming
+ * Repository class for {@link com.bank.model.AccountMaster} domain objects All method names are compliant with Spring Data naming
  * conventions so this interface can easily be extended for Spring Data
  * 
  * @author Ajay
  *
  */
-public interface MasterAccountDao extends Dao<MasterAccount>{
+public interface MasterAccountDao extends Dao<AccountMaster>{
 	
 	/**
      * Retrieve <code>MasterAccount</code> from the data store by name, returning account whose name <i>starts</i>
@@ -20,5 +20,5 @@ public interface MasterAccountDao extends Dao<MasterAccount>{
      * @param name Value to search for
      * @return a matching <code>AccountMaster</code>s (or a null if none found)
      */
-	MasterAccount findByName(String name) throws DataAccessException;
+	AccountMaster findByName(String name) throws DataAccessException;
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.bank.model.MasterAccount;
+import com.bank.model.AccountMaster;
 import com.bank.service.MasterAccountService;
 
 /**
@@ -31,13 +31,13 @@ public class MasterAccountController {
 
 	@RequestMapping(value = "/master/accounts/new", method = RequestMethod.GET)
 	public String initCreationForm(Map<String, Object> model) {
-		MasterAccount masterAccount = new MasterAccount();
+		AccountMaster masterAccount = new AccountMaster();
 		model.put("masterAccount", masterAccount);
 		return "createOrUpdateMasterAccountForm";
 	}
 
 	@RequestMapping(value = "/master/accounts/new", method = RequestMethod.POST)
-	public String processCreationForm(@Valid MasterAccount masterAccount,
+	public String processCreationForm(@Valid AccountMaster masterAccount,
 			BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
 			return "reateOrUpdateMasterAccountForm";
@@ -49,7 +49,7 @@ public class MasterAccountController {
 	}
 	
 	@RequestMapping(value = "/master/accounts/{memberId}/edit", method = RequestMethod.PUT)
-	public String processUpdateAccountMasterForm(@Valid MasterAccount masterAccount,
+	public String processUpdateAccountMasterForm(@Valid AccountMaster masterAccount,
 			BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
 			return "createOrUpdateMasterAccountForm";

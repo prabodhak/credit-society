@@ -12,7 +12,7 @@ import com.bank.utils.InterestCalculationMode;
  * @author Ajay
  * 
  */
-public class MasterAccount extends NamedEntity {
+public class AccountMaster extends NamedEntity {
 
 	@NotEmpty
 	private AccountType accountType;

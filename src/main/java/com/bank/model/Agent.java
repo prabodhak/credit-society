@@ -1,11 +1,8 @@
 package com.bank.model;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
-import javax.validation.constraints.Digits;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import com.bank.utils.EducationalQualification;
 
@@ -15,16 +12,24 @@ import com.bank.utils.EducationalQualification;
  * @author Ajay
  *
  */
-public class Agent extends Person {
-	private Collection<String> WorkingArea;
-	private EducationalQualification qualification;
-	private Address address;
-	
-	@Column(name = "email_id")
-	private String emailId;
 
-	@Column(name = "mobile")
-	@NotEmpty
-	@Digits(fraction = 0, integer = 10)
-	private String mobile;
+@Entity
+@Table(name="agent")
+public class Agent extends Person {
+	
+	@Column(name="educational_qualification")
+	private EducationalQualification educationalQualification;
+	
+	public Agent() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public EducationalQualification getEducationalQualification() {
+		return educationalQualification;
+	}
+
+	public void setEducationalQualification(
+			EducationalQualification educationalQualification) {
+		this.educationalQualification = educationalQualification;
+	}
 }

@@ -1,6 +1,10 @@
 package com.bank.repository;
 
-import org.hibernate.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.bank.model.User;
@@ -8,14 +12,17 @@ import com.bank.model.User;
 import exception.UserNotRegisteredException;
 
 @Repository
-public class UserDaoImpl extends HibernateDao<User> implements UserDao {
+public class UserDaoImpl implements UserDao {
+	
+	@PersistenceContext
+	EntityManager em;
 	
 	public User getByUsername(String username) {
 		User user = new User();
 		String queryString = "from User where username = :username";
-		Query query = getSessionFactory().getCurrentSession().createQuery(queryString);
+		Query query = em.createQuery(queryString);
 		query.setParameter("username", username);
-		user = (User) query.uniqueResult();
+		user = (User) query.getSingleResult();
 		return user;
 	}
 	
@@ -24,9 +31,9 @@ public class UserDaoImpl extends HibernateDao<User> implements UserDao {
 		boolean value = false;
 		if(isRegistered(username)) {
 			String queryString = "select password from User where username = :username";
-			Query query = getSessionFactory().getCurrentSession().createQuery(queryString);
-			query.setString("username", username);
-			if(password.equals(query.uniqueResult()))
+			Query query = this.em.createQuery(queryString);
+			query.setParameter("username", username);
+			if(password.equals(query.getSingleResult()))
 				value = true;
 		}
 		throw new UserNotRegisteredException();
@@ -35,9 +42,9 @@ public class UserDaoImpl extends HibernateDao<User> implements UserDao {
 	public boolean isRegistered(String username) {
 		boolean value = false;
 		String queryString = "from User where username= :username";
-		Query query = getSessionFactory().getCurrentSession().createQuery(queryString);
-		query.setString("username", username);
-		if(query.uniqueResult() != null)
+		Query query = this.em.createQuery(queryString);
+		query.setParameter("username", username);
+		if(query.getResultList() != null)
 			value = true;
 		return value;
 	}
@@ -47,19 +54,26 @@ public class UserDaoImpl extends HibernateDao<User> implements UserDao {
 		if(checkLogin(username, oldPassword)) {
 			User user = (User) getByUsername(username);
 			user.setPassword(newPassword);
+			save(user);
 			value = true;
 		}		
 		return value;
 	}
 
-	public void registerUser(String username, String passowrd) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	@Override
-	public Class<User> getDomainClass() {
-		return User.class;
+	public User findById(Long id) {
+        return em.find(User.class, id);
+	}
+
+	@Override
+	public void save(User user) throws DataAccessException {
+		if (user.getId() == null) {
+    		this.em.persist(user);     		
+    	}
+    	else {
+    		this.em.merge(user);    
+    	}
+		
 	}
 
 }
