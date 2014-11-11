@@ -25,13 +25,13 @@ public class VerificationDocumentMasterController {
 		this.verificationDocumentMasterService = verificationDocumentMasterService;
 	}
 
-	@RequestMapping(value="master/verification-documents")
+	@RequestMapping(value="verification-document")
 	public String showAllVerificationDocuments(Model model) {
 		Collection<VerificationDocument> results = verificationDocumentMasterService.findAllDocumentTypes();
 		VerificationDocument document = new VerificationDocument();
 		model.addAttribute("document", document);
 		model.addAttribute("documents", results);
-		return "verificationDocuments";
+		return "verificationDocument";
 	}
 	
 	@RequestMapping(value="/master/verification-documents/add", method=RequestMethod.POST)

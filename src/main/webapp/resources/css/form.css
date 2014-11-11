@@ -1,0 +1,38 @@
+.form-label{
+	font-size:13px;
+}
+.width-3{
+	width:80%;
+}
+.col-3-4{
+	float:left;
+	width:60%;
+	margin-right:2px;
+}
+.col-1-4{
+	float:left;
+	width:20%;
+}
+.gender-width{
+	width:35%;
+}
+.nationality-width, .doc-proof-type-width{
+	width:70%;
+}
+.margin-bottom-5{
+	margin-bottom:5px;
+}
+.permanent-address{
+	width:50%;
+	float:left;
+}
+.same-as-local{
+	float:left;
+	margin:0px;
+}
+.add-verification-docs{
+	margin-top:20px;
+}
+.add-verification-docs-but{
+	width:100px;
+}
