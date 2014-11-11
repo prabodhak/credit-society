@@ -2,41 +2,41 @@ package com.bank.controller;
 
 import java.util.Collection;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bank.model.AddressProofDocumentTypeMaster;
-import com.bank.model.IdentityProofDocumentTypeMaster;
-import com.bank.service.VerificationDocumentMasterService;
+import com.bank.model.VerificationDocument;
+import com.bank.service.VerificationDocumentService;
 
 @Controller
 public class VerificationDocumentMasterController {
 	
-	private VerificationDocumentMasterService verificationDocumentMasterService;
+	private VerificationDocumentService verificationDocumentMasterService;
 	
 	@Autowired
-	public VerificationDocumentMasterController(VerificationDocumentMasterService verificationDocumentMasterService) {
+	public VerificationDocumentMasterController(VerificationDocumentService verificationDocumentMasterService) {
 		this.verificationDocumentMasterService = verificationDocumentMasterService;
 	}
 
-	@RequestMapping(value="/master/identityDocument")
-	public String findAllIdentityProofDocumentTypes() {
-		Collection<IdentityProofDocumentTypeMaster> results = verificationDocumentMasterService.findAllIdentityProofDocumentTypes();
-		
-		return "docs";
+	@RequestMapping(value="master/verification-documents")
+	public String showAllVerificationDocuments(Model model) {
+		Collection<VerificationDocument> results = verificationDocumentMasterService.findAllDocumentTypes();
+		VerificationDocument document = new VerificationDocument();
+		model.addAttribute("document", document);
+		model.addAttribute("documents", results);
+		return "verificationDocuments";
 	}
 	
-	@RequestMapping(value="/master/addressDocument")
-	public String findAllAddressProofDocumentTypes() {
-		Collection<AddressProofDocumentTypeMaster> results = verificationDocumentMasterService.findAllAddressProofDocumentTypes();
-		return null;
-	}
-	
-	@RequestMapping(value="/master/identityDocument/add")
-	public String addIdentityMaster() {
-
+	@RequestMapping(value="/master/verification-documents/add", method=RequestMethod.POST)
+	public String addIdentityMaster(@Valid VerificationDocument verificationDocument) {
+		verificationDocumentMasterService.addDocumentType(verificationDocument);
 		return null;
 	}
 
@@ -45,17 +45,4 @@ public class VerificationDocumentMasterController {
 		
 		return null;
 	}
-	
-	@RequestMapping(value="/master/addressDocument/add")
-	public String addAddressMaster(@PathVariable("documentId") Integer documentId) {
-		
-		return null;
-	}
-	
-	@RequestMapping(value="/master/addressDocument/remove")
-	public String removeAddressMaster(@PathVariable("documentId") Integer documentId) {
-		
-		return null;
-	}
-
 }

@@ -59,7 +59,7 @@ public class UserController {
 		}
 	}*/
 
-	@RequestMapping(value = {"/", "/login"}, method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showLoginPage(@ModelAttribute("user") User user) {
 		logger.debug("Received request to show login page");
 		return "login";

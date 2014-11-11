@@ -8,9 +8,13 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "address_proof_document_type_master")
-public class AddressProofDocumentTypeMaster extends BaseEntity {
-
+@Table(name="verification_document")
+public class VerificationDocument extends BaseEntity {
+	
+	@Column(name="document_type")
+	@NotEmpty
+	private String documentType;
+	
 	@Column(name = "document_name")
 	@NotEmpty
 	private String documentName;
@@ -20,6 +24,25 @@ public class AddressProofDocumentTypeMaster extends BaseEntity {
 
 	@Column(name = "inactive", nullable = false)
 	private boolean inactive;
+	
+	public VerificationDocument() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public VerificationDocument(Long id, String documentType, String documentName, String description) {
+		this.id = id;
+		this.documentType = documentType;
+		this.documentName = documentName;
+		this.documentDescription = description;
+	}
+
+	public String getDocumentType() {
+		return documentType;
+	}
+
+	public void setDocumentType(String documentType) {
+		this.documentType = documentType;
+	}
 
 	public String getDocumentName() {
 		return documentName;
@@ -49,4 +72,5 @@ public class AddressProofDocumentTypeMaster extends BaseEntity {
 	public void prePersist() {
 		setInactive(false);
 	}
+
 }
