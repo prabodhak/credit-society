@@ -1,6 +1,6 @@
 package com.bank.repository;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 
@@ -10,7 +10,7 @@ public interface AccountTypeMasterDao {
 
 	AccountTypeMaster findById(Long accountId);
 	
-	Collection<AccountTypeMaster> findAll();
+	List<AccountTypeMaster> findAll();
 
 	void save(AccountTypeMaster accountTypeMaster)
 			throws DataAccessException;

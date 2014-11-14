@@ -32,9 +32,9 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="account-master-type"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
-                    <li><a href="account-type"><i class="fa fa-angle-double-right"></i>Account Type</a></li>
-                    <li><a href="verification-document"><i class="fa fa-angle-double-right"></i> Verification Document</a></li>
+                    <li><a href="master/account-master-type"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
+                    <li><a href="master/account-type"><i class="fa fa-angle-double-right"></i>Account Type</a></li>
+                    <li><a href="master/verification-document"><i class="fa fa-angle-double-right"></i> Verification Document</a></li>
                     <li><a href="pages/master/account.html"><i class="fa fa-angle-double-right"></i> Account</a></li>
                     <li><a href="pages/master/share.html"><i class="fa fa-angle-double-right"></i> Share</a></li>
                 </ul>                            
@@ -46,7 +46,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="member-information.html"><i class="fa fa-angle-double-right"></i> Member Information</a></li>
+                    <li><a href="member/member-information"><i class="fa fa-angle-double-right"></i> Member Information</a></li>
                     <li><a href="pages/member/member-account.html"><i class="fa fa-angle-double-right"></i>Member Account</a></li>
                     <li><a href="pages/member/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
                 </ul>

@@ -1,6 +1,7 @@
 package com.bank.repository;
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -23,7 +24,7 @@ public class AccountTypeMasterDaoImpl implements AccountTypeMasterDao {
 	}
 
 	@Override
-	public Collection<AccountTypeMaster> findAll() {
+	public List<AccountTypeMaster> findAll() {
 		String queryString = "from AccountTypeMaster";
 		Query query = em.createNamedQuery(queryString);
 		return query.getResultList();

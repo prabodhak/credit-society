@@ -4,7 +4,6 @@
     <head>
         <meta charset="UTF-8">
 <%@ include file="include.jsp" %>
-<base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
 <title>Insert title here</title>
 </head>
 <body class="skin-blue">

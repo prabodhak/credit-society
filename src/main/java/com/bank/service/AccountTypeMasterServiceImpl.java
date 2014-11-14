@@ -1,6 +1,6 @@
 package com.bank.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class AccountTypeMasterServiceImpl implements AccountTypeMasterService {
 	}
 
 	@Override
-	public Collection<AccountTypeMaster> findAllAccountTypeMaster() {
+	public List<AccountTypeMaster> findAllAccountTypeMaster() {
 		return accountTypeMasterDao.findAll();
 	}
 

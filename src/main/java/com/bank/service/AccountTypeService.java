@@ -1,6 +1,6 @@
 package com.bank.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -10,8 +10,8 @@ import com.bank.model.AccountType;
 public interface AccountTypeService {
 	void findAccountTypeById(Long accountTypeId);
 	void findAccountTypeByName(String name);
-	Collection<AccountType> findAllAccountType();
+	List<AccountType> findAllAccountType();
 	void saveAccountType(AccountType accountType);
-	void removeAccountType(Long accountId);
-	void removeAccountType(AccountType accountType);
+	void deleteAccountType(Long accountId);
+	void deleteAccountType(AccountType accountType);
 }

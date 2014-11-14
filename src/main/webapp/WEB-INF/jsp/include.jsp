@@ -1,3 +1,5 @@
+<base href="${pageContext.request.scheme}://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath}/">
+
 <!-- CSS -->
 <!-- bootstrap 3.0.2 -->
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -31,4 +33,4 @@
 <script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="resources/js/AdminLTE/dashboard.js" type="text/javascript"></script>     
+<script src="resources/js/AdminLTE/dashboard.js" type="text/javascript"></script>
