@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.bank.exception.UserNotRegisteredException;
 import com.bank.model.User;
 import com.bank.service.UserService;
 import com.bank.validator.UserValidator;
-
-import exception.UserNotRegisteredException;
 
 @Controller
 public class UserController {

@@ -1,17 +1,24 @@
 package com.bank.model;
 
-import java.util.Set;
+import java.util.Collection;
+import java.util.HashSet;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.FetchType;
+import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.bank.utils.AddressProofDocumentType;
 import com.bank.utils.IdentityProofDocumentType;
 
-public class MemberAccount extends Member {
+@Entity
+@Table(name="member_account")
+public class MemberAccount extends BaseEntity {
 
+	@OneToOne
+	private Member member;
+	
 	@Column(name="pan_number")
 	private String panNumber;
 	
@@ -24,8 +31,19 @@ public class MemberAccount extends Member {
 	@Column(name="address_proof_type")
 	private AddressProofDocumentType addressProofType;
 	
-	@OneToMany(mappedBy="member", fetch=FetchType.LAZY, cascade=CascadeType.PERSIST)
-	private Set<Account> accounts;
+	@OneToOne
+	private Account account;
+	
+	@OneToMany
+	private Collection<Nominee> nominees = new HashSet<Nominee>();
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
 
 	public String getPanNumber() {
 		return panNumber;
@@ -59,11 +77,19 @@ public class MemberAccount extends Member {
 		this.addressProofType = addressProofType;
 	}
 
-	public Set<Account> getAccounts() {
-		return accounts;
+	public Account getAccount() {
+		return account;
 	}
-	
-	public void setAccounts(Set<Account> accounts) {
-		this.accounts = accounts;
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+	public Collection<Nominee> getNominees() {
+		return nominees;
+	}
+
+	public void setNominees(Collection<Nominee> nominees) {
+		this.nominees = nominees;
 	}
 }

@@ -2,9 +2,8 @@ package com.bank.repository;
 
 import org.springframework.dao.DataAccessException;
 
+import com.bank.exception.UserNotRegisteredException;
 import com.bank.model.User;
-
-import exception.UserNotRegisteredException;
 
 public interface UserDao {
 	

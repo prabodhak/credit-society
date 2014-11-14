@@ -1,9 +1,8 @@
 package com.bank.service;
 
+import com.bank.exception.UserNotRegisteredException;
 import com.bank.model.Address;
 import com.bank.model.User;
-
-import exception.UserNotRegisteredException;
 
 public interface UserService {
 	

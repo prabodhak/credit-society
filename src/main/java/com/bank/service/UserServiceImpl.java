@@ -4,11 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bank.exception.UserNotRegisteredException;
 import com.bank.model.Address;
 import com.bank.model.User;
 import com.bank.repository.UserDao;
-
-import exception.UserNotRegisteredException;
 
 @Service
 public class UserServiceImpl implements UserService {

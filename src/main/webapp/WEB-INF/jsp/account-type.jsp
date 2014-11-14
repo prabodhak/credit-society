@@ -24,9 +24,9 @@
                         <h3>
                             150
                         </h3>
-                        <p>
+                        <a>
                             New Orders
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -43,9 +43,9 @@
                         <h3>
                             150
                         </h3>
-                        <p>
+                        <a>
                             New Orders
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -62,9 +62,9 @@
                         <h3>
                             150
                         </h3>
-                        <p>
+                        <a>
                             New Orders
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -81,9 +81,9 @@
                         <h3>
                             150
                         </h3>
-                        <p>
+                        <a>
                             New Orders
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
@@ -100,9 +100,9 @@
                         <h3>
                             53<sup style="font-size: 20px">%</sup>
                         </h3>
-                        <p>
+                        <a>
                             Bounce Rate
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
@@ -119,9 +119,9 @@
                         <h3>
                             44
                         </h3>
-                        <p>
+                        <a>
                             User Registrations
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
@@ -138,9 +138,9 @@
                         <h3>
                             65
                         </h3>
-                        <p>
+                        <a>
                             Unique Visitors
-                        </p>
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>

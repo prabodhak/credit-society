@@ -1,7 +1,8 @@
 package com.bank.model;
 
 import javax.persistence.Column;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -16,7 +17,8 @@ import org.springframework.format.annotation.DateTimeFormat;
  * @author Ajay
  * 
  */
-@MappedSuperclass
+@Entity
+@Table(name="member")
 public class Member extends Person {
 
 	@Column(name = "member_id")
@@ -30,14 +32,6 @@ public class Member extends Person {
 	@Column(name = "mother_name")
 	@NotEmpty
 	private String motherName;
-
-	@Column(name = "local_address")
-	@NotEmpty
-	private Address localAddress;
-
-	@Column(name = "permanent_address")
-	@NotEmpty
-	private Address permanentAddress;
 
 	@Column(name = "active")
 	@NotEmpty
@@ -72,20 +66,12 @@ public class Member extends Person {
 		return memberId;
 	}
 
-	public Address getPermanentAddress() {
-		return permanentAddress;
-	}
-
 	public DateTime getBirthDate() {
 		return birthDate;
 	}
 
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
-	}
-
-	public void setPermanentAddress(Address permanentAddress) {
-		this.permanentAddress = permanentAddress;
 	}
 
 	public void setBirthDate(DateTime birthDate) {

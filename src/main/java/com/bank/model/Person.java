@@ -2,6 +2,7 @@ package com.bank.model;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -36,9 +37,11 @@ public class Person extends BaseEntity {
 	@Digits(fraction = 0, integer = 10)
 	private String mobile;
 
-	/*@Column(name = "mailing_address")
-	@NotEmpty
-	private Address mailingAddress;*/
+	@OneToOne
+	private Address localAddress;
+	
+	@OneToOne
+	private Address permanentAddress;
 
 	public String getFirstName() {
 		return this.firstName;
@@ -88,12 +91,19 @@ public class Person extends BaseEntity {
 		this.mobile = mobile;
 	}
 
-	/*public Address getMailingAddress() {
-		return mailingAddress;
+	public Address getLocalAddress() {
+		return localAddress;
 	}
 
-	public void setMailingAddress(Address mailingAddress) {
-		this.mailingAddress = mailingAddress;
-	}*/
+	public void setLocalAddress(Address localAddress) {
+		this.localAddress = localAddress;
+	}
 
+	public Address getPermanentAddress() {
+		return permanentAddress;
+	}
+
+	public void setPermanentAddress(Address permanentAddress) {
+		this.permanentAddress = permanentAddress;
+	}
 }

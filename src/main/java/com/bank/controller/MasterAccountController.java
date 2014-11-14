@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
@@ -20,7 +21,7 @@ import com.bank.service.MasterAccountService;
  * @author Ajay
  *
  */
-
+@Controller
 public class MasterAccountController {	
 	private MasterAccountService masterAccountService;
 	
@@ -29,13 +30,44 @@ public class MasterAccountController {
 		this.masterAccountService = masterAccountService;
 	}
 
-	@RequestMapping(value = "/master/accounts/new", method = RequestMethod.GET)
-	public String initCreationForm(Map<String, Object> model) {
+	@ModelAttribute("accountMasterFormBean")
+	public AccountMaster createAccountMaster() {
+		return new AccountMaster();
+	}
+	
+	@RequestMapping(value = "account-master-type", method = RequestMethod.GET)
+	public String showAccountMasterPage() {
+		return "accountMasterType";
+	}
+	
+	@RequestMapping(value = "account-master-type-add", method = RequestMethod.GET)
+	public String initaccountMasterTypeCreationForm(Map<String, Object> model) {
 		AccountMaster masterAccount = new AccountMaster();
 		model.put("masterAccount", masterAccount);
-		return "createOrUpdateMasterAccountForm";
+		return "addAccountMasterTypeForm";
+	}
+	
+	@RequestMapping(value = "account-master-type-add", method = RequestMethod.POST)
+	public String processCreationForm(Map<String, Object> model) {
+		AccountMaster masterAccount = new AccountMaster();
+		model.put("masterAccount", masterAccount);
+		return "createOrUpdateAccountType";
 	}
 
+	@RequestMapping(value = "account-type", method = RequestMethod.GET)
+	public String showAccountPage() {
+		return "accountType";
+	}
+	
+	@RequestMapping(value = "account-type/add", method = RequestMethod.GET)
+	public String initAccountTypeCreationForm(Map<String, Object> model) {
+		AccountMaster masterAccount = new AccountMaster();
+		model.put("masterAccount", masterAccount);
+		return "createOrUpdateAccountType";
+	}
+	
+	
+	
 	@RequestMapping(value = "/master/accounts/new", method = RequestMethod.POST)
 	public String processCreationForm(@Valid AccountMaster masterAccount,
 			BindingResult result, SessionStatus status) {

@@ -24,9 +24,9 @@
                         <h3>
                             150
                         </h3>
-                        <p>
-                            New Orders
-                        </p>
+                        <a href="account-master-type-add">
+                            Add
+                        </a>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>

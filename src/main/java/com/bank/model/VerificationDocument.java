@@ -29,11 +29,12 @@ public class VerificationDocument extends BaseEntity {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public VerificationDocument(Long id, String documentType, String documentName, String description) {
+	public VerificationDocument(Long id, String documentType, String documentName, String description, boolean inactive) {
 		this.id = id;
 		this.documentType = documentType;
 		this.documentName = documentName;
 		this.documentDescription = description;
+		this.inactive = inactive;
 	}
 
 	public String getDocumentType() {

@@ -23,7 +23,12 @@
 		<put-attribute name="main-content" value="/WEB-INF/jsp/home.jsp"/>
 	</definition>
 	
-	<definition name="createOrUpdateMasterAccountType" extends="base.definition">
+	<definition name="accountMasterType" extends="base.definition">
+		<put-attribute name="title" value="Account Master Type"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/account-master-type.jsp"/>
+	</definition>
+	
+	<definition name="accountType" extends="base.definition">
 		<put-attribute name="title" value="Account Type"/>
 		<put-attribute name="main-content" value="/WEB-INF/jsp/account-type.jsp"/>
 	</definition>
@@ -37,6 +42,11 @@
 		<put-attribute name="title" value="Verification Document"/>
 		<put-attribute name="main-content" value="/WEB-INF/jsp/member-information.jsp"/>
 	</definition>
+	
+	<definition name="addAccountMasterTypeForm" extends="base.definition">
+		<put-attribute name="title" value="Account Master Type"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/account-master-type-add.jsp"/>
+	</definition>	
 		
 	
 </tiles-definitions>

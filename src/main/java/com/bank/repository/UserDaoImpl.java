@@ -7,9 +7,8 @@ import javax.persistence.Query;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
+import com.bank.exception.UserNotRegisteredException;
 import com.bank.model.User;
-
-import exception.UserNotRegisteredException;
 
 @Repository
 public class UserDaoImpl implements UserDao {

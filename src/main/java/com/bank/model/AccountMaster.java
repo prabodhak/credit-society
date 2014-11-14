@@ -1,5 +1,13 @@
 package com.bank.model;
 
+import java.math.BigDecimal;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.bank.utils.AccountType;
@@ -12,28 +20,48 @@ import com.bank.utils.InterestCalculationMode;
  * @author Ajay
  * 
  */
+
+@Entity
+@Table(name="account_master")
 public class AccountMaster extends NamedEntity {
 
+	@Column(name="account_type")
 	@NotEmpty
 	private AccountType accountType;
 	
+	@Column(name="interest_rate")
 	@NotEmpty
-	private double interestRate;
+	private BigDecimal interestRate;
 	
+	@Column(name="minimum_balance")
 	@NotEmpty
-	private double minimumBalance;
+	private BigDecimal minimumBalance;
 	
+	@Column(name="interest_calculation_mode")
 	@NotEmpty
 	private InterestCalculationMode interestCalculationMode;
 	
+	@Column(name="granter_required")
 	@NotEmpty
-	private boolean GranterRequired;
+	private boolean granterRequired;
 	
+	@Column(name="pan_number_required")
 	@NotEmpty
-	private boolean PanNumberRequired;
+	private boolean panNumberRequired;
 	
+	@Column(name="identity_proof_required")
+	@NotEmpty
+	private boolean identityProofRequired;
+	
+	@Column(name="address_proof_required")
 	@NotEmpty
 	private boolean addressProofRequired;
+	
+	@OneToMany()
+	private List<VerificationDocument> identityProofDocuments;
+	
+	@OneToMany
+	private List<VerificationDocument> addressProofDocuments;
 
 	public AccountType getAccountType() {
 		return accountType;
@@ -43,19 +71,19 @@ public class AccountMaster extends NamedEntity {
 		this.accountType = accountType;
 	}
 
-	public double getInterestRate() {
+	public BigDecimal getInterestRate() {
 		return interestRate;
 	}
 
-	public void setInterestRate(double interestRate) {
+	public void setInterestRate(BigDecimal interestRate) {
 		this.interestRate = interestRate;
 	}
 
-	public double getMinimumBalance() {
+	public BigDecimal getMinimumBalance() {
 		return minimumBalance;
 	}
 
-	public void setMinimumBalance(double minimumBalance) {
+	public void setMinimumBalance(BigDecimal minimumBalance) {
 		this.minimumBalance = minimumBalance;
 	}
 
@@ -68,19 +96,27 @@ public class AccountMaster extends NamedEntity {
 	}
 
 	public boolean isGranterRequired() {
-		return GranterRequired;
+		return granterRequired;
 	}
 
 	public void setGranterRequired(boolean granterRequired) {
-		GranterRequired = granterRequired;
+		this.granterRequired = granterRequired;
 	}
 
 	public boolean isPanNumberRequired() {
-		return PanNumberRequired;
+		return panNumberRequired;
 	}
 
 	public void setPanNumberRequired(boolean panNumberRequired) {
-		PanNumberRequired = panNumberRequired;
+		this.panNumberRequired = panNumberRequired;
+	}
+
+	public boolean isIdentityProofRequired() {
+		return identityProofRequired;
+	}
+
+	public void setIdentityProofRequired(boolean identityProofRequired) {
+		this.identityProofRequired = identityProofRequired;
 	}
 
 	public boolean isAddressProofRequired() {
@@ -91,4 +127,21 @@ public class AccountMaster extends NamedEntity {
 		this.addressProofRequired = addressProofRequired;
 	}
 
+	public List<VerificationDocument> getIdentityProofDocuments() {
+		return identityProofDocuments;
+	}
+
+	public void setIdentityProofDocuments(
+			List<VerificationDocument> identityProofDocuments) {
+		this.identityProofDocuments = identityProofDocuments;
+	}
+
+	public List<VerificationDocument> getAddressProofDocuments() {
+		return addressProofDocuments;
+	}
+
+	public void setAddressProofDocuments(
+			List<VerificationDocument> addressProofDocuments) {
+		this.addressProofDocuments = addressProofDocuments;
+	}
 }
