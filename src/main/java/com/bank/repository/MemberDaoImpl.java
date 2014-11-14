@@ -1,53 +1,58 @@
 package com.bank.repository;
 
-import java.util.List;
+import java.util.Collection;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import com.bank.model.Address;
 import com.bank.model.Member;
 
+@Repository
+public class MemberDaoImpl implements MemberDao {
 
-public class MemberDaoImpl extends HibernateDao<Member> implements MemberDao {
+	@PersistenceContext
+	EntityManager em;
 
-	public boolean updateAddress(Address newAddress) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean updateEmailId(String newEmail) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean updateMobile(String newMobile) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean markMemberInactive(String memberId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public boolean markMemberActive(String memberId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public List<String> getAccounts(String memberId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<String> getAccounts(Member member) {
-		// TODO Auto-generated method stub
-		return null;
+	@Override
+	public void findMemberById(Long MemberId) {
+		em.find(Member.class, MemberId);
 	}
 
 	@Override
-	public Class<Member> getDomainClass() {
-		return Member.class;
+	public void findMemberByName(String name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Collection<Member> findAllMember() {
+		String queryString = "from Member ";
+		Query query = em.createQuery(queryString);
+		return query.getResultList();
+	}
+
+	@Override
+	public void removeMember(Long memberId) {
+		Member member = em.find(Member.class, memberId);
+		em.remove(member);
+	}
+
+	@Override
+	public void removeMember(Member member) {
+		em.remove(member);
+	}
+
+	@Override
+	public void saveMember(Member member) {
+		if(member.isNew()) {
+			em.persist(member);
+		}
+		else {
+			em.merge(member);
+		}
 	}
 
 }

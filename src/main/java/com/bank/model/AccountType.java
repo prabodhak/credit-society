@@ -6,11 +6,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.bank.utils.AccountType;
 import com.bank.utils.InterestCalculationMode;
 
 /**
@@ -22,12 +22,11 @@ import com.bank.utils.InterestCalculationMode;
  */
 
 @Entity
-@Table(name="account_master")
-public class AccountMaster extends NamedEntity {
+@Table(name="account_type")
+public class AccountType extends NamedEntity {
 
-	@Column(name="account_type")
-	@NotEmpty
-	private AccountType accountType;
+	@OneToOne
+	private AccountTypeMaster accountTypeMaster;
 	
 	@Column(name="interest_rate")
 	@NotEmpty
@@ -63,12 +62,13 @@ public class AccountMaster extends NamedEntity {
 	@OneToMany
 	private List<VerificationDocument> addressProofDocuments;
 
-	public AccountType getAccountType() {
-		return accountType;
+
+	public AccountTypeMaster getAccountTypeMaster() {
+		return accountTypeMaster;
 	}
 
-	public void setAccountType(AccountType accountType) {
-		this.accountType = accountType;
+	public void setAccountTypeMaster(AccountTypeMaster accountTypeMaster) {
+		this.accountTypeMaster = accountTypeMaster;
 	}
 
 	public BigDecimal getInterestRate() {

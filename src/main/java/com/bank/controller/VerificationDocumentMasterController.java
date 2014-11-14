@@ -27,23 +27,15 @@ public class VerificationDocumentMasterController {
 		this.verificationDocumentMasterService = verificationDocumentMasterService;
 	}
 
-	@RequestMapping(value="verification-document")
+	@RequestMapping(value="verification-document", method=RequestMethod.GET)
 	public String showAllVerificationDocuments(Model model) {
 		Collection<VerificationDocument> results = verificationDocumentMasterService.findAllDocumentTypes();
 		VerificationDocument document = new VerificationDocument();
 		model.addAttribute("document", document);
 		model.addAttribute("documents", results);
 		List<String> types = new ArrayList<String>(10);
-		types.add("ABC");
-		types.add("LMN");
-		types.add("PQR");
-		types.add("KJT");
-		types.add("SJDS");
-		types.add("ABC");
-		types.add("LMN");
-		types.add("PQR");
-		types.add("KJT");
-		types.add("SJDS");
+		types.add("Address Proof");
+		types.add("Identity Proof");
 		model.addAttribute("types", types);
 		return "verificationDocument";
 	}
@@ -51,7 +43,7 @@ public class VerificationDocumentMasterController {
 	@RequestMapping(value="verification-document/add", method=RequestMethod.POST)
 	public String addIdentityMaster(@Valid VerificationDocument verificationDocument) {
 		verificationDocumentMasterService.addDocumentType(verificationDocument);
-		return "redirect:/verificationDocument";
+		return "redirect:verification-document";
 	}
 
 	@RequestMapping(value="/master/identityDocument/remove")

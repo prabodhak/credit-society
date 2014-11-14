@@ -1,6 +1,5 @@
 package com.bank.controller;
 
-import java.util.Collection;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -13,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.bank.model.AccountMaster;
-import com.bank.service.MasterAccountService;
+import com.bank.model.AccountType;
+import com.bank.model.AccountTypeMaster;
+import com.bank.service.AccountTypeMasterService;
 
 /**
  * 
@@ -22,17 +22,17 @@ import com.bank.service.MasterAccountService;
  *
  */
 @Controller
-public class MasterAccountController {	
-	private MasterAccountService masterAccountService;
+public class AccountTypeMasterController {	
+	private AccountTypeMasterService accountTypeMasterService;
 	
 	@Autowired
-	public MasterAccountController(MasterAccountService masterAccountService) {
-		this.masterAccountService = masterAccountService;
+	public AccountTypeMasterController(AccountTypeMasterService accountTypeMasterService) {
+		this.accountTypeMasterService = accountTypeMasterService;
 	}
 
 	@ModelAttribute("accountMasterFormBean")
-	public AccountMaster createAccountMaster() {
-		return new AccountMaster();
+	public AccountTypeMaster createAccountMaster() {
+		return new AccountTypeMaster();
 	}
 	
 	@RequestMapping(value = "account-master-type", method = RequestMethod.GET)
@@ -42,51 +42,37 @@ public class MasterAccountController {
 	
 	@RequestMapping(value = "account-master-type-add", method = RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Map<String, Object> model) {
-		AccountMaster masterAccount = new AccountMaster();
+		AccountType masterAccount = new AccountType();
 		model.put("masterAccount", masterAccount);
 		return "addAccountMasterTypeForm";
 	}
 	
 	@RequestMapping(value = "account-master-type-add", method = RequestMethod.POST)
 	public String processCreationForm(Map<String, Object> model) {
-		AccountMaster masterAccount = new AccountMaster();
+		AccountType masterAccount = new AccountType();
 		model.put("masterAccount", masterAccount);
 		return "createOrUpdateAccountType";
 	}
 
-	@RequestMapping(value = "account-type", method = RequestMethod.GET)
-	public String showAccountPage() {
-		return "accountType";
-	}
-	
-	@RequestMapping(value = "account-type/add", method = RequestMethod.GET)
-	public String initAccountTypeCreationForm(Map<String, Object> model) {
-		AccountMaster masterAccount = new AccountMaster();
-		model.put("masterAccount", masterAccount);
-		return "createOrUpdateAccountType";
-	}
-	
-	
-	
 	@RequestMapping(value = "/master/accounts/new", method = RequestMethod.POST)
-	public String processCreationForm(@Valid AccountMaster masterAccount,
+	public String processCreationForm(@Valid AccountTypeMaster accountTypeMaster,
 			BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
 			return "reateOrUpdateMasterAccountForm";
 		} else {
-			this.masterAccountService.saveAccount(masterAccount);
+			this.accountTypeMasterService.saveAccountTypeMaster(accountTypeMaster);
 			status.setComplete();
-			return "redirect:/master/accounts/" + masterAccount.getId();
+			return "redirect:/master/accounts/" + accountTypeMaster.getId();
 		}
 	}
 	
-	@RequestMapping(value = "/master/accounts/{memberId}/edit", method = RequestMethod.PUT)
-	public String processUpdateAccountMasterForm(@Valid AccountMaster masterAccount,
+	/*@RequestMapping(value = "/master/accounts/{memberId}/edit", method = RequestMethod.PUT)
+	public String processUpdateAccountMasterForm(@Valid AccountType masterAccount,
 			BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
 			return "createOrUpdateMasterAccountForm";
 		} else {
-			this.masterAccountService.saveAccount(masterAccount);
+			this.accountTypeMasterService.saveAccount(masterAccount);
 			status.setComplete();
 			return "redirect:/master/accounts/{memberId}";
 		}
@@ -94,13 +80,13 @@ public class MasterAccountController {
 	
 	@RequestMapping(value = "/master/accounts/{memberId}/delete", method = RequestMethod.DELETE)
 	public String processDeleteAccountMaster(String masterAccountId) {
-		this.masterAccountService.deleteAccount(masterAccountId);
+		this.accountTypeMasterService.deleteAccount(masterAccountId);
 		return "redirect:/master/accounts";
 	}
 	
 	@RequestMapping("/master/accounts")
     public String showMasterAccountsList(Map<String, Collection<Object>> model) {
-        model.put("accounts", this.masterAccountService.findAll());
+        model.put("accounts", this.accountTypeMasterService.findAll());
         return "masterAccountList";
-    }
+    }*/
 }

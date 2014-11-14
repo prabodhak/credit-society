@@ -33,9 +33,11 @@ public class VerificationDocumentServiceImpl implements
 	}
 
 	@Override
+	@Transactional
 	public Collection<VerificationDocument> findAllDocumentTypes() {
 		
-		Collection<VerificationDocument> documents = new ArrayList<VerificationDocument>();
+		return verificationDocumentDao.findAll();
+		/*Collection<VerificationDocument> documents = new ArrayList<VerificationDocument>();
 		documents.add(new VerificationDocument(1L, "Address", "Driving License", "description for DL", false));
 		documents.add(new VerificationDocument(2L, "Address", "Aadhar Card", "description for Aadhar", true));
 		documents.add(new VerificationDocument(3L, "Identity", "Pan Card", "description for Pan Card", false));
@@ -48,7 +50,7 @@ public class VerificationDocumentServiceImpl implements
 		documents.add(new VerificationDocument(10L, "Address", "Passport", "description for DL", false));
 		documents.add(new VerificationDocument(11L, "Address", "Aadhar Card", "description for Aadhar", true));
 		documents.add(new VerificationDocument(12L, "Identity", "Pan Card", "description for Pan Card", false));
-		return documents;
+		return documents;*/
 	}
 
 	

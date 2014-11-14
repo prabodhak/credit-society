@@ -33,7 +33,7 @@ public class VerificationDocumentDaoImpl implements VerificationDocumentDao {
 	public void save(
 			VerificationDocument verificationDocument)
 			throws DataAccessException {
-		if (verificationDocument.getId() == null) {
+		if (verificationDocument.isNew()) {
     		this.em.persist(verificationDocument);     		
     	}
     	else {

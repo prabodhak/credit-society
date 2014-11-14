@@ -8,12 +8,14 @@ import com.bank.model.AccountTypeMaster;
 
 public interface AccountTypeMasterDao {
 
-	AccountTypeMaster findById(Long id);
+	AccountTypeMaster findById(Long accountId);
 	
 	Collection<AccountTypeMaster> findAll();
 
 	void save(AccountTypeMaster accountTypeMaster)
 			throws DataAccessException;
+	
+	void remove(Long accountId);
 	
 	void remove(AccountTypeMaster accountTypeMaster);
 }

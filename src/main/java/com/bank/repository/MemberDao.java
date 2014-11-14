@@ -1,8 +1,7 @@
 package com.bank.repository;
 
-import java.util.List;
+import java.util.Collection;
 
-import com.bank.model.Address;
 import com.bank.model.Member;
 
 /**
@@ -10,12 +9,11 @@ import com.bank.model.Member;
  * @author Ajay
  *
  */
-public interface MemberDao extends Dao<Member>{
-	boolean updateAddress(Address newAddress);
-	boolean updateEmailId(String newEmail);
-	boolean updateMobile(String newMobile);
-	boolean markMemberInactive(String memberId);
-	boolean markMemberActive(String memberId);
-	List<String> getAccounts(String memberId);
-	List<String> getAccounts(Member member);
+public interface MemberDao {	
+	void findMemberById(Long MemberId);
+	void findMemberByName(String name);
+	Collection<Member> findAllMember();
+	void removeMember(Long memberId);
+	void removeMember(Member member);
+	void saveMember(Member member);
 }
