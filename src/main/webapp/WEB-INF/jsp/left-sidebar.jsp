@@ -32,6 +32,8 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
+                    <li><a href="account-master-type"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
+                    <li><a href="account-type"><i class="fa fa-angle-double-right"></i>Account Type</a></li>
                     <li><a href="verification-document"><i class="fa fa-angle-double-right"></i> Verification Document</a></li>
                     <li><a href="pages/master/account.html"><i class="fa fa-angle-double-right"></i> Account</a></li>
                     <li><a href="pages/master/share.html"><i class="fa fa-angle-double-right"></i> Share</a></li>
