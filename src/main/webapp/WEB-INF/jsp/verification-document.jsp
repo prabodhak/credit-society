@@ -7,6 +7,24 @@
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
+	<section class="content" style="padding-bottom:0px;">
+		<div class="row">
+			<!-- left column -->
+			<div class="col-md-12">
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header" style="padding:2px;">
+						<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Add
+						</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Edit
+						</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> View
+						</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
+							Delete
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- Main content -->
 	<section class="content">
 		<div class="row">
@@ -105,6 +123,8 @@
 	type="text/javascript"></script>
 <script src="resources/js/plugins/datatables/dataTables.bootstrap.js"
 	type="text/javascript"></script>
+<!-- Bootstrap -->
+<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>		
 <script type="text/javascript">
     $(function() {
         $("#example1").dataTable();

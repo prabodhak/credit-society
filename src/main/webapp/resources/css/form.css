@@ -30,9 +30,9 @@
 	float:left;
 	margin:0px;
 }
-.add-verification-docs{
+.add-verification-docs, .add-master-account-type-docs{
 	margin-top:20px;
 }
-.add-verification-docs-but{
+.add-verification-docs-but, .add-master-account-type-docs-but{
 	width:100px;
 }
