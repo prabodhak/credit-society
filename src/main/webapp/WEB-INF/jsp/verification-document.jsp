@@ -67,7 +67,6 @@
 						</div>
 					</form:form>
 				</div>
-				
 				<!-- /.box -->
 				<div class="box">
 					<div class="box-header">
