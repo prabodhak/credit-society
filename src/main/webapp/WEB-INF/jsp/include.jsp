@@ -22,7 +22,7 @@
 
 <!-- JS -->
 <!-- jQuery 2.0.2 -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script	src="resources/js/jquery-2.1.1.min.js" type="text/javascript"></script>
 <!-- jQuery UI 1.10.3 -->
 <script src="resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->

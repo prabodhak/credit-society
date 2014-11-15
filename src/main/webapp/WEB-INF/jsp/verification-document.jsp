@@ -115,8 +115,7 @@
 </aside>
 <!-- /.right-side -->
 <!-- jQuery 2.0.2 -->
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script	src="resources/js/jquery-2.1.1.min.js" type="text/javascript"></script>
 <!-- DATA TABES SCRIPT -->
 <script src="resources/js/plugins/datatables/jquery.dataTables.js"
 	type="text/javascript"></script>
