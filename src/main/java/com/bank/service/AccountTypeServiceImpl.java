@@ -1,6 +1,6 @@
 package com.bank.service;
 
-import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +31,7 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 	}
 
 	@Override
-	public Collection<AccountType> findAllAccountType() {
+	public List<AccountType> findAllAccountType() {
 		return accountTypeDao.findAllAccountType();
 	}
 
@@ -41,12 +41,12 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 	}
 
 	@Override
-	public void removeAccountType(Long accountId) {
+	public void deleteAccountType(Long accountId) {
 		accountTypeDao.removeAccountType(accountId);
 	}
 
 	@Override
-	public void removeAccountType(AccountType accountType) {
+	public void deleteAccountType(AccountType accountType) {
 		accountTypeDao.removeAccountType(accountType);
 	}
 }

@@ -1,5 +1,6 @@
 package com.bank.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import com.bank.model.AccountType;
 import com.bank.service.AccountTypeService;
 
 @Controller
+@RequestMapping("/master/account-type")
 public class AccountTypeController {
 
 	private AccountTypeService accountTypeService;
@@ -20,25 +22,34 @@ public class AccountTypeController {
 		return new AccountType();
 	}
 	
-	@RequestMapping(value = "account-type", method = RequestMethod.GET)
+	@RequestMapping(method=RequestMethod.GET)
 	public String showAccountPage() {
 		return "accountType";
 	}
 	
-	@RequestMapping(value = "account-type/add", method = RequestMethod.GET)
+	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initAccountTypeCreationForm(Map<String, Object> model) {
 		AccountType masterAccount = new AccountType();
 		model.put("masterAccount", masterAccount);
 		return "createOrUpdateAccountType";
 	}
 	
-	@RequestMapping(value = "account-type-add", method = RequestMethod.POST)
+	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String processCreationForm() {
 		AccountType masterAccount = new AccountType();
 		//model.put("masterAccount", masterAccount);
 		return "createOrUpdateAccountType";
 	}
 	
+	@RequestMapping(value="/view", method=RequestMethod.GET)
+	public String showAccountMasterList() {
+		List<AccountType> result = accountTypeService.findAllAccountType();
+		return "accountMasterType";
+	}
 	
-	
+	@RequestMapping(value="/delete", method=RequestMethod.GET)
+	public String deleteAccountMaster(Long accountId) {
+		accountTypeService.deleteAccountType(accountId);
+		return "redirect:/";
+	}
 }

@@ -42,7 +42,7 @@
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
-					<form:form role="form" modelAttribute="document" action="verification-document/add" method="post">
+					<form:form role="form" modelAttribute="document" action="master/verification-document/add" method="post">
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-3">

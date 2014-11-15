@@ -25,6 +25,7 @@ import com.bank.service.MemberService;
  * @author Ajay
  *
  */
+@Controller
 public class MemberController {
 	private final MemberService memberService;
 
@@ -38,20 +39,20 @@ public class MemberController {
 		dataBinder.setDisallowedFields("id");
 	}
 
-	@RequestMapping(value = "/members/new", method = RequestMethod.GET)
+	@RequestMapping(value="/members/new", method=RequestMethod.GET)
 	public String initCreationForm(Map<String, Object> model) {
 		Member member = new Member();
 		model.put("member", member);
 		return "members/createOrUpdateMemberForm";
 	}
 
-	@RequestMapping(value = "/members/new", method = RequestMethod.POST)
+	@RequestMapping(value="/members/new", method=RequestMethod.POST)
 	public String processCreationForm(@Valid Member member,
 			BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
 			return "members/createOrUpdateMemberForm";
 		} else {
-			this.memberService.saveMember(member);
+			this.memberService.save(member);
 			status.setComplete();
 			return "redirect:/members/" + member.getId();
 		}
@@ -93,9 +94,9 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/members/{memberId}/edit", method = RequestMethod.GET)
-	public String initUpdateMemberForm(@PathVariable("memberId") int memberId,
+	public String initUpdateMemberForm(@PathVariable("memberId") Long memberId,
 			Model model) {
-		Member member = this.memberService.findMemberById(memberId);
+		Member member = this.memberService.findById(memberId);
 		model.addAttribute(member);
 		return "members/createOrUpdateMemberForm";
 	}
@@ -106,7 +107,7 @@ public class MemberController {
 		if (result.hasErrors()) {
 			return "members/createOrUpdateMemberForm";
 		} else {
-			this.memberService.saveMember(member);
+			this.memberService.save(member);
 			status.setComplete();
 			return "redirect:/members/{memberId}";
 		}
@@ -120,9 +121,9 @@ public class MemberController {
 	 * @return a ModelMap with the model attributes for the view
 	 */
 	@RequestMapping("/members/{memberId}")
-	public ModelAndView showMember(@PathVariable("memberId") int memberId) {
+	public ModelAndView showMember(@PathVariable("memberId") Long memberId) {
 		ModelAndView mav = new ModelAndView("members/memberDetails");
-		mav.addObject(this.memberService.findMemberById(memberId));
+		mav.addObject(this.memberService.findById(memberId));
 		return mav;
 	}
 }

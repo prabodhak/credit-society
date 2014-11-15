@@ -1,6 +1,7 @@
 package com.bank.repository;
 
 import java.util.Collection;
+import java.util.List;
 
 import com.bank.model.AccountType;
 
@@ -22,7 +23,7 @@ public interface AccountTypeDao {
      */
 	void findAccountTypeById(Long accountTypeId);
 	void findAccountTypeByName(String name);
-	Collection<AccountType> findAllAccountType();
+	List<AccountType> findAllAccountType();
 	void removeAccountType(Long accountId);
 	void removeAccountType(AccountType accountType);
 	void saveAccountType(AccountType accountType);
