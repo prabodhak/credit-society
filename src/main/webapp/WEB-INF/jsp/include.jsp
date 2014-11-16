@@ -21,10 +21,12 @@
 <link href="resources/css/form.css" rel="stylesheet" type="text/css" />
 
 <!-- JS -->
-<!-- jQuery 2.0.2 -->
-<script	src="resources/js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<!-- jQuery 2.1.1 -->
+<script	src="resources/js/plugins/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <!-- jQuery UI 1.10.3 -->
-<script src="resources/js/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<script src="resources/js/plugins/jquery/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
+<!-- jQuery form validation v1.13.1-->
+<script src="resources/js/plugins/jquery/jquery.validate.min.js" type="text/javascript"></script>
 <!-- Bootstrap -->
 <script src="resources/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- fullCalendar -->
