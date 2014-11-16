@@ -39,10 +39,8 @@ public class MemberController {
 		dataBinder.setDisallowedFields("id");
 	}
 
-	@RequestMapping(value="/members/add", method=RequestMethod.GET)
-	public String initCreationForm(Map<String, Object> model) {
-		Member member = new Member();
-		model.put("member", member);
+	@RequestMapping(value={"/member"}, method=RequestMethod.GET)
+	public String initCreationForm() {
 		return "createOrUpdateMemberForm";
 	}
 
