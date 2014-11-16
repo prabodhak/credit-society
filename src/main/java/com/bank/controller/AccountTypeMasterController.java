@@ -1,15 +1,14 @@
 package com.bank.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bank.model.AccountType;
 import com.bank.model.AccountTypeMaster;
 import com.bank.service.AccountTypeMasterService;
 
@@ -35,22 +34,21 @@ public class AccountTypeMasterController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String showAccountMasterPage() {
+	public String showAccountMasterPage(Model model) {
+		List<AccountTypeMaster> accountList = accountTypeMasterService.findAllAccountTypeMaster();
+		model.addAttribute("accountList", accountList);
 		return "accountMasterType";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public String initaccountMasterTypeCreationForm(Map<String, Object> model) {
-		AccountType masterAccount = new AccountType();
-		model.put("masterAccount", masterAccount);
+	public String initaccountMasterTypeCreationForm() {
 		return "addAccountMasterTypeForm";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String processCreationForm(Map<String, Object> model) {
-		AccountType masterAccount = new AccountType();
-		model.put("masterAccount", masterAccount);
-		return "createOrUpdateAccountType";
+	public String processCreationForm(@ModelAttribute("accountMasterFormBean") AccountTypeMaster accountTypeMaster) {
+		accountTypeMasterService.saveAccountTypeMaster(accountTypeMaster);
+		return "redirect:/master/account-master-type";
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)

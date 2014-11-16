@@ -30,7 +30,7 @@ public class AccountTypeDaoImpl implements AccountTypeDao {
 	public List<AccountType> findAllAccountType() {
 		String queryString = "from AccountType ";
 		Query query = em.createQuery(queryString);
-		return query.getResultList();
+		return (List<AccountType>)query.getResultList();
 	}
 
 	@Override

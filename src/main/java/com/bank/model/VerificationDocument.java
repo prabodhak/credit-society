@@ -9,32 +9,27 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="verification_document")
-public class VerificationDocument extends BaseEntity {
+public class VerificationDocument extends NamedEntity {
 	
 	@Column(name="document_type")
 	@NotEmpty
 	private String documentType;
 	
-	@Column(name = "document_name")
-	@NotEmpty
-	private String documentName;
-
 	@Column(name = "document_description")
 	private String documentDescription;
 
-	@Column(name = "inactive", nullable = false)
-	private boolean inactive;
+	@Column(name = "active", nullable = false)
+	private boolean active;
 	
 	public VerificationDocument() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public VerificationDocument(Long id, String documentType, String documentName, String description, boolean inactive) {
-		this.id = id;
+	public VerificationDocument(String documentType, String documentName, String description, boolean active) {
+		super(documentName);
 		this.documentType = documentType;
-		this.documentName = documentName;
 		this.documentDescription = description;
-		this.inactive = inactive;
+		this.active = active;
 	}
 
 	public String getDocumentType() {
@@ -45,14 +40,6 @@ public class VerificationDocument extends BaseEntity {
 		this.documentType = documentType;
 	}
 
-	public String getDocumentName() {
-		return documentName;
-	}
-
-	public void setDocumentName(String documentName) {
-		this.documentName = documentName;
-	}
-
 	public String getDocumentDescription() {
 		return documentDescription;
 	}
@@ -61,17 +48,17 @@ public class VerificationDocument extends BaseEntity {
 		this.documentDescription = documentDescription;
 	}
 
-	public boolean isInactive() {
-		return inactive;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setInactive(boolean inactive) {
-		this.inactive = inactive;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	@PrePersist
 	public void prePersist() {
-		setInactive(false);
+		setActive(true);
 	}
 
 }

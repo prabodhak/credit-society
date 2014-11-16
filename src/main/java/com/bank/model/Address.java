@@ -17,16 +17,16 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name="address")
 public class Address extends BaseEntity {
 
-	@Column(name="house_number")
+	@Column(name="address_line1")
 	@NotEmpty
-	private String houseNumber;
+	private String addressLine1;
+	
+	@Column(name="address_line2")
+	@NotEmpty
+	private String addressLine2;
 	
 	@Column(name="landmark")
 	private String landmark;
-	
-	@Column(name="street")
-	@NotEmpty
-	private String street;
 	
 	@Column(name="city")
 	@NotEmpty
@@ -51,68 +51,67 @@ public class Address extends BaseEntity {
 		
 	}
 
-	public String getHouseNumber() {
-		return houseNumber;
+	public String getAddressLine1() {
+		return addressLine1;
+	}
+
+	public void setAddressLine1(String addressLine1) {
+		this.addressLine1 = addressLine1;
+	}
+
+	public String getAddressLine2() {
+		return addressLine2;
+	}
+
+	public void setAddressLine2(String addressLine2) {
+		this.addressLine2 = addressLine2;
 	}
 
 	public String getLandmark() {
 		return landmark;
 	}
 
-	public String getStreet() {
-		return street;
+	public void setLandmark(String landmark) {
+		this.landmark = landmark;
 	}
 
 	public String getCity() {
 		return city;
 	}
 
-	public String getDistrict() {
-		return district;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public String getCountry() {
-		return country;
-	}
-
-	public String getPincode() {
-		return pincode;
-	}
-
-	public void setHouseNumber(String houseNumber) {
-		this.houseNumber = houseNumber;
-	}
-
-	public void setLandmark(String landmark) {
-		this.landmark = landmark;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public String getDistrict() {
+		return district;
 	}
 
 	public void setDistrict(String district) {
 		this.district = district;
 	}
 
+	public String getState() {
+		return state;
+	}
+
 	public void setState(String state) {
 		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
 	}
 
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
+	public String getPincode() {
+		return pincode;
+	}
+
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
-
 }

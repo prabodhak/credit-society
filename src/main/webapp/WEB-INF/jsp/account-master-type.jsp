@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
 
@@ -51,26 +55,26 @@
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
-					<form role="form">
+					<form:form role="form" action="master/account-master-type/add" method="post" modelAttribute="accountMasterFormBean">
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="masterAccountName">Master
-									Account Name</label> <input type="text" class="form-control width-3"
-									id="masterAccountName" placeholder="Master Accoount Name">
+									Account Name</label> <form:input type="text" class="form-control width-3"
+									id="masterAccountName" placeholder="Master Accoount Name" path="name"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="masterAccountDescription">Master
-									Account Description</label> <input type="text"
+									Account Description</label> <form:input type="text"
 									class="form-control width-3" id="masterAccountDescription"
-									placeholder="Master Accoount Description">
+									placeholder="Master Accoount Description" path="accountDescription"/>
 							</div>
 							<div class="form-group col-md-4 add-master-account-type-docs">
 								<button class="btn btn-success add-master-account-type-docs-but">Add</button>
 							</div>
 							<div class="clearfix"></div>
 						</div>
-					</form>
+					</form:form>
 				</div>
 				<!-- /.box -->
 
@@ -89,31 +93,20 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>Trident</td>
-									<td>Internet Explorer 4.0</td>
-									<td>Win 95+</td>
-								</tr>
-								<tr>
-									<td>Trident</td>
-									<td>Internet Explorer 5.0</td>
-									<td>Win 95+</td>
-								</tr>
-								<tr>
-									<td>Trident</td>
-									<td>Internet Explorer 5.5</td>
-									<td>Win 95+</td>
-								</tr>
-								<tr>
-									<td>Trident</td>
-									<td>Internet Explorer 6</td>
-									<td>Win 98+</td>
-								</tr>
-								<tr>
-									<td>Trident</td>
-									<td>Internet Explorer 7</td>
-									<td>Win XP SP2+</td>
-								</tr>
+								<c:forEach var="account" items="${accountList}">
+                                            <tr>
+                                                <td>${account.name}</td>
+                                                <td>${account.accountDescription}</td>
+                                                <c:choose>
+										                <c:when test="${account.active == true}">
+										                    <td>Active</td>
+										                </c:when>
+										                <c:otherwise>
+										                    <td>Inactive</td>
+										                </c:otherwise>
+										            </c:choose>
+                                            </tr>
+                                            </c:forEach>
 							</tbody>
 						</table>
 					</div>

@@ -39,14 +39,14 @@ public class MemberController {
 		dataBinder.setDisallowedFields("id");
 	}
 
-	@RequestMapping(value="/members/new", method=RequestMethod.GET)
+	@RequestMapping(value="/members/add", method=RequestMethod.GET)
 	public String initCreationForm(Map<String, Object> model) {
 		Member member = new Member();
 		model.put("member", member);
-		return "members/createOrUpdateMemberForm";
+		return "createOrUpdateMemberForm";
 	}
 
-	@RequestMapping(value="/members/new", method=RequestMethod.POST)
+	@RequestMapping(value="/members/add", method=RequestMethod.POST)
 	public String processCreationForm(@Valid Member member,
 			BindingResult result, SessionStatus status) {
 		if (result.hasErrors()) {
@@ -56,6 +56,13 @@ public class MemberController {
 			status.setComplete();
 			return "redirect:/members/" + member.getId();
 		}
+	}
+	
+	@RequestMapping(value="/members/view", method=RequestMethod.GET)
+	public String showMember(Map<String, Object> model) {
+		Member member = new Member();
+		model.put("member", member);
+		return "members/createOrUpdateMemberForm";
 	}
 
 	@RequestMapping(value = "/members/find", method = RequestMethod.GET)

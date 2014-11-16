@@ -3,8 +3,10 @@ package com.bank.model;
 import java.util.Collection;
 import java.util.HashSet;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -17,6 +19,7 @@ import com.bank.utils.IdentityProofDocumentType;
 public class MemberAccount extends BaseEntity {
 
 	@OneToOne
+	@JoinColumn(name="member")
 	private Member member;
 	
 	@Column(name="pan_number")
@@ -32,9 +35,10 @@ public class MemberAccount extends BaseEntity {
 	private AddressProofDocumentType addressProofType;
 	
 	@OneToOne
+	@JoinColumn(name="account")
 	private Account account;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	private Collection<Nominee> nominees = new HashSet<Nominee>();
 
 	public Member getMember() {

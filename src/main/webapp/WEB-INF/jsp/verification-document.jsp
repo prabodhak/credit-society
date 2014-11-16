@@ -47,8 +47,8 @@
 							<div class="clearfix"></div>
 							<div class="form-group col-md-3">
 								<label class="form-label" for="documentName">Document Name</label> <form:input
-									type="text" class="form-control" id="documentName"
-									placeholder="Document Name" path="documentName"/>
+									type="text" class="form-control" id="name"
+									placeholder="Document Name" path="name"/>
 							</div>
 							<div class="form-group col-md-3">
 								<label class="form-label" for="documentDescription">Document Description</label>
@@ -86,15 +86,15 @@
 							<tbody>
 								<c:forEach var="document" items="${documents}">
                                             <tr>
-                                                <td>${document.documentName}</td>
+                                                <td>${document.name}</td>
                                                 <td>${document.documentDescription}</td>
                                                 <td>${document.documentType}</td>
                                                 	<c:choose>
-										                <c:when test="${document.inactive == true}">
-										                    <td>Inactive</td>
+										                <c:when test="${document.active == true}">
+										                    <td>Active</td>
 										                </c:when>
 										                <c:otherwise>
-										                    <td>Active</td>
+										                    <td>Inactive</td>
 										                </c:otherwise>
 										            </c:choose>
                                             </tr>

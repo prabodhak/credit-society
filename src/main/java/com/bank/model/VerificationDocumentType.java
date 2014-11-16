@@ -21,5 +21,4 @@ public class VerificationDocumentType extends BaseEntity {
 	public void setDocumentType(String documentType) {
 		this.documentType = documentType;
 	}
-
 }

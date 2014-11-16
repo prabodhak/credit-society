@@ -1,6 +1,5 @@
 package com.bank.service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -19,11 +18,13 @@ public interface MemberService {
 	
 	Member findById(Long memberId);
 	
-	Collection<Member>finadAll();
+	List<Member>finadAll();
 	
 	void save(Member member) throws DataAccessException;
 	
-	void remove(Member member) throws DataAccessException;
+	void delete(Long memberId) throws DataAccessException;
+	
+	void delete(Member member) throws DataAccessException;
 	
 	Set<Member> findMemberByLastName(String lastName) throws DataAccessException;
 	

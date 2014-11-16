@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -26,6 +27,7 @@ import com.bank.utils.InterestCalculationMode;
 public class AccountType extends NamedEntity {
 
 	@OneToOne
+	@JoinColumn(name="account_type_master")
 	private AccountTypeMaster accountTypeMaster;
 	
 	@Column(name="interest_rate")

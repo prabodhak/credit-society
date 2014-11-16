@@ -1,12 +1,16 @@
 package com.bank.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Simple JavaBean domain object representing an person.
@@ -28,6 +32,9 @@ public class Person extends BaseEntity {
 
 	@Column(name = "nick_name")
 	protected String nickName;
+	
+	@Column(name="gender")
+	private String gender;
 
 	@Column(name = "email_id")
 	private String emailId;
@@ -37,11 +44,16 @@ public class Person extends BaseEntity {
 	@Digits(fraction = 0, integer = 10)
 	private String mobile;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Address localAddress;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Address permanentAddress;
+
+	@Column(name="birth_date")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	private DateTime birthDate;
 
 	public String getFirstName() {
 		return this.firstName;
@@ -75,6 +87,14 @@ public class Person extends BaseEntity {
 		this.nickName = nickName;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public String getEmailId() {
 		return emailId;
 	}
@@ -105,5 +125,13 @@ public class Person extends BaseEntity {
 
 	public void setPermanentAddress(Address permanentAddress) {
 		this.permanentAddress = permanentAddress;
+	}
+
+	public DateTime getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(DateTime birthDate) {
+		this.birthDate = birthDate;
 	}
 }

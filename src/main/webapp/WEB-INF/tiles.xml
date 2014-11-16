@@ -46,7 +46,11 @@
 	<definition name="addAccountMasterTypeForm" extends="base.definition">
 		<put-attribute name="title" value="Account Master Type"/>
 		<put-attribute name="main-content" value="/WEB-INF/jsp/account-master-type-add.jsp"/>
-	</definition>	
-		
+	</definition>
+	
+	<definition name="createOrUpdateMemberForm" extends="base.definition">
+		<put-attribute name="title" value="Add New Member Information"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/account-master-type-add.jsp"/>
+	</definition>
 	
 </tiles-definitions>

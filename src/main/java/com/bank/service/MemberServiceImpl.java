@@ -1,66 +1,71 @@
 package com.bank.service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.bank.model.Account;
 import com.bank.model.Member;
+import com.bank.repository.MemberDao;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-
-	@Override
-	public Member findById(Long memberId) {
-		// TODO Auto-generated method stub
-		return null;
+	
+	private MemberDao memberDao;
+	
+	@Autowired
+	public MemberServiceImpl(MemberDao memberDao) {
+		this.memberDao = memberDao;
 	}
 
 	@Override
-	public Collection<Member> finadAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public Member findById(Long memberId) {
+		return memberDao.findMemberById(memberId);
+	}
+
+	@Override
+	public List<Member> finadAll() {
+		return memberDao.findAllMember();
 	}
 
 	@Override
 	public void save(Member member) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
+		memberDao.saveMember(member);
+	}
+	
+	@Override
+	public void delete(Long memberId) throws DataAccessException {
+		memberDao.deleteMember(memberId);
 	}
 
 	@Override
-	public void remove(Member member) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
+	public void delete(Member member) throws DataAccessException {
+		memberDao.deleteMember(member);
 	}
 
 	@Override
 	public Set<Member> findMemberByLastName(String lastName)
 			throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDao.findMemberByLastName(lastName);
 	}
 
 	@Override
 	public Set<Member> findMemberByMiddleName(String middleName)
 			throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDao.findMemberByMiddleName(middleName);
 	}
 
 	@Override
 	public Set<Member> findMemberByFirstName(String firsttName)
 			throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDao.findMemberByFirstName(firsttName);
 	}
 
 	@Override
 	public boolean markMemberInactive(String memberId) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

@@ -1,11 +1,13 @@
 package com.bank.repository;
 
-import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.bank.model.Member;
@@ -17,8 +19,8 @@ public class MemberDaoImpl implements MemberDao {
 	EntityManager em;
 
 	@Override
-	public void findMemberById(Long MemberId) {
-		em.find(Member.class, MemberId);
+	public Member findMemberById(Long MemberId) {
+		return em.find(Member.class, MemberId);
 	}
 
 	@Override
@@ -28,20 +30,20 @@ public class MemberDaoImpl implements MemberDao {
 	}
 
 	@Override
-	public Collection<Member> findAllMember() {
+	public List<Member> findAllMember() {
 		String queryString = "from Member ";
 		Query query = em.createQuery(queryString);
 		return query.getResultList();
 	}
 
 	@Override
-	public void removeMember(Long memberId) {
+	public void deleteMember(Long memberId) {
 		Member member = em.find(Member.class, memberId);
 		em.remove(member);
 	}
 
 	@Override
-	public void removeMember(Member member) {
+	public void deleteMember(Member member) {
 		em.remove(member);
 	}
 
@@ -53,6 +55,27 @@ public class MemberDaoImpl implements MemberDao {
 		else {
 			em.merge(member);
 		}
+	}
+
+	@Override
+	public Set<Member> findMemberByLastName(String lastName)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Member> findMemberByMiddleName(String middleName)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Member> findMemberByFirstName(String firsttName) {
+		String queryString = "Select from Member m where m.firstNumber";
+		
+		return null;
 	}
 
 }
