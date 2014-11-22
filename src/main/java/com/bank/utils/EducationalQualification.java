@@ -2,7 +2,7 @@ package com.bank.utils;
 
 public enum EducationalQualification {
 
-	LITERATE,
+	NON_MATRIC,
 	MATRICULATION,
 	INTERMEDIATE,
 	GRADUATION,

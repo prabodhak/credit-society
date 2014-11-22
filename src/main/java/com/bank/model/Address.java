@@ -18,33 +18,27 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Address extends BaseEntity {
 
 	@Column(name="address_line1")
-	@NotEmpty
 	private String addressLine1;
 	
 	@Column(name="address_line2")
-	@NotEmpty
 	private String addressLine2;
 	
 	@Column(name="landmark")
 	private String landmark;
 	
 	@Column(name="city")
-	@NotEmpty
 	private String city;
 	
 	@Column(name="district")
 	private String district;
 	
 	@Column(name="state")
-	@NotEmpty
 	private String state;
 	
 	@Column(name="country")
-	@NotEmpty
 	private String country;
 	
 	@Column(name="pincode")
-	@NotEmpty
 	private String pincode;
 
 	public Address() {

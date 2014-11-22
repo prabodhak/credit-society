@@ -3,12 +3,15 @@ package com.bank.model;
 import java.math.BigDecimal;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,10 +28,19 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 @Table(name="member")
 public class Member extends Person {
+	
+	@Column(name = "first_name")
+	@NotBlank
+	protected String firstName;
 
-	@Column(name="member_id")
-	@NotEmpty
-	private String memberId;
+	@Column(name = "middle_name")
+	protected String middleName;
+
+	@Column(name = "last_name")
+	protected String lastName;
+
+	@Column(name = "nick_name")
+	protected String nickName;
 
 	@Column(name="father_name")
 	@NotEmpty
@@ -47,6 +59,9 @@ public class Member extends Person {
 	@Column(name="religion")
 	private String religion;
 	
+	@Column(name="category")
+	private String category;
+	
 	@Column(name="marital_status")
 	private String maritalStatus;
 	
@@ -62,11 +77,20 @@ public class Member extends Person {
 	@Column(name="designation")
 	private String designation;
 	
+	@OneToOne(cascade=CascadeType.ALL)
+	private Address officeAddress;
+	
 	@Column(name="educational_qualification")
 	private String educationalQualification;
 	
 	@Column(name="uid")
 	private String uid;
+	
+	@Column(name="minor")
+	private boolean minor;
+	
+	@Column(name="senior_citizen")
+	private boolean seniorCitizen;
 	
 	@ElementCollection
 	private Set<OtherAccountDetails> otherAccountDetails;
@@ -76,22 +100,51 @@ public class Member extends Person {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private DateTime creationDate;
 	
+	@OneToOne
+	private Guardian guardian;
+	
+	@OneToOne
+	private Introducer introducer;
+	
 	@Column(name="active")
-	@NotEmpty
 	private boolean active;
 
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getMemberId() {
-		return memberId;
+	public String getFirstName() {
+		return this.firstName;
 	}
 
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return this.lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+	
 	public String getFatherName() {
 		return fatherName;
 	}
@@ -130,6 +183,14 @@ public class Member extends Person {
 
 	public void setReligion(String religion) {
 		this.religion = religion;
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getMaritalStatus() {
@@ -172,6 +233,14 @@ public class Member extends Person {
 		this.designation = designation;
 	}
 
+	public Address getOfficeAddress() {
+		return officeAddress;
+	}
+
+	public void setOfficeAddress(Address officeAddress) {
+		this.officeAddress = officeAddress;
+	}
+
 	public String getEducationalQualification() {
 		return educationalQualification;
 	}
@@ -188,6 +257,22 @@ public class Member extends Person {
 		this.uid = uid;
 	}
 
+	public boolean isMinor() {
+		return minor;
+	}
+
+	public void setMinor(boolean minor) {
+		this.minor = minor;
+	}
+
+	public boolean isSeniorCitizen() {
+		return seniorCitizen;
+	}
+
+	public void setSeniorCitizen(boolean seniorCitizen) {
+		this.seniorCitizen = seniorCitizen;
+	}
+
 	public Set<OtherAccountDetails> getOtherAccountDetails() {
 		return otherAccountDetails;
 	}
@@ -202,6 +287,22 @@ public class Member extends Person {
 
 	public void setCreationDate(DateTime creationDate) {
 		this.creationDate = creationDate;
+	}
+
+	public Guardian getGuardian() {
+		return guardian;
+	}
+
+	public void setGuardian(Guardian guardian) {
+		this.guardian = guardian;
+	}
+
+	public Introducer getIntroducer() {
+		return introducer;
+	}
+
+	public void setIntroducer(Introducer introducer) {
+		this.introducer = introducer;
 	}
 
 	public boolean isActive() {

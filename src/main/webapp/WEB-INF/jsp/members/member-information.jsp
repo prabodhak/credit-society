@@ -1,3 +1,9 @@
+<<<<<<< HEAD:src/main/webapp/WEB-INF/jsp/members/member-information.jsp
+=======
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+>>>>>>> 134785f5d2dd5a8946c3fad03986703e95fa9ee8:src/main/webapp/WEB-INF/jsp/member-information.jsp
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
 	<section class="content" style="padding-bottom:0px;">
@@ -34,17 +40,17 @@
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
-					<form role="form" name="personalDetail1" id="personalDetail1Id"
-						method="POST" action="#">
+					<form:form role="form" modelAttribute="member" name="personalDetail1" id="personalDetail1Id"
+						method="POST" action="member/member-info/add">
 						<div class="box-body">
 							<div class="form-group col-md-4">
 								<label class="form-label" for="customerType">Customer
 									Type</label>
 								<div class="radio margin-none">
-									<label> <input type="radio" name="customerType"
-										id="customerTypePublicId" checked> Public
-									</label> <label style="margin-left: 15px;"> <input type="radio"
-										name="customerType" id="customerTypeStaffId"> Staff
+									<label> <form:radiobutton name="customerType"
+										id="customerTypePublicId" checked="checked" value="true" path="customerType" /> Public
+									</label> <label style="margin-left: 15px;"> <form:radiobutton
+										name="customerType" id="customerTypeStaffId" value="false" path="customerType" /> Staff
 									</label>
 								</div>
 							</div>
@@ -52,67 +58,68 @@
 								<label class="form-label" for="seniorCitizenId">Senior
 									Citizen</label>
 								<div class="checkbox margin-none">
-									<label> <input type="checkbox" name="seniorCitizen"
-										id="seniorCitizenId"> Yes
+									<label> <form:checkbox name="seniorCitizen"
+										id="seniorCitizenId" path="seniorCitizen" /> Yes
 									</label>
 								</div>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="minorId">Minor</label>
 								<div class="checkbox margin-none">
-									<label> <input type="checkbox" name="minor"
-										id="minorId"> Yes
+									<label> <form:checkbox name="minor"
+										id="minorId" path="minor" /> Yes
 									</label>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="lastNameId">Last Name</label> <input
+								<label class="form-label" for="lastNameId">Last Name</label> <form:input
 									type="text" name="lastName" class="form-control width-3"
-									id="lastNameId" placeholder="Last Name">
+									id="lastNameId" placeholder="Last Name" path="lastName" />
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="firstNameId">First Name</label> <input
+								<label class="form-label" for="firstNameId">First Name</label> <form:input
 									type="text" name="firstName" class="form-control width-3"
-									id="firstNameId" placeholder="First Name">
+									id="firstNameId" placeholder="First Name" path="firstName" />
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="middleNameId">Middle Name</label>
-								<input type="text" name="middleName"
+								<form:input type="text" name="middleName"
 									class="form-control width-3" id="middleNameId"
-									placeholder="Middle Name">
+									placeholder="Middle Name" path="middleName" />
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="fatherHusbandNameId">Father/Husband
-									Name</label> <input type="text" name="fatherHusbandName"
+									Name</label> <form:input type="text" name="fatherHusbandName"
 									class="form-control width-3" id="fatherHusbandNameId"
-									placeholder="Father/Husband Name">
+									placeholder="Father/Husband Name" path="fatherName" />
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="motherMaidenNameId">Mother
-									Maiden Name</label> <input type="text" name="motherMaidenName"
+									Maiden Name</label> <form:input type="text" name="motherMaidenName"
 									class="form-control width-3" id="motherMaidenNameId"
-									placeholder="Mother Maiden Name">
+									placeholder="Mother Maiden Name" path="motherMaidenName" />
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="maritalStatusId">Marital
-									Status</label> <select name="maritalStatus"
-									class="form-control nationality-width" id="maritalStatusId">
-									<option value="">--Select Marital Status--</option>
-									<option value="1">UnMarried</option>
-									<option value="2">Married</option>
-									<option value="3">Separated</option>
-									<option value="4">Divorced</option>
-									<option value="5">Widowed</option>
-								</select>
+									Status</label> <form:select name="maritalStatus"
+									class="form-control nationality-width" id="maritalStatusId" path="maritalStatus">
+									<form:options items="${maritalStatusList }"/>
+									<%-- <form:option value="">--Select Marital Status--</form:option>
+									<form:option value="1">UnMarried</form:option>
+									<form:option value="2">Married</form:option>
+									<form:option value="3">Separated</form:option>
+									<form:option value="4">Divorced</form:option>
+									<form:option value="5">Widowed</form:option> --%>
+								</form:select>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<div class="col-3-4">
-									<label class="form-label" for="dobId">Date of Birth</label> <input
+									<label class="form-label" for="dobId">Date of Birth</label> <form:input
 										type="text" name="dob" class="form-control" id="dobId"
-										placeholder="Date of Birth">
+										placeholder="Date of Birth" path="creationDate"/>
 								</div>
 								<div class="col-1-4">
 									<label class="form-label" for="ageId">Age</label> <input
@@ -122,27 +129,27 @@
 
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="genderId">Gender</label> <select
+								<label class="form-label" for="genderId">Gender</label> <form:select
 									name="gender" class="form-control nationality-width"
-									id="genderId">
-									<option value="">--Select Gender--</option>
-									<option value="1">Male</option>
-									<option value="2">Female</option>
-									<option value="3">Transe</option>
-								</select>
+									id="genderId" path="gender">
+									<form:option value="">--Select Gender--</form:option>
+									<form:option value="1">Male</form:option>
+									<form:option value="2">Female</form:option>
+									<form:option value="3">Transe</form:option>
+								</form:select>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="nationalityId">Nationality</label>
-								<select name="nationality"
-									class="form-control nationality-width" id="nationalityId">
-									<option>Indian</option>
-								</select>
+								<form:select name="nationality"
+									class="form-control nationality-width" id="nationalityId" path="nationality">
+									<form:option value="">Indian</form:option>
+								</form:select>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="uidId">UID Number</label> <input
+								<label class="form-label" for="uidId">UID Number</label> <form:input
 									type="text" name="uid" class="form-control width-3" id="uidId"
-									placeholder="UID Number">
+									placeholder="UID Number" path="uid"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="uidGuardianId">UID Number
@@ -170,14 +177,14 @@
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="exampleInputEmail1Id">Email
-									address</label> <input type="email" name="exampleInputEmail1"
+									address</label> <form:input type="email" name="exampleInputEmail1"
 									class="form-control width-3" id="exampleInputEmail1Id"
-									placeholder="Enter email">
+									placeholder="Enter email" path="emailId"/>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="mob1Id">Mobile No</label> <input
+								<label class="form-label" for="mob1Id">Mobile No</label> <form:input
 									type="text" name="mob1" class="form-control width-3"
-									id="mob1Id" placeholder="Mobile No">
+									id="mob1Id" placeholder="Mobile No" path="mobile"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="mob2Id">Alternate Mobile
@@ -188,25 +195,25 @@
 							<hr>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="localAddress">Local
-									Address</label> <input type="text" name="locAddress1"
+									Address</label> <form:input type="text" name="locAddress1"
 									class="form-control width-3 margin-bottom-5" id="locAddress1Id"
-									placeholder="Address Line 1"> <input type="text"
+									placeholder="Address Line 1" path="localAddress.addressLine1"/> <form:input type="text"
 									name="locAddress2" class="form-control width-3 margin-bottom-5"
-									id="locAddress2Id" placeholder="Address Line 2"> <input
+									id="locAddress2Id" placeholder="Address Line 2" path="localAddress.addressLine2"/> <form:input
 									type="text" name="locLandmark"
 									class="form-control width-3 margin-bottom-5" id="locLandmarkId"
-									placeholder="Landmark"> <input type="text"
+									placeholder="Landmark" path="localAddress.landmark"/> <form:input type="text"
 									name="locCity" class="form-control width-3 margin-bottom-5"
-									id="locCityId" placeholder="City"> <input type="text"
+									id="locCityId" placeholder="City" path="localAddress.city"/> <form:input type="text"
 									name="locDist" class="form-control width-3 margin-bottom-5"
-									id="locDistId" placeholder="Dist"> <input type="text"
+									id="locDistId" placeholder="Dist" path="localAddress.district"/> <form:input type="text"
 									name="locState" class="form-control width-3 margin-bottom-5"
-									id="locStateId" placeholder="State"> <input type="text"
+									id="locStateId" placeholder="State" path="localAddress.state"/> <form:input type="text"
 									name="locCountry" class="form-control width-3 margin-bottom-5"
-									id="locCountryId" placeholder="Country"> <input
+									id="locCountryId" placeholder="Country" path="localAddress.country"/> <form:input
 									type="text" name="locPin"
 									class="form-control width-3 margin-bottom-5" id="locPinId"
-									placeholder="Pin">
+									placeholder="Pin" path="localAddress.pincode"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label permanent-address"
@@ -215,47 +222,47 @@
 									<label> <input type="checkbox"> Same as Local
 									</label>
 								</div>
-								<input type="text" name="perAddress1"
+								<form:input type="text" name="perAddress1"
 									class="form-control width-3 margin-bottom-5" id="perAddress1Id"
-									placeholder="Address Line 1"> <input type="text"
+									placeholder="Address Line 1" path="permanentAddress.addressLine1"/> <form:input type="text"
 									name="perAddress2" class="form-control width-3 margin-bottom-5"
-									id="perAddress2Id" placeholder="Address Line 2"> <input
+									id="perAddress2Id" placeholder="Address Line 2" path="permanentAddress.addressLine2"/> <form:input
 									type="text" name="perLandmark"
 									class="form-control width-3 margin-bottom-5" id="perLandmarkId"
-									placeholder="Landmark"> <input type="text"
+									placeholder="Landmark" path="permanentAddress.landmark"/> <form:input type="text"
 									name="perCity" class="form-control width-3 margin-bottom-5"
-									id="perCityId" placeholder="City"> <input type="text"
+									id="perCityId" placeholder="City" path="permanentAddress.city"/> <form:input type="text"
 									name="perDist" class="form-control width-3 margin-bottom-5"
-									id="perDistId" placeholder="Dist"> <input type="text"
+									id="perDistId" placeholder="Dist" path="permanentAddress.district"/> <form:input type="text"
 									name="perState" class="form-control width-3 margin-bottom-5"
-									id="perStateId" placeholder="State"> <input type="text"
+									id="perStateId" placeholder="State" path="permanentAddress.state"/> <form:input type="text"
 									name="perCountry" class="form-control width-3 margin-bottom-5"
-									id="perCountryId" placeholder="Country"> <input
+									id="perCountryId" placeholder="Country" path="permanentAddress.country"/> <form:input
 									type="text" name="perPin"
 									class="form-control width-3 margin-bottom-5" id="perPinId"
-									placeholder="Pin">
+									placeholder="Pin" path="permanentAddress.pincode"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="localAddress">Office
-									Address</label> <input type="text" name="offAddress1"
+									Address</label> <form:input type="text" name="offAddress1"
 									class="form-control width-3 margin-bottom-5" id="offAddress1Id"
-									placeholder="Address Line 1"> <input type="text"
+									placeholder="Address Line 1" path="officeAddress.addressLine1"/> <form:input type="text"
 									name="offAddress2" class="form-control width-3 margin-bottom-5"
-									id="offAddress2Id" placeholder="Address Line 2"> <input
+									id="offAddress2Id" placeholder="Address Line 2" path="officeAddress.addressLine2"/> <form:input
 									type="text" name="offLandmark"
 									class="form-control width-3 margin-bottom-5" id="offLandmarkId"
-									placeholder="Landmark"> <input type="text"
-									name="locCity" class="form-control width-3 margin-bottom-5"
-									id="offCityId" placeholder="City"> <input type="text"
+									placeholder="Landmark" path="officeAddress.landmark"/> <form:input type="text"
+									name="offCity" class="form-control width-3 margin-bottom-5"
+									id="offCityId" placeholder="City" path="officeAddress.city"/> <form:input type="text"
 									name="offDist" class="form-control width-3 margin-bottom-5"
-									id="offDistId" placeholder="Dist"> <input type="text"
+									id="offDistId" placeholder="Dist" path="officeAddress.district"/> <form:input type="text"
 									name="offState" class="form-control width-3 margin-bottom-5"
-									id="offStateId" placeholder="State"> <input type="text"
+									id="offStateId" placeholder="State" path="officeAddress.state"/> <form:input type="text"
 									name="offCountry" class="form-control width-3 margin-bottom-5"
-									id="offCountryId" placeholder="Country"> <input
+									id="offCountryId" placeholder="Country" path="officeAddress.country"/> <form:input
 									type="text" name="offPin"
 									class="form-control width-3 margin-bottom-5" id="offPinId"
-									placeholder="Pin">
+									placeholder="Pin" path="officeAddress.pincode"/>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -266,7 +273,7 @@
 								class="btn btn-primary" id="personalNext1Id">Next</button>
 						</div>
 						<div class="clearfix"></div>
-					</form>
+					</form:form>
 				</div>
 				<!-- /.box -->
 			</div>
@@ -289,63 +296,43 @@
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
-					<form role="form">
+					<form:form role="form" modelAttribute="member" action="" method="post">
 						<div class="box-body">
 							<div class="form-group col-md-4">
 								<label class="form-label" for="incomeId">Income
-									&nbsp;(Annually)</label> <input type="text" anme="income"
+									&nbsp;(Annually)</label> <form:input type="text" name="income"
 									class="form-control width-3" id="incomeId"
-									placeholder="Income (Annually)">
+									placeholder="Income (Annually)" path="income"/>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="religionId">Religion</label> <select
+								<label class="form-label" for="religionId">Religion</label> <form:select
 									name="religion" class="form-control nationality-width"
-									id="religionId">
-									<option>--Select Religion--</option>
-									<option>Hindu</option>
-									<option>Muslim</option>
-									<option>Sikh</option>
-									<option>Christian</option>
-									<option>Others</option>
-								</select>
+									id="religionId" path="religion">
+									<form:options items="${religionList}"/>
+								</form:select>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="categoryId">Category</label> <select
+								<label class="form-label" for="categoryId">Category</label> <form:select
 									name="category" class="form-control nationality-width"
-									id="categoryId">
-									<option>--Select Category--</option>
-									<option>General</option>
-									<option>OBC</option>
-									<option>SC</option>
-									<option>ST</option>
-									<option>Others</option>
-								</select>
+									id="categoryId" path="category">
+									<form:options items="${casteCategoryList}"/>
+								</form:select>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="educationQualificationId">Education
-									Qualification</label> <select name="educationQualification"
+									Qualification</label> <form:select name="educationQualification"
 									class="form-control nationality-width"
-									id="educationQualificationId">
-									<option>--Select Qualification--</option>
-									<option>Non-Graduate</option>
-									<option>Graduate</option>
-									<option>Post-Graduate</option>
-									<option>Others</option>
-								</select>
+									id="educationQualificationId" path="educationalQualification">
+									<form:options items="${educationalQualificationList}"/>
+								</form:select>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="occupationTypeId">Occupation
-									Type</label> <select name="occupationType"
-									class="form-control nationality-width" id="occupationTypeId">
-									<option>--Select Occupation Type--</option>
-									<option>Salaried</option>
-									<option>Self-Employed</option>
-									<option>Business</option>
-									<option>Retired</option>
-									<option>Student</option>
-									<option>Others</option>
-								</select>
+									Type</label> <form:select name="occupationType"
+									class="form-control nationality-width" id="occupationTypeId" path="occupation">
+									<form:options items="${occupationList}"/>
+								</form:select>
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-md-8">
@@ -406,7 +393,7 @@
 								class="btn btn-primary" id="personalNext2Id">Next</button>
 						</div>
 						<div class="clearfix"></div>
-					</form>
+					</form:form>
 				</div>
 				<!-- /.box -->
 			</div>
@@ -428,24 +415,24 @@
 						</div>
 					</div>
 					<!-- form start -->
-					<form role="form">
+					<form:form role="form" modelAttribute="member" action="" method="post">
 						<div class="box-body">
 							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerNameId">Name</label> <input
+								<label class="form-label" for="introducerNameId">Name</label> <form:input
 									type="text" name="introducerName" class="form-control width-3"
-									id="introducerNameId" placeholder="Name">
+									id="introducerNameId" placeholder="Name" path="introducer"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="introducerAccountNoId">Account
-									No</label> <input type="text" name="introducerAccountNo"
+									No</label> <form:input type="text" name="introducerAccountNo"
 									class="form-control width-3" id="introducerAccountNoId"
-									placeholder="Account no">
+									placeholder="Account no" path="introducer.accountNumber"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="introducerContactNoId">Contact
-									No</label> <input type="text" name="introducerContactNo"
+									No</label> <form:input type="text" name="introducerContactNo"
 									class="form-control width-3" id="introducerContactNoId"
-									placeholder="Contact No">
+									placeholder="Contact No" path="introducer.mobile"/>
 							</div>
 							<div class="clearfix"></div>
 							<!-- Upload Introducer Photo & Signature -->
@@ -485,7 +472,7 @@
 						<div class="box-footer next-btn">
 							<button type="submit" class="btn btn-primary">Next</button>
 						</div>
-					</form>
+					</form:form>
 				</div>
 				<!-- /.box -->
 			</div>
@@ -508,19 +495,19 @@
 						</div>
 					</div>
 					<!-- form start -->
-					<form role="form">
+					<form:form role="form" modelAttribute="member" action="" method="post">
 						<div class="box-body">
 							<div class="form-group col-md-4">
-								<label class="form-label" for="guardianNameId">Name</label> <input
+								<label class="form-label" for="guardianNameId">Name</label> <form:input
 									type="text" name="guardianName" class="form-control width-3"
-									id="guardianNameId" placeholder="Name">
+									id="guardianNameId" placeholder="Name" path="guardian.name"/>
 							</div>
 							<div class="form-group col-md-4">
 								<div class="col-3-4">
 									<label class="form-label" for="guardianDobId">Date of
-										Birth</label> <input type="text" name="guardianDob"
+										Birth</label> <form:input type="text" name="guardianDob"
 										class="form-control" id="guardianDobId"
-										placeholder="Date of Birth">
+										placeholder="Date of Birth" path="guardian.birthDate"/>
 								</div>
 								<div class="col-1-4">
 									<label class="form-label" for="guardianAgeId">Age</label> <input
@@ -530,80 +517,80 @@
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianGenderId">Gender</label>
-								<select name="guardianGender"
-									class="form-control nationality-width">
-									<option value="">--Select Gender--</option>
-									<option value="1">Male</option>
-									<option value="1">Female</option>
-									<option value="2">Transe</option>
-								</select>
+								<form:select name="guardianGender"
+									class="form-control nationality-width" path="guardian.gender">
+									<form:option value="">--Select Gender--</form:option>
+									<form:option value="1">Male</form:option>
+									<form:option value="1">Female</form:option>
+									<form:option value="2">Transe</form:option>
+								</form:select>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianEmailId">Email Id</label>
-								<input name="guardianEmail" type="text"
+								<form:input name="guardianEmail" type="text"
 									class="form-control width-3" id="guardianEmailId"
-									placeholder="Email Id">
+									placeholder="Email Id" path="guardian.emailId"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianContactNoId">Contact
-									No.</label> <input name="guardianContactNo" type="text"
+									No.</label> <form:input name="guardianContactNo" type="text"
 									class="form-control width-3" id="guardianContactNoId"
-									placeholder="Contact No.">
+									placeholder="Contact No." path="guardian.mobile"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianRelationId">Relation</label>
-								<input type="text" name="guardianRelation"
+								<form:input type="text" name="guardianRelation"
 									class="form-control width-3" id="guardianRelationId"
-									placeholder="Relation">
+									placeholder="Relation" path="guardian.relationship"/>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianAddr1Id">Address
-									Line 1</label> <input type="text" name="guardianAddr1"
+									Line 1</label> <form:input type="text" name="guardianAddr1"
 									class="form-control width-3" id="guardianAddr1Id"
-									placeholder="Address Line 1">
+									placeholder="Address Line 1" path="guardian.permanentAddress.addressLine1"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianAddr2Id">Address
-									Line 2</label> <input type="text" name="guardianAddr2"
+									Line 2</label> <form:input type="text" name="guardianAddr2"
 									class="form-control width-3" id="guardianAddr2Id"
-									placeholder="Address Line 2">
+									placeholder="Address Line 2" path="guardian.permanentAddress.addressLine2"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianLandmarkId">Landmark</label>
-								<input type="text" name="guardianLandmark"
+								<form:input type="text" name="guardianLandmark"
 									class="form-control width-3" id="guardianLandmarkId"
-									placeholder="Landmark">
+									placeholder="Landmark" path="guardian.permanentAddress.landmark"/>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="guardianCityId">City</label> <input
+								<label class="form-label" for="guardianCityId">City</label> <form:input
 									type="text" name="guardianCity" class="form-control width-3"
-									id="guardianCityId" placeholder="City">
+									id="guardianCityId" placeholder="City" path="guardian.permanentAddress.city"/>
 							</div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianDistrictId">District</label>
-								<input type="text" name="guardianDistrict"
+								<form:input type="text" name="guardianDistrict"
 									class="form-control width-3" id="guardianDistrictId"
-									placeholder="District">
+									placeholder="District" path="guardian.permanentAddress.district"/>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="guardianStateId">State</label> <input
+								<label class="form-label" for="guardianStateId">State</label> <form:input
 									type="text" name="guardianState" class="form-control width-3"
-									id="guardianStateId" placeholder="State">
+									id="guardianStateId" placeholder="State" path="guardian.permanentAddress.state"/>
 							</div>
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
 								<label class="form-label" for="guardianCountryId">Country</label>
-								<input type="text" name="guardianCountry"
+								<form:input type="text" name="guardianCountry"
 									class="form-control width-3" id="guardianCountryId"
-									placeholder="Country">
+									placeholder="Country" path="guardian.permanentAddress.country"/>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="guardianPinId">PIN</label> <input
+								<label class="form-label" for="guardianPinId">PIN</label> <form:input
 									type="text" name="guardianPin" class="form-control width-3"
-									id="guardianPinId" placeholder="PIN">
+									id="guardianPinId" placeholder="PIN" path="guardian.permanentAddress.pincode"/>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -611,7 +598,7 @@
 						<div class="box-footer next-btn">
 							<button type="submit" class="btn btn-primary">Next</button>
 						</div>
-					</form>
+					</form:form>
 				</div>
 				<!-- Gaurdian /.box -->
 			</div>

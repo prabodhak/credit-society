@@ -3,6 +3,8 @@ package com.bank.service;
 import java.util.List;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import com.bank.model.Member;
 import com.bank.repository.MemberDao;
 
 @Service
+@Transactional
 public class MemberServiceImpl implements MemberService {
 	
 	private MemberDao memberDao;
