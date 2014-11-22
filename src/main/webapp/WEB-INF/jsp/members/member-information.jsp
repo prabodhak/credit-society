@@ -1,9 +1,6 @@
-<<<<<<< HEAD:src/main/webapp/WEB-INF/jsp/members/member-information.jsp
-=======
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
->>>>>>> 134785f5d2dd5a8946c3fad03986703e95fa9ee8:src/main/webapp/WEB-INF/jsp/member-information.jsp
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
 	<section class="content" style="padding-bottom:0px;">

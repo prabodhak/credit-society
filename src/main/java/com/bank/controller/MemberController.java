@@ -87,7 +87,13 @@ public class MemberController {
 		model.put("member", new Member());
 		return "members/findMembers";
 	}
-
+	
+	@RequestMapping(value="/member-account")
+	public String initMemberAccountCreationForm() {
+		return "createOrUpdateMemberAccountForm";
+		
+	}
+	
 	@RequestMapping(value = "/members", method = RequestMethod.GET)
 	public String processFindForm(Member member, BindingResult result,
 			Map<String, Object> model) {

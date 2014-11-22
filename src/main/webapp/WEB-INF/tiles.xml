@@ -48,5 +48,9 @@
 		<put-attribute name="main-content" value="/WEB-INF/jsp/master/account-master-type-add.jsp"/>
 	</definition>
 
+	<definition name="createOrUpdateMemberAccountForm" extends="base.definition">
+		<put-attribute name="title" value="Member Account"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/members/member-account.jsp"/>
+	</definition>
 	
 </tiles-definitions>
