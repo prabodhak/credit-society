@@ -46,7 +46,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="member"><i class="fa fa-angle-double-right"></i>Information Management</a></li>
+                    <li><a href="member/member-info"><i class="fa fa-angle-double-right"></i>Information Management</a></li>
                     <li><a href="pages/member/member-account.html"><i class="fa fa-angle-double-right"></i>Account Management</a></li>
                     <li><a href="pages/member/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
                 </ul>

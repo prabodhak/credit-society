@@ -25,8 +25,8 @@ public class MemberAccount extends BaseEntity {
 	@Column(name="pan_number")
 	private String panNumber;
 	
-	@Column(name="aadhar_number")
-	private String aadharNumber;
+	@Column(name="aadhaar_number")
+	private String aadhaarNumber;
 	
 	@Column(name="id_proof_type")
 	private IdentityProofDocumentType idType;
@@ -58,11 +58,11 @@ public class MemberAccount extends BaseEntity {
 	}
 	
 	public String getAadharNumber() {
-		return aadharNumber;
+		return aadhaarNumber;
 	}
 
 	public void setAadharNumber(String aadharNumber) {
-		this.aadharNumber = aadharNumber;
+		this.aadhaarNumber = aadharNumber;
 	}
 
 	public IdentityProofDocumentType getIdType() {

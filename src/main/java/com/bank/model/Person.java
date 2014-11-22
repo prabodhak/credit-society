@@ -7,7 +7,6 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.Digits;
 
 import org.hibernate.annotations.Type;
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -20,18 +19,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 @MappedSuperclass
 public class Person extends BaseEntity {
 
-	@Column(name = "first_name")
-	@NotBlank
-	protected String firstName;
-
-	@Column(name = "middle_name")
-	protected String middleName;
-
-	@Column(name = "last_name")
-	protected String lastName;
-
-	@Column(name = "nick_name")
-	protected String nickName;
+	@Column(name="name")
+	private String name;
 	
 	@Column(name="gender")
 	private String gender;
@@ -44,10 +33,10 @@ public class Person extends BaseEntity {
 	@Digits(fraction = 0, integer = 10)
 	private String mobile;
 
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL, optional=true)
 	private Address localAddress;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne(cascade=CascadeType.ALL, optional=true)
 	private Address permanentAddress;
 
 	@Column(name="birth_date")
@@ -55,36 +44,12 @@ public class Person extends BaseEntity {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private DateTime birthDate;
 
-	public String getFirstName() {
-		return this.firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getNickName() {
-		return nickName;
-	}
-
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getGender() {

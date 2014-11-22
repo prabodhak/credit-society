@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!-- DATA TABLES -->
 <link href="resources/css/datatables/dataTables.bootstrap.css"
@@ -8,7 +8,7 @@
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
 	<section class="content" style="padding-bottom:0px;">
-		<div class="row">
+		<div class="row" align="left">
 			<!-- left column -->
 			<div class="col-md-12">
 				<!-- general form elements -->
@@ -46,7 +46,7 @@
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-3">
-								<label class="form-label" for="documentName">Document Name</label> <form:input
+								<label class="form-label" for="documentName"><spring:message code="documentName"/></label> <form:input
 									type="text" class="form-control" id="name"
 									placeholder="Document Name" path="name"/>
 							</div>

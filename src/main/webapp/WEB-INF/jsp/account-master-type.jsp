@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@page pageEncoding="utf-8" %>
 
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
@@ -46,7 +47,7 @@
 				<!-- general form elements -->
 				<div class="box box-solid box-primary">
 					<div class="box-header">
-						<h3 class="box-title">Add Master Account Type</h3>
+						<h3 class="box-title">Add Master Account Type अजय</h3>
 						<div class="box-tools pull-right">
 							<button class="btn btn-primary btn-sm" data-widget="collapse">
 								<i class="fa fa-minus"></i>

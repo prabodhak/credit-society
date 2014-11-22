@@ -7,6 +7,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,8 @@ public class VerificationDocumentMasterController {
 
 	@RequestMapping(value="/master/verification-document", method=RequestMethod.GET)
 	public String showAllVerificationDocuments(Model model) {
+		
+		//System.out.println(requestEntity.getHeaders());
 		Collection<VerificationDocument> results = verificationDocumentMasterService.findAllDocumentTypes();
 		VerificationDocument document = new VerificationDocument();
 		model.addAttribute("document", document);
