@@ -40,7 +40,7 @@
                 </ul>                            
             </li>
             <li class="treeview">
-                <a href="pages/member/index.html">
+                <a href="#">
                     <i class="fa fa-th"></i>
                     <span>Members</span>
                     <i class="fa fa-angle-left pull-right"></i>
@@ -58,9 +58,22 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/agent/1.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
-                    <li><a href="pages/agent/2.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
-                    <li><a href="pages/agent/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
+                    <li><a href="pages/agents/1.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
+                    <li><a href="pages/agents/2.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
+                    <li><a href="pages/agents/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="pages/teller-services/index.html">
+                    <i class="fa fa-edit"></i> <span>Teller Services</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="pages/teller-services/1.html"><i class="fa fa-angle-double-right"></i>Deposite</a></li>
+                    <li><a href="pages/teller-services/2.html"><i class="fa fa-angle-double-right"></i>Withdraw</a></li>
+                    <li><a href="pages/teller-services/3.html"><i class="fa fa-angle-double-right"></i>Fund Transfer</a></li>
+                    <li><a href="pages/teller-services/3.html"><i class="fa fa-angle-double-right"></i>Passbook Update</a></li>
+                    <li><a href="pages/teller-services/3.html"><i class="fa fa-angle-double-right"></i>Ledger Enquiry</a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -70,32 +83,21 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/account/1.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
-                    <li><a href="pages/account/2.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
-                    <li><a href="pages/account/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
-                    <li><a href="pages/account/4.html"><i class="fa fa-angle-double-right"></i> 4</a></li>
-                    <li><a href="pages/account/5.html"><i class="fa fa-angle-double-right"></i> 5</a></li>
+                    <li><a href="pages/accounts/1.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
+                    <li><a href="pages/accounts/2.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
+                    <li><a href="pages/accounts/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
+                    <li><a href="pages/accounts/4.html"><i class="fa fa-angle-double-right"></i> 4</a></li>
+                    <li><a href="pages/accounts/5.html"><i class="fa fa-angle-double-right"></i> 5</a></li>
                 </ul>
-            </li>
-            <li class="treeview">
-                <a href="pages/transaction/index.html">
-                    <i class="fa fa-edit"></i> <span>Transactions</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/transaction/1.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
-                    <li><a href="pages/transaction/2.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
-                    <li><a href="pages/transaction/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
-                </ul>
-            </li>
+            </li>            
             <li class="treeview">
                 <a href="pages/report/index.html">
                     <i class="fa fa-table"></i> <span>Reports</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/report/simple.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
-                    <li><a href="pages/report/data.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
+                    <li><a href="pages/reports/simple.html"><i class="fa fa-angle-double-right"></i> 1</a></li>
+                    <li><a href="pages/reports/data.html"><i class="fa fa-angle-double-right"></i> 2</a></li>
                 </ul>
             </li>
             <li>

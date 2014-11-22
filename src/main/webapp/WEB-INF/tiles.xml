@@ -5,12 +5,12 @@
        
 <tiles-definitions>
 
-	<definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">
+	<definition name="base.definition" template="/WEB-INF/jsp/common/layout.jsp">
 		<put-attribute name="title" value=""/>
-		<put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
-		<put-attribute name="left-sidebar" value="/WEB-INF/jsp/left-sidebar.jsp"/>
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp"/>
+		<put-attribute name="left-sidebar" value="/WEB-INF/jsp/common/left-sidebar.jsp"/>
 		<put-attribute name="main-content" value=""/>
-		<put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 	</definition>
 
 	<definition name="login" extends="base.definition">
@@ -20,32 +20,32 @@
 		
 	<definition name="home" extends="base.definition">
 		<put-attribute name="title" value="Home Page"/>
-		<put-attribute name="main-content" value="/WEB-INF/jsp/home.jsp"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/common/home.jsp"/>
 	</definition>
 	
 	<definition name="accountMasterType" extends="base.definition">
 		<put-attribute name="title" value="Account Master Type"/>
-		<put-attribute name="main-content" value="/WEB-INF/jsp/account-master-type.jsp"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/master/account-master-type.jsp"/>
 	</definition>
 	
 	<definition name="accountType" extends="base.definition">
 		<put-attribute name="title" value="Account Type"/>
-		<put-attribute name="main-content" value="/WEB-INF/jsp/account-type.jsp"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/master/account-type.jsp"/>
 	</definition>
 	
 	<definition name="verificationDocument" extends="base.definition">
 		<put-attribute name="title" value="Verification Document"/>
-		<put-attribute name="main-content" value="/WEB-INF/jsp/verification-document.jsp"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/master/verification-document.jsp"/>
 	</definition>
 
 	<definition name="createOrUpdateMemberForm" extends="base.definition">
 		<put-attribute name="title" value="Member Management"/>
-		<put-attribute name="main-content" value="/WEB-INF/jsp/member-information.jsp"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/members/member-information.jsp"/>
 	</definition>
 	
 	<definition name="addAccountMasterTypeForm" extends="base.definition">
 		<put-attribute name="title" value="Account Master Type"/>
-		<put-attribute name="main-content" value="/WEB-INF/jsp/account-master-type-add.jsp"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/master/account-master-type-add.jsp"/>
 	</definition>
 
 	
