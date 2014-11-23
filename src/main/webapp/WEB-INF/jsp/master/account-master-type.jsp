@@ -47,7 +47,7 @@
 				<!-- general form elements -->
 				<div class="box box-solid box-primary">
 					<div class="box-header">
-						<h3 class="box-title">Add Master Account Type अजय</h3>
+						<h3 class="box-title">Add Master Account Type</h3>
 						<div class="box-tools pull-right">
 							<button class="btn btn-primary btn-sm" data-widget="collapse">
 								<i class="fa fa-minus"></i>
@@ -123,7 +123,7 @@
 	<!-- /.content -->
 </aside>
 <!-- /.right-side -->
-<script	src="resources/js/plugins//jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script	src="resources/js/plugins/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <!-- DATA TABES SCRIPT -->
 <script src="resources/js/plugins/datatables/jquery.dataTables.js"
 	type="text/javascript"></script>
