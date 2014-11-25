@@ -11,14 +11,14 @@ public enum Gender {
 
 	MALE ('M'), FEMALE ('F');
 	
-	private char code;
+	private char genderCode;
 	
 	private Gender(char code) { 
-		this.code = code;
+		this.genderCode = code;
 	}
 	
-	public char code() {
-		return code;
+	public char getGenderCode() {
+		return genderCode;
 	}
 
 	public static Gender valueOf(char charAt) {

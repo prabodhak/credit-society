@@ -2,7 +2,6 @@ package com.bank.utils;
 
 public enum MaritalStatus {
 
-	NONE("None"),
 	UN_MARRIED("Unmarried"),
 	MARRIED("Married"),
 	SEPERATED("Seperated"),

@@ -23,9 +23,9 @@ import com.bank.model.Member;
 import com.bank.service.MemberService;
 import com.bank.utils.CasteCategory;
 import com.bank.utils.EducationalQualification;
+import com.bank.utils.Gender;
 import com.bank.utils.MaritalStatus;
 import com.bank.utils.OccupationType;
-import com.bank.utils.Relation;
 import com.bank.utils.Religion;
 
 /**
@@ -52,7 +52,7 @@ public class MemberController {
 	public String initCreationForm(Model model) {
 		Member member = new Member(); 
 		model.addAttribute("member", member);
-		//model.addAttribute("relationList", getRelationList());
+		model.addAttribute("genderList", getGenderList());
 		model.addAttribute("maritalStatusList", getMaritalStatusList());
 		model.addAttribute("religionList", getReligionList());
 		model.addAttribute("casteCategoryList", getCasteCategoryList());
@@ -156,9 +156,9 @@ public class MemberController {
 		mav.addObject(this.memberService.findById(memberId));
 		return mav;
 	}
-	private List<Relation> getRelationList() {
-		final List<Relation> relationList = Arrays.asList(Relation.values());
-		return relationList;
+	private List<Gender> getGenderList() {
+		final List<Gender> genderList = Arrays.asList(Gender.values());
+		return genderList;
 	}
 	
 	private List<MaritalStatus> getMaritalStatusList() {

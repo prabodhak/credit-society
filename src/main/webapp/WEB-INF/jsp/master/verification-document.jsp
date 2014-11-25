@@ -46,22 +46,22 @@
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-3">
-								<label class="form-label" for="documentName"><spring:message code="documentName"/></label> <form:input
-									type="text" class="form-control" id="name"
+								<label class="form-label" for="documentNameId"><spring:message code="documentName"/></label> <form:input
+									type="text" name="documentName" class="form-control" id="documentNameId"
 									placeholder="Document Name" path="name"/>
 							</div>
 							<div class="form-group col-md-3">
-								<label class="form-label" for="documentDescription">Document Description</label>
-								<form:input	type="text" class="form-control" id="documentDescription" placeholder="Document Description" path="documentDescription"/>
+								<label class="form-label" for="documentDescriptionId">Document Description</label>
+								<form:input	type="text" name="documentDescription" class="form-control" id="documentDescriptionId" placeholder="Document Description" path="documentDescription"/>
 							</div>							
 							<div class="form-group col-md-3">
-								<label class="form-label" for="docProofType">Document Type</label>
-								<form:select class="form-control" path="documentType">
+								<label class="form-label" for="docProofTypeId">Document Type</label>
+								<form:select name="docProofType" class="form-control" id="docProofTypeId" path="documentType">
 									<form:options items="${types}"/>
 								</form:select>
 							</div>
 							<div class="form-group col-md-3 add-verification-docs">
-								<button class="btn btn-success add-verification-docs-but">Add</button>
+								<button name="verificationDocBut" class="btn btn-success add-verification-docs-but">Add</button>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -74,7 +74,7 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body table-responsive">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="verificationDocListId" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th style="width:25%;">Document Name</th>
@@ -114,18 +114,14 @@
 	<!-- /.content -->
 </aside>
 <!-- /.right-side -->
-<!-- jQuery 2.0.2 -->
-<script	src="resources/js/plugins/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <!-- DATA TABES SCRIPT -->
 <script src="resources/js/plugins/datatables/jquery.dataTables.js"
 	type="text/javascript"></script>
 <script src="resources/js/plugins/datatables/dataTables.bootstrap.js"
 	type="text/javascript"></script>
-<!-- Bootstrap -->
-<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>		
 <script type="text/javascript">
     $(function() {
-        $("#example1").dataTable();
+        $("#verificationDocListId").dataTable();
         $('#example2').dataTable({
             "bPaginate": true,
             "bLengthChange": false,

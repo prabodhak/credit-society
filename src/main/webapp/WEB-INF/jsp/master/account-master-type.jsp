@@ -60,18 +60,18 @@
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="masterAccountName">Master
-									Account Name</label> <form:input type="text" class="form-control width-3"
-									id="masterAccountName" placeholder="Master Accoount Name" path="name"/>
+								<label class="form-label" for="masterAccountNameId">Master
+									Account Name</label> <form:input type="text" name="masterAccountName" class="form-control width-3"
+									id="masterAccountNameId" placeholder="Master Accoount Name" path="name"/>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="masterAccountDescription">Master
-									Account Description</label> <form:input type="text"
-									class="form-control width-3" id="masterAccountDescription"
+								<label class="form-label" for="masterAccountDescriptionId">Master
+									Account Description</label> <form:input type="text" name="masterAccountDescription"
+									class="form-control width-3" id="masterAccountDescriptionId"
 									placeholder="Master Accoount Description" path="accountDescription"/>
 							</div>
 							<div class="form-group col-md-4 add-master-account-type-docs">
-								<button class="btn btn-success add-master-account-type-docs-but">Add</button>
+								<button name="accountMasterTypeAddBut" class="btn btn-success add-master-account-type-docs-but">Add</button>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -85,7 +85,7 @@
 					</div>
 					<!-- /.box-header -->
 					<div class="box-body table-responsive">
-						<table id="example1" class="table table-bordered table-striped">
+						<table id="accountMasterTypeListId" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th style="width: 25%;">Account Type</th>
@@ -123,17 +123,15 @@
 	<!-- /.content -->
 </aside>
 <!-- /.right-side -->
-<script	src="resources/js/plugins/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+
 <!-- DATA TABES SCRIPT -->
 <script src="resources/js/plugins/datatables/jquery.dataTables.js"
 	type="text/javascript"></script>
 <script src="resources/js/plugins/datatables/dataTables.bootstrap.js"
 	type="text/javascript"></script>
-<!-- Bootstrap -->
-<script src="resources/js/bootstrap.min.js" type="text/javascript"></script>	
 <script type="text/javascript">
     $(function() {
-        $("#example1").dataTable();
+        $("#accountMasterTypeListId").dataTable();
         $('#example2').dataTable({
             "bPaginate": true,
             "bLengthChange": false,
