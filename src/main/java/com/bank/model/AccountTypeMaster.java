@@ -11,6 +11,7 @@ import javax.persistence.Table;
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="account_type_master")
 /*@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="AccountType")*/

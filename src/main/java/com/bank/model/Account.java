@@ -95,4 +95,117 @@ public class Account extends BaseEntity {
 	public Account() {
 		// TODO Auto-generated constructor stub
 	}
+
+	public Long getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(Long accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public AccountType getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(AccountType accountType) {
+		this.accountType = accountType;
+	}
+
+	public DateTime getOpeningDate() {
+		return openingDate;
+	}
+
+	public void setOpeningDate(DateTime openingDate) {
+		this.openingDate = openingDate;
+	}
+
+	public BigDecimal getCashDebitLimit() {
+		return cashDebitLimit;
+	}
+
+	public void setCashDebitLimit(BigDecimal cashDebitLimit) {
+		this.cashDebitLimit = cashDebitLimit;
+	}
+
+	public BigDecimal getCashCreditLimit() {
+		return cashCreditLimit;
+	}
+
+	public void setCashCreditLimit(BigDecimal cashCreditLimit) {
+		this.cashCreditLimit = cashCreditLimit;
+	}
+
+	public BigDecimal getInterestRate() {
+		return interestRate;
+	}
+
+	public void setInterestRate(BigDecimal interestRate) {
+		this.interestRate = interestRate;
+	}
+
+	public Set<Nominee> getNominees() {
+		return nominees;
+	}
+
+	public void setNominees(Set<Nominee> nominees) {
+		this.nominees = nominees;
+	}
+
+	public boolean iseStatementRequired() {
+		return eStatementRequired;
+	}
+
+	public void seteStatementRequired(boolean eStatementRequired) {
+		this.eStatementRequired = eStatementRequired;
+	}
+
+	public boolean isPassbookRequired() {
+		return passbookRequired;
+	}
+
+	public void setPassbookRequired(boolean passbookRequired) {
+		this.passbookRequired = passbookRequired;
+	}
+
+	public StatementFrequency getStatementFrequency() {
+		return statementFrequency;
+	}
+
+	public void setStatementFrequency(StatementFrequency statementFrequency) {
+		this.statementFrequency = statementFrequency;
+	}
+
+	public InterestCalculationMode getInterestCalculationMode() {
+		return interestCalculationMode;
+	}
+
+	public void setInterestCalculationMode(
+			InterestCalculationMode interestCalculationMode) {
+		this.interestCalculationMode = interestCalculationMode;
+	}
+
+	public BigDecimal getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(BigDecimal accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+	public BigDecimal getAvailableBalance() {
+		return availableBalance;
+	}
+
+	public void setAvailableBalance(BigDecimal availableBalance) {
+		this.availableBalance = availableBalance;
+	}
+
+	public BigDecimal getUnclearedFunds() {
+		return unclearedFunds;
+	}
+
+	public void setUnclearedFunds(BigDecimal unclearedFunds) {
+		this.unclearedFunds = unclearedFunds;
+	}
 }

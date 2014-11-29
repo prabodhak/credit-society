@@ -22,6 +22,7 @@ import com.bank.utils.InterestCalculationMode;
  * 
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="account_type")
 public class AccountType extends NamedEntity {

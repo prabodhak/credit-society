@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -94,6 +95,7 @@ public class Member extends Person {
 	private boolean seniorCitizen;
 	
 	@ElementCollection
+	@JoinTable(name="member_other_account_details")
 	private Set<OtherAccountDetails> otherAccountDetails;
 	
 	@Column(name="creation_date")

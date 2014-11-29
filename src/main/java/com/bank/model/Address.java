@@ -4,8 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 /**
  * This class represent an Address. It can be used for any kind of address.
  * 
@@ -13,6 +11,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="address")
 public class Address extends BaseEntity {
