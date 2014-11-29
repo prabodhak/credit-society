@@ -1,10 +1,12 @@
 package com.bank.model;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.joda.time.DateTime;
@@ -56,7 +58,8 @@ public class Account extends BaseEntity {
 	/*
 	 * List of nominess for this account. More than one nominee can be possible for one account.
 	 */
-	private Set<Nominee> nominees;
+	@OneToMany
+	private Set<Nominee> nominees = new HashSet<Nominee>();
 	
 	/*
 	 * 
