@@ -38,7 +38,7 @@
 	</div>
 	<div class="form-group col-md-4">
 		<label class="form-label" for="firstNameId">First Name</label>
-		<form:input type="text" name="firstName" class="form-control width-3"
+		<form:input type="text" class="form-control width-3"
 			id="firstNameId" placeholder="First Name" path="firstName" />
 	</div>
 	<div class="form-group col-md-4">
@@ -64,8 +64,9 @@
 	<div class="clearfix"></div>
 	<div class="form-group col-md-4">
 		<div class="col-3-4">
-			<label class="form-label" for="dobId">Date of Birth</label>
-			<form:input type="text" name="dob" class="form-control" id="dobId"
+		<!-- TODO - change name from creationDate to dob -->
+			<label class="form-label" for="creationDate">Date of Birth</label>
+			<form:input type="text" name="creationDate" class="form-control" id="dobId"
 				placeholder="Date of Birth" data-date-format="dd MM yyyy" readonly="true" path="creationDate" />
 		</div>
 		<div class="col-1-4">
@@ -144,10 +145,10 @@
 	</div>
 	<div class="clearfix"></div>
 	<div class="form-group col-md-4">
-		<label class="form-label" for="exampleInputEmail1Id">Email
+		<label class="form-label" for="emailId">Email
 			address</label>
-		<form:input type="email" name="exampleInputEmail1"
-			class="form-control width-3" id="exampleInputEmail1Id"
+		<form:input type="email" name="emailId"
+			class="form-control width-3" id="emailIdId"
 			placeholder="Enter email" path="emailId" />
 	</div>
 	<div class="form-group col-md-4">
@@ -193,7 +194,7 @@
 		<label class="form-label permanent-address" for="permanentAddress">Permanent
 			Address</label>
 		<div class="checkbox same-as-local">
-			<label> <input type="checkbox"> Same as Local
+			<label> <input type="checkbox" name="copyAddress"> Same as Local
 			</label>
 		</div>
 		<form:input type="text" name="perAddress1"

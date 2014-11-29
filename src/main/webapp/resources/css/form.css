@@ -50,33 +50,7 @@ input.error, select.error, textarea.error{
 	border:1px solid red;
 }
 span.error{
-    position: relative;
-    background: #C03737;
-    border: 1px solid #830303;
-    width: 100px;
-    height: 40px;
-    border-radius: 5px;
-}
-span.error:after, span.error:before {
-    position: absolute;  
-    content: "";
-    width: 0; 
-	height: 0; 
-    top: 50%;
-}
-span.error:before {
-    right: -8px;
-    margin-top: -8px;
-	border-top: 8px solid transparent;
-	border-bottom: 8px solid transparent; 
-	border-left: 8px solid #830303; 
-}
-span.error:after {
-    right: -7px;
-    margin-top: -7px;
-	border-top: 7px solid transparent;
-	border-bottom: 7px solid transparent; 
-	border-left: 7px solid #C03737; 
+	color: red;
 }
 .menu-tool-bar{
 	padding-bottom:0px;

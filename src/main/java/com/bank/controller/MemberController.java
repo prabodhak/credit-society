@@ -89,7 +89,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/member-account")
-	public String initMemberAccountCreationForm() {
+	public String initMemberAccountCreationForm(Model model) {
+		Member member = new Member(); 
+		model.addAttribute("member", member);
 		return "createOrUpdateMemberAccountForm";
 		
 	}
