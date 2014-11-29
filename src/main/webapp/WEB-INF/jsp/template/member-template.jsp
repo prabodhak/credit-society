@@ -66,11 +66,11 @@
 		<div class="col-3-4">
 			<label class="form-label" for="dobId">Date of Birth</label>
 			<form:input type="text" name="dob" class="form-control" id="dobId"
-				placeholder="Date of Birth" path="creationDate" />
+				placeholder="Date of Birth" data-date-format="dd MM yyyy" readonly="true" path="creationDate" />
 		</div>
 		<div class="col-1-4">
 			<label class="form-label" for="ageId">Age</label> <input type="text"
-				name="age" class="form-control" id="ageId" placeholder="Age">
+				name="age" class="form-control" id="ageId" readonly placeholder="Age">
 		</div>
 	</div>
 	<div class="form-group col-md-4">

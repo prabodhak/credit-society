@@ -2,8 +2,7 @@
 	rel="stylesheet" type="text/css" />
 	
 <aside class="right-side">
-	<h4>CRUD Operation Buttons</h4>
-	<section class="content" style="padding-bottom:0px;">
+	<section class="content menu-tool-bar">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-12">
@@ -21,7 +20,6 @@
 			</div>
 		</div>
 	</section>
-	<h4>Add Form</h4>
 	<!-- Main content -->
 	<section class="content" style="padding-top:0px;">
 		<div class="row">

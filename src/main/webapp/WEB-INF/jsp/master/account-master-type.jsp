@@ -13,7 +13,7 @@
 	</a> <a class="btn btn-app"> <i class="fa fa-edit"></i> Delete
 	</a>-->
 
-	<section class="content" style="padding-bottom:0px;">
+	<section class="content menu-tool-bar">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-12">
@@ -56,7 +56,7 @@
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
-					<form:form role="form" action="master/account-master-type/add" method="post" modelAttribute="accountMasterFormBean">
+					<form:form role="form" action="master/account-master-type/add" method="post" modelAttribute="accountMasterFormBean" id="masterAccountFormId">
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
@@ -141,4 +141,4 @@
             "bAutoWidth": false
         });
     });
-</script> 
+</script>

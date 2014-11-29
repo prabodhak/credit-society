@@ -1,6 +1,12 @@
-/*@import url(//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,300italic,400italic,600italic);
-
-@import url(//fonts.googleapis.com/css?family=Kaushan+Script);
+/*! 
+ *   AdminLTE v1.2
+ *   Author: AlmsaeedStudio.com
+ *   License: Open source - MIT
+ *           Please visit http://opensource.org/licenses/MIT for more information
+!*/
+/*
+    Core: General style
+----------------------------
 */
 html,
 body {
@@ -1005,8 +1011,9 @@ body > .header .logo .icon {
 }
 .form-control:focus {
   border-color: #3c8dbc !important;
-  box-shadow: none;
+  /*box-shadow: none;*/
 }
+
 .form-group.has-success label {
   color: #00a65a;
 }
@@ -1633,7 +1640,7 @@ body > .header .logo .icon {
 }
 .box > .loading-img {
   z-index: 1020;
-  background: transparent url('../images/ajax-loader1.gif') 50% 50% no-repeat;
+  background: transparent url('../img/ajax-loader1.gif') 50% 50% no-repeat;
 }
 /*
 Component: timeline
@@ -1760,9 +1767,11 @@ Component: timeline
   background-color: #3c8dbc;
   border-color: #367fa9;
 }
+.btn.btn-primary:focus,
 .btn.btn-primary:hover,
 .btn.btn-primary:active,
-.btn.btn-primary.hover {
+.btn.btn-primary.hover,
+.btn.btn-primary.focus {
   background-color: #367fa9;
 }
 .btn.btn-success {
@@ -2163,7 +2172,7 @@ Component: timeline
 */
 /* ADD THIS CLASS TO THE <HTML> TAG */
 .lockscreen {
-  background: url(../images/blur-background09.jpg) repeat center center fixed;
+  background: url(../img/blur-background09.jpg) repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2474,8 +2483,7 @@ Component: timeline
 .skin-blue .sidebar > .sidebar-menu > li > a:hover,
 .skin-blue .sidebar > .sidebar-menu > li.active > a {
   color: #222;
-  /*background: #f9f9f9;*/
-  background: #9cc7e0;
+  background: #f9f9f9;
 }
 .skin-blue .sidebar > .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
@@ -2499,7 +2507,6 @@ Component: timeline
 .skin-blue .treeview-menu > li.active > a,
 .skin-blue .treeview-menu > li > a:hover {
   color: #111;
-  background-color: #d8e9f3;
 }
 .skin-blue .sidebar-form {
   -webkit-border-radius: 2px;
@@ -2728,6 +2735,10 @@ Component: timeline
 }
 .icheckbox_minimal {
   background-position: 0 0;
+}
+.icheckbox_minimal.focus {
+  background-position: -20px 0;
+  cursor: default;
 }
 .icheckbox_minimal.hover {
   background-position: -20px 0;

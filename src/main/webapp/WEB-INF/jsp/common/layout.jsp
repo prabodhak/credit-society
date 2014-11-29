@@ -47,6 +47,8 @@
 	<script src="resources/js/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
 	<!-- AdminLTE App -->
 	<script src="resources/js/AdminLTE/app.js" type="text/javascript"></script>
+	<!-- common for all pages -->
+	<script src="resources/js/common.js" type="text/javascript"></script>
 	
 	<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 	<script src="resources/js/AdminLTE/dashboard.js" type="text/javascript"></script>

@@ -1,7 +1,7 @@
 
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-	<section class="content" style="padding-bottom:0px;">
+	<section class="content menu-tool-bar">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-12">

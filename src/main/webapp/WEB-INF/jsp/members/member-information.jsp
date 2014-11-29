@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!-- Right side column. Contains the navbar and content of the page -->
 <aside class="right-side">
-	<section class="content" style="padding-bottom:0px;">
+	<section class="content menu-tool-bar">
 		<div class="row">
 			<!-- left column -->
 			<div class="col-md-12">
@@ -51,13 +51,27 @@
 			</div>
 		</div>
 	</section>
-
-
-
 </aside>
 <!-- /.right-side -->
 <!-- /.right-side -->
+	
+<link href="resources/css/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+<script type="text/javascript" src="resources/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	
 <script type="text/javascript">
+// datetimepicker
+$('#dobId').datetimepicker({
+    weekStart: 1,
+    todayBtn:  1,
+	autoclose: 1,
+	todayHighlight: 1,
+	startView: 2,
+	minView: 2,
+	forceParse: 0
+});
+var date = new Date();
+$('#dobId').val(date.toDateString());
+
 	$(document).ready(function() {
 		$("#personalDetailId").validate({
 			errorElement : 'span',
@@ -141,5 +155,50 @@
 				form.submit();
 			}
 		});
+		
+		// Address Autofill (same as local)
+		$('input[type="checkbox"][name="copyAddress"]').on('ifChecked', function(event){
+			//alert(event.type + ' callback');
+			$("#perAddress1Id").val($("#locAddress1Id").val());
+			$("#perAddress2Id").val($("#locAddress2Id").val());
+			$("#perLandmarkId").val($("#locLandmarkId").val());
+			$("#perCityId").val($("#locCityId").val());
+			$("#perDistId").val($("#locDistId").val());
+			$("#perStateId").val($("#locStateId").val());
+			$("#perCountryId").val($("#locCountryId").val());
+			$("#perPinId").val($("#locPinId").val());
+		});
+		
+		$('input[type="checkbox"][name="copyAddress"]').on('ifUnchecked', function(event){
+			//alert(event.type + ' callback');
+		  	$("#perAddress1Id").val("");
+			$("#perAddress2Id").val("");
+			$("#perLandmarkId").val("");
+			$("#perCityId").val("");
+			$("#perDistId").val("");
+			$("#perStateId").val("");
+			$("#perCountryId").val("");
+			$("#perPinId").val("");
+		});
+
+		//Senior Citizen Validation
+		$('input[type="checkbox"][name="seniorCitizen"]').on('ifChecked', function(event){
+			//alert($('input[type="checkbox"][name="seniorCitizen"]').prop('id'));
+			$('input[type="checkbox"][name="minor"]').prop('disabled', true);
+		});
+		$('input[type="checkbox"][name="seniorCitizen"]').on('ifUnchecked', function(event){
+			//alert($('input[type="checkbox"][name="seniorCitizen"]').prop('id'));
+			$('input[type="checkbox"][name="minor"]').prop('disabled', false);
+		});
+		//Minor Validation
+		$('input[type="checkbox"][name="minor"]').on('ifChecked', function(event){
+			//alert($('input[type="checkbox"][name="minor"]').prop('id'));
+			$('input[type="checkbox"][name="seniorCitizen"]').prop('disabled', true);
+		});
+		$('input[type="checkbox"][name="minor"]').on('ifUnchecked', function(event){
+			//alert($('input[type="checkbox"][name="minor"]').prop('id'));
+			$('input[type="checkbox"][name="seniorCitizen"]').prop('disabled', false);
+		});
+
 	});
 </script>

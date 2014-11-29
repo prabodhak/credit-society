@@ -78,3 +78,7 @@ span.error:after {
 	border-bottom: 7px solid transparent; 
 	border-left: 7px solid #C03737; 
 }
+.menu-tool-bar{
+	padding-bottom:0px;
+	overflow:unset;
+}
