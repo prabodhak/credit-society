@@ -25,6 +25,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * 
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="member")
 public class Member extends Person {

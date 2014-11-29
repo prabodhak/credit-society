@@ -12,4 +12,8 @@ public class AccountStatement {
 	BigDecimal withdrawal;
 	BigDecimal deposite;
 	BigDecimal closingBalance;
+	
+	public AccountStatement() {
+		// TODO Auto-generated constructor stub
+	}
 }

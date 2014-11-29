@@ -7,6 +7,7 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="verification_document")
 public class VerificationDocument extends NamedEntity {

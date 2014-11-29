@@ -14,6 +14,7 @@ import javax.persistence.Table;
 import com.bank.utils.AddressProofDocumentType;
 import com.bank.utils.IdentityProofDocumentType;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="member_account")
 public class MemberAccount extends BaseEntity {
@@ -41,6 +42,10 @@ public class MemberAccount extends BaseEntity {
 	@OneToMany(cascade=CascadeType.ALL)
 	private Collection<Nominee> nominees = new HashSet<Nominee>();
 
+	public MemberAccount() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Member getMember() {
 		return member;
 	}

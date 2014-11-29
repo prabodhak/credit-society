@@ -13,6 +13,7 @@ import com.bank.utils.EducationalQualification;
  *
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="agent")
 public class Agent extends Person {

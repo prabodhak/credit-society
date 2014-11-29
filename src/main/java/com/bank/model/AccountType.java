@@ -64,7 +64,10 @@ public class AccountType extends NamedEntity {
 	@OneToMany
 	private List<VerificationDocument> addressProofDocuments;
 
-
+	public AccountType() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public AccountTypeMaster getAccountTypeMaster() {
 		return accountTypeMaster;
 	}

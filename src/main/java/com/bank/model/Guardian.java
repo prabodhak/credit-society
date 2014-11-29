@@ -14,6 +14,7 @@ import com.bank.utils.Relation;
  * 
  */
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "guardian")
 public class Guardian extends Person {
@@ -21,6 +22,10 @@ public class Guardian extends Person {
 	@Column(name = "relationship")
 	private Relation relationship;
 
+	public Guardian() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Relation getRelationship() {
 		return relationship;
 	}

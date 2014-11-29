@@ -16,6 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
  * 
  * @author Ajay
  */
+@SuppressWarnings("serial")
 @MappedSuperclass
 public class Person extends BaseEntity {
 

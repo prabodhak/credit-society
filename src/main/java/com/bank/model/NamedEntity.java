@@ -12,6 +12,7 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author Ajay
  * 
  */
+@SuppressWarnings("serial")
 @MappedSuperclass
 public class NamedEntity extends BaseEntity {
 
