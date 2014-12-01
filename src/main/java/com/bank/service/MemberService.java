@@ -39,4 +39,6 @@ public interface MemberService {
 	List<Account> getAccounts(Long memberId);
 	
 	List<Account> getAccounts(Member member);
+	
+	
 }

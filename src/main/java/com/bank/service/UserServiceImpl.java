@@ -17,7 +17,6 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	public UserServiceImpl(UserDao userDao) {
 		this.userDao = userDao;
-		System.out.println("Inside UserServiceImpl constructor");
 	}
 
 	public User getByUsername(String username) {

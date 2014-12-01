@@ -14,7 +14,6 @@ import javax.persistence.Table;
 @SuppressWarnings("serial")
 @Entity
 @Table(name="account_type_master")
-/*@Cache(usage=CacheConcurrencyStrategy.NONSTRICT_READ_WRITE, region="AccountType")*/
 public class AccountTypeMaster extends NamedEntity {
 	
 	@Column(name="account_description")

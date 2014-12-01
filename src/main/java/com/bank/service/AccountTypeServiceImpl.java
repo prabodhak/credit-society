@@ -3,6 +3,7 @@ package com.bank.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +11,6 @@ import com.bank.model.AccountType;
 import com.bank.repository.AccountTypeDao;
 
 @Service
-@Transactional
 public class AccountTypeServiceImpl implements AccountTypeService {
 
 	private AccountTypeDao accountTypeDao;
@@ -21,31 +21,38 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public void findAccountTypeById(Long accountTypeId) {
 		accountTypeDao.findAccountTypeById(accountTypeId);
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public void findAccountTypeByName(String name) {
 		accountTypeDao.findAccountTypeByName(name);
 	}
 
 	@Override
+	@Transactional(readOnly=true)
+	@Cacheable(value="accountTypes")
 	public List<AccountType> findAllAccountType() {
 		return accountTypeDao.findAllAccountType();
 	}
 
 	@Override
+	@Transactional
 	public void saveAccountType(AccountType accountType) {
 		accountTypeDao.saveAccountType(accountType);
 	}
 
 	@Override
+	@Transactional
 	public void deleteAccountType(Long accountId) {
 		accountTypeDao.removeAccountType(accountId);
 	}
 
 	@Override
+	@Transactional
 	public void deleteAccountType(AccountType accountType) {
 		accountTypeDao.removeAccountType(accountType);
 	}
