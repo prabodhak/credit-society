@@ -20,6 +20,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bank.model.Member;
+import com.bank.service.MasterDataLoaderService;
 import com.bank.service.MemberService;
 import com.bank.utils.CasteCategory;
 import com.bank.utils.EducationalQualification;
@@ -37,10 +38,12 @@ import com.bank.utils.Religion;
 @RequestMapping("/member")
 public class MemberController {
 	private final MemberService memberService;
+	private MasterDataLoaderService masterDataLoaderService;
 
 	@Autowired
-	public MemberController(MemberService memberService) {
+	public MemberController(MemberService memberService, MasterDataLoaderService masterDataLoaderService) {
 		this.memberService = memberService;
+		this.masterDataLoaderService = masterDataLoaderService;
 	}
 
 	@InitBinder
@@ -53,11 +56,11 @@ public class MemberController {
 		Member member = new Member(); 
 		model.addAttribute("member", member);
 		model.addAttribute("genderList", getGenderList());
-		model.addAttribute("maritalStatusList", getMaritalStatusList());
-		model.addAttribute("religionList", getReligionList());
-		model.addAttribute("casteCategoryList", getCasteCategoryList());
-		model.addAttribute("occupationList", getOccupationList());
-		model.addAttribute("educationalQualificationList", getEducationalQualificationList());
+		model.addAttribute("maritalStatusList", masterDataLoaderService.getMaritalStatusList());
+		model.addAttribute("religionList", masterDataLoaderService.getReligions());
+		//model.addAttribute("casteCategoryList", getCasteCategoryList());
+		model.addAttribute("occupationList", masterDataLoaderService.getOccupations());
+		model.addAttribute("educationalQualificationList", masterDataLoaderService.getEducationalQualifications());
 		return "createOrUpdateMemberForm";
 	}
 
@@ -159,30 +162,5 @@ public class MemberController {
 	private List<Gender> getGenderList() {
 		final List<Gender> genderList = Arrays.asList(Gender.values());
 		return genderList;
-	}
-	
-	private List<MaritalStatus> getMaritalStatusList() {
-		final List<MaritalStatus> maritalStatusList = Arrays.asList(MaritalStatus.values());
-		return maritalStatusList;
-	}
-	
-	private List<Religion> getReligionList() {
-		final List<Religion> religionList = Arrays.asList(Religion.values());
-		return religionList;
-	}
-	
-	private List<CasteCategory> getCasteCategoryList() {
-		final List<CasteCategory> casteCategoryList = Arrays.asList(CasteCategory.values());
-		return casteCategoryList;
-	}
-	
-	private List<OccupationType> getOccupationList() {
-		final List<OccupationType> occupationList = Arrays.asList(OccupationType.values());
-		return occupationList;
-	}
-	
-	private List<EducationalQualification> getEducationalQualificationList() {
-		final List<EducationalQualification> educationalQualificationList = Arrays.asList(EducationalQualification.values());
-		return educationalQualificationList;
 	}
 }
