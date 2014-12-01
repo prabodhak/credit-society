@@ -35,63 +35,14 @@
 						</div>
 					</div>
 					<!-- form start -->
+					<!-- include introducer template -->
 					<form:form role="form" modelAttribute="member" action="" method="post">
-						<div class="box-body">
-							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerNameId">Name</label> <form:input
-									type="text" name="introducerName" class="form-control width-3"
-									id="introducerNameId" placeholder="Name" path="introducer"/>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerAccountNoId">Account
-									No</label> <form:input type="text" name="introducerAccountNo"
-									class="form-control width-3" id="introducerAccountNoId"
-									placeholder="Account no" path="introducer.accountNumber"/>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerContactNoId">Contact
-									No</label> <form:input type="text" name="introducerContactNo"
-									class="form-control width-3" id="introducerContactNoId"
-									placeholder="Contact No" path="introducer.mobile"/>
-							</div>
-							<div class="clearfix"></div>
-							<!-- Upload Introducer Photo & Signature -->
-							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerPhototId">Upload
-									Photo</label> <input type="file" name="introducerPhotot"
-									id="introducerPhototId"> </br>
-								</br> <label class="form-label" for="introducerSignatureImageId">Upload
-									Signature</label> <input type="file" name="introducerSignatureImage"
-									id="introducerSignatureImageId">
-							</div>
-							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerPhototPreviewId">Photo
-									Preview</label>
-								<div>
-									<img name="introducerPhototPreview"
-										id="introducerPhototPreviewId"
-										style="width: 50%; height: 120px;"
-										src="http://www.html.am/images/image-codes/milford_sound_t.jpg"
-										alt="Photo of Introducer" />
-								</div>
-							</div>
-							<div class="form-group col-md-4">
-								<label class="form-label" for="introducerSignaturePreviewId">Signature
-									Preview</label>
-								<div>
-									<img name="introducerSignaturePreview" class="width-3"
-										id="introducerSignaturePreviewId" style="height: 60px;"
-										src="http://www.html.am/images/image-codes/milford_sound_t.jpg"
-										alt="Signature of Introducer" />
-								</div>
-							</div>
-							<!-- Photo upload ends -->
-							<div class="clearfix"></div>
-						</div>
-						<!-- /.box-body -->
+						<jsp:directive.include file="../template/introducer-template.jsp" />
 						<div class="box-footer next-btn">
-							<button type="submit" class="btn btn-primary">Next</button>
+							<button type="submit" name="introducerNextBtn"
+								class="btn btn-primary" id="introducerNextBtnId">Next</button>
 						</div>
+						<div class="clearfix"></div>
 					</form:form>
 				</div>
 				<!-- /.box -->

@@ -232,7 +232,27 @@
 									</label>
 								</div>
 							</div>
-
+							<div class="clearfix"></div>
+							<!-- Upload Introducer Photo & Signature -->
+							<div class="form-group col-md-3">
+							    <label class="form-label" for="introducerPhototId">Upload Photo</label>
+							    <input type="file" name="introducerPhotot" id="introducerPhototId">
+							    <br/>
+							    <label class="form-label" for="introducerSignatureImageId">Upload Signature</label>
+							    <input type="file" name="introducerSignatureImage" id="introducerSignatureImageId">	
+							</div>
+							<div class="form-group col-md-3">
+							    <label class="form-label" for="introducerPhototPreviewId">Photo Preview</label>
+							    <div>
+							        <img name="introducerPhototPreview" id="introducerPhototPreviewId" style="width: 70%; height: 120px;" src="http://www.html.am/images/image-codes/milford_sound_t.jpg" alt="Photo of Introducer"/>
+							     </div>	
+							</div>                                        
+							<div class="form-group col-md-3">
+							    <label class="form-label" for="introducerSignaturePreviewId">Signature Preview</label>
+							    <div>
+							        <img name="introducerSignaturePreview" class="width-3" id="introducerSignaturePreviewId" style="height: 60px;" src="http://www.html.am/images/image-codes/milford_sound_t.jpg" alt="Signature of Introducer" />
+							    </div>
+							</div> 
 							<div class="clearfix"></div>
 						</div>
 						<!-- /.box-body -->
@@ -248,9 +268,12 @@
 		</div>
 	</section>
 </aside>
-<!-- /.right-side -->
+<!-- nominee form -->
 <jsp:directive.include file="nominee.jsp" />
-
+<!-- guardian form -->
+<jsp:directive.include file="guardian.jsp" />
+<!-- introducer form -->
+<jsp:directive.include file="introducer.jsp" />
 
 <script>
 var currentBoxNumber = 0;
