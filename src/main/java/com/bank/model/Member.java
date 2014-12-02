@@ -18,19 +18,20 @@ import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
- * Member class represent any kind of member like customer, share holders, etc.
- * This class will not contain any account related data, it only holds personal
- * information like name address , DOB, and contact details.
+ * Simple JavaBean domain object representing a member. This class represent any
+ * kind of member like customer, share holders, etc. This class will not contain
+ * any account related data, it only holds personal information like name
+ * address , DOB, and contact details.
  * 
- * @author Ajay
- * 
+ * @author Ajay Gupta
+ * @since 1.0
  */
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="member")
+@Table(name = "member")
 public class Member extends Person {
-	
+
 	@Column(name = "first_name")
 	@NotBlank
 	protected String firstName;
@@ -44,72 +45,72 @@ public class Member extends Person {
 	@Column(name = "nick_name")
 	protected String nickName;
 
-	@Column(name="father_name")
+	@Column(name = "father_name")
 	@NotEmpty
 	private String fatherName;
 
-	@Column(name="mother_maiden_name")
+	@Column(name = "mother_maiden_name")
 	@NotEmpty
 	private String motherMaidenName;
-	
-	@Column(name="customer_type")
+
+	@Column(name = "customer_type")
 	private String customerType;
-	
-	@Column(name="nationality")
+
+	@Column(name = "nationality")
 	private String nationality;
-	
-	@Column(name="religion")
+
+	@Column(name = "religion")
 	private String religion;
-	
-	@Column(name="category")
+
+	@Column(name = "category")
 	private String category;
-	
-	@Column(name="marital_status")
+
+	@Column(name = "marital_status")
 	private String maritalStatus;
-	
-	@Column(name="occupations")
+
+	@Column(name = "occupations")
 	private String occupation;
-	
-	@Column(name="income")
+
+	@Column(name = "income")
 	private BigDecimal income;
-	
-	@Column(name="organization_name")
+
+	@Column(name = "organization_name")
 	private String organizationName;
-	
-	@Column(name="designation")
+
+	@Column(name = "designation")
 	private String designation;
-	
-	@OneToOne(cascade=CascadeType.ALL)
+
+	@OneToOne(cascade = CascadeType.ALL)
 	private Address officeAddress;
-	
-	@Column(name="educational_qualification")
+
+	@Column(name = "educational_qualification")
 	private String educationalQualification;
-	
-	@Column(name="uid")
+
+	@Column(name = "uid")
 	private String uid;
-	
-	@Column(name="minor")
+
+	@Column(name = "minor")
 	private boolean minor;
-	
-	@Column(name="senior_citizen")
+
+	@Column(name = "senior_citizen")
 	private boolean seniorCitizen;
-	
+
 	@ElementCollection
-	@JoinTable(name="member_other_account_details")
+	@JoinTable(name = "member_other_account_details")
 	private Set<OtherAccountDetails> otherAccountDetails;
-	
-	@Column(name="creation_date")
+
+	@Column(name = "creation_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private DateTime creationDate;
-	
+
 	@OneToOne
 	private Guardian guardian;
-	
+
 	@OneToOne
 	private Introducer introducer;
-	
-	@Column(name="active")
+
+	@Column(name = "active")
 	private boolean active;
 
 	public Member() {
@@ -147,7 +148,7 @@ public class Member extends Person {
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
 	}
-	
+
 	public String getFatherName() {
 		return fatherName;
 	}
@@ -280,7 +281,8 @@ public class Member extends Person {
 		return otherAccountDetails;
 	}
 
-	public void setOtherAccountDetails(Set<OtherAccountDetails> otherAccountDetails) {
+	public void setOtherAccountDetails(
+			Set<OtherAccountDetails> otherAccountDetails) {
 		this.otherAccountDetails = otherAccountDetails;
 	}
 

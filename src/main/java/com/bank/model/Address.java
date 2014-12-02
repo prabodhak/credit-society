@@ -7,8 +7,8 @@ import javax.persistence.Table;
 /**
  * This class represent an Address. It can be used for any kind of address.
  * 
- * @author Ajay
- *
+ * @author Ajay Gupta
+ * @since 1.0
  */
 
 @SuppressWarnings("serial")

@@ -14,38 +14,46 @@ import javax.persistence.Table;
 import com.bank.utils.AddressProofDocumentType;
 import com.bank.utils.IdentityProofDocumentType;
 
+/**
+ * Simple JavaBean domain object representing a member account. This class
+ * contains the information of a member and his/her all account specific data.
+ * 
+ * @author Ajay Gupta
+ * @since 1.0
+ */
+
 @SuppressWarnings("serial")
 @Entity
-@Table(name="member_account")
+@Table(name = "member_account")
 public class MemberAccount extends BaseEntity {
 
 	@OneToOne
-	@JoinColumn(name="member")
+	@JoinColumn(name = "member")
 	private Member member;
-	
-	@Column(name="pan_number")
+
+	@Column(name = "pan_number")
 	private String panNumber;
-	
-	@Column(name="aadhaar_number")
+
+	@Column(name = "aadhaar_number")
 	private String aadhaarNumber;
-	
-	@Column(name="id_proof_type")
+
+	@Column(name = "id_proof_type")
 	private IdentityProofDocumentType idType;
-	
-	@Column(name="address_proof_type")
+
+	@Column(name = "address_proof_type")
 	private AddressProofDocumentType addressProofType;
-	
+
 	@OneToOne
-	@JoinColumn(name="account")
+	@JoinColumn(name = "account")
 	private Account account;
-	
-	@OneToMany(cascade=CascadeType.ALL)
+
+	@OneToMany(cascade = CascadeType.ALL)
 	private Collection<Nominee> nominees = new HashSet<Nominee>();
 
 	public MemberAccount() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Member getMember() {
 		return member;
 	}
@@ -61,7 +69,7 @@ public class MemberAccount extends BaseEntity {
 	public void setPanNumber(String panNumber) {
 		this.panNumber = panNumber;
 	}
-	
+
 	public String getAadharNumber() {
 		return aadhaarNumber;
 	}

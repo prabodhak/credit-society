@@ -10,8 +10,8 @@ import com.bank.utils.Relation;
  * Simple JavaBean domain object representing guardian details for minor account
  * or in case  nominee of an account is minor.
  * 
- * @author Ajay
- * 
+ * @author Ajay Gupta
+ * @since 1.0
  */
 
 @SuppressWarnings("serial")

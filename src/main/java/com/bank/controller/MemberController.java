@@ -22,12 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bank.model.Member;
 import com.bank.service.MasterDataLoaderService;
 import com.bank.service.MemberService;
-import com.bank.utils.CasteCategory;
-import com.bank.utils.EducationalQualification;
 import com.bank.utils.Gender;
-import com.bank.utils.MaritalStatus;
-import com.bank.utils.OccupationType;
-import com.bank.utils.Religion;
 
 /**
  * 
