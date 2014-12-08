@@ -24,7 +24,7 @@ public class AgentDaoImpl implements AgentDao {
 	}
 
 	@Override
-	public Collection<Agent> finadAll() {
+	public Collection<Agent> findAll() {
 		String queryString = "from Agent ";		
 		Query query = em.createQuery(queryString);
 		return query.getResultList();

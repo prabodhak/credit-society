@@ -15,66 +15,66 @@ public class MasterDataLoaderDaoImpl implements MasterDataLoaderDao {
 	EntityManager em;
 	
 	/* (non-Javadoc)
-	 * @see com.bank.repository.MasterDataLoaderDao#finadAllOccupations()
+	 * @see com.bank.repository.MasterDataLoaderDao#findAllOccupations()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<String> finadAllOccupations() {
+	public List<String> findAllOccupations() {
 		String queryString = "select o.occupationName from Occupation o";
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.bank.repository.MasterDataLoaderDao#finadAllRelations()
+	 * @see com.bank.repository.MasterDataLoaderDao#findAllRelations()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<String> finadAllRelations() {
+	public List<String> findAllRelations() {
 		String queryString = "select r.relationshipName from Relation r";
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.bank.repository.MasterDataLoaderDao#finadAllMaritalStatus()
+	 * @see com.bank.repository.MasterDataLoaderDao#findAllMaritalStatus()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<String> finadAllMaritalStatus() {
+	public List<String> findAllMaritalStatus() {
 		String queryString = "select m.status from MaritalStatus m";
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.bank.repository.MasterDataLoaderDao#finadAllReligion()
+	 * @see com.bank.repository.MasterDataLoaderDao#findAllReligion()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<String> finadAllReligion() {
+	public List<String> findAllReligion() {
 		String queryString = "select r.religionName from Religion r";
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.bank.repository.MasterDataLoaderDao#finadAllEducationalQualification()
+	 * @see com.bank.repository.MasterDataLoaderDao#findAllEducationalQualification()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<String> finadAllEducationalQualification() {
+	public List<String> findAllEducationalQualification() {
 		String queryString = "select q.qualificationName from EducationalQualification q";
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();
 	}
 	
 	/* (non-Javadoc)
-	 * @see com.bank.repository.MasterDataLoaderDao#finadAllGender()
+	 * @see com.bank.repository.MasterDataLoaderDao#findAllGender()
 	 */
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<String> finadAllGender() {
+	public List<String> findAllGender() {
 		String queryString = "select g.gender from Gender g";
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();

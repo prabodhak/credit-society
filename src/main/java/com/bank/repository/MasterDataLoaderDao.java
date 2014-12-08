@@ -4,16 +4,46 @@ import java.util.List;
 
 public interface MasterDataLoaderDao {
 
-	List<String> finadAllOccupations();
+	/**
+	 * Get all the listed occupations in master table.
+	 * @return
+	 * 		list of occupation names
+	 */
+	List<String> findAllOccupations();
 
-	List<String> finadAllRelations();
+	/**
+	 * Get all the listed relations in master table.
+	 * @return
+	 * 		list of relation names
+	 */
+	List<String> findAllRelations();
 
-	List<String> finadAllMaritalStatus();
+	/**
+	 * Get all the listed relations in master table.
+	 * @return
+	 * 		list of relation names
+	 */
+	List<String> findAllMaritalStatus();
 
-	List<String> finadAllReligion();
+	/**
+	 * Get all the listed religions in master table.
+	 * @return
+	 * 		list of religion names
+	 */
+	List<String> findAllReligion();
 
-	List<String> finadAllEducationalQualification();
+	/**
+	 * Get all the listed education qualifications in master table.
+	 * @return
+	 * 		list of qualification names
+	 */
+	List<String> findAllEducationalQualification();
 
-	List<String> finadAllGender();
+	/**
+	 * Get all the listed gender in master table.
+	 * @return
+	 * 		list of gender names
+	 */
+	List<String> findAllGender();
 
 }

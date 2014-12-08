@@ -30,7 +30,7 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public List<Member> finadAll() {
+	public List<Member> findAll() {
 		return memberDao.findAllMember();
 	}
 

@@ -10,7 +10,7 @@ public interface AgentDao {
 
 	Agent findById(Long agentid);
 	
-	Collection<Agent> finadAll();
+	Collection<Agent> findAll();
 	
 	void save(Agent agent) throws DataAccessException;
 	

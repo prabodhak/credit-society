@@ -19,12 +19,12 @@ public class MasterDataLoaderServiceImpl implements MasterDataLoaderService {
 		this.masterDataLoaderDao = masterDataLoaderDao;
 		masterTableData = new MasterTableData();
 		
-		masterTableData.getMap().put("relations", masterDataLoaderDao.finadAllRelations());
-		masterTableData.getMap().put("religions", masterDataLoaderDao.finadAllReligion());
-		masterTableData.getMap().put("occupations", masterDataLoaderDao.finadAllOccupations());
-		masterTableData.getMap().put("qualifications", masterDataLoaderDao.finadAllEducationalQualification());
-		masterTableData.getMap().put("genders", masterDataLoaderDao.finadAllGender());
-		masterTableData.getMap().put("maritalStatus", masterDataLoaderDao.finadAllMaritalStatus());
+		masterTableData.getMap().put("relations", masterDataLoaderDao.findAllRelations());
+		masterTableData.getMap().put("religions", masterDataLoaderDao.findAllReligion());
+		masterTableData.getMap().put("occupations", masterDataLoaderDao.findAllOccupations());
+		masterTableData.getMap().put("qualifications", masterDataLoaderDao.findAllEducationalQualification());
+		masterTableData.getMap().put("genders", masterDataLoaderDao.findAllGender());
+		masterTableData.getMap().put("maritalStatus", masterDataLoaderDao.findAllMaritalStatus());
 		
 	}
 
