@@ -18,14 +18,55 @@ import javax.persistence.Table;
 @Table(name = "relation")
 public class Relation extends BaseEntity {
 
-	@Column(name = "relationship")
-	private String relationship;
-
-	public String getRelationship() {
-		return relationship;
+	@Column(name = "relationship_name")
+	private String relationshipName;
+	
+	public Relation() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String getRelationshipName() {
+		return relationshipName;
 	}
 
-	public void setRelationship(String relationship) {
-		this.relationship = relationship;
+	public void setRelationshipName(String relationshipName) {
+		this.relationshipName = relationshipName;
+	}
+
+	@Override
+	public int hashCode() {
+		
+		int hash = 7;
+		hash = 89 * hash + (this.relationshipName != null ? this.relationshipName.hashCode() : 0);
+		return hash;
+	}
+	
+	/**
+	 * Check two <code>Relation</code> objects are same or not.
+	 * 
+	 * @param object
+	 * 			the object for equality check
+	 */
+	@Override
+	public boolean equals(Object object) {
+		/*
+		 * If it is same object then return true.
+		 */
+		if(object == this) {
+			return true;
+		}
+		
+		/*
+		 * If the object is null or not an account then return false. 
+		 */
+		if(object == null || object.getClass() != this.getClass()) {
+			return false;
+		}
+		
+		/*
+		 * If relationship name is same of both relationship object then return true.
+		 */
+		Relation relation = (Relation) object;
+		return relation.getRelationshipName().equals(relationshipName);
 	}
 }

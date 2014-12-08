@@ -32,6 +32,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "member")
 public class Member extends Person {
 
+	private Long memberId;
+	
+	
+	private MemberType memberType;
+	
 	@Column(name = "first_name")
 	@NotBlank
 	protected String firstName;
@@ -115,6 +120,22 @@ public class Member extends Person {
 
 	public Member() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public Long getMemberId() {
+		return memberId;
+	}
+
+	public void setMemberId(Long memberId) {
+		this.memberId = memberId;
+	}
+
+	public MemberType getMemberType() {
+		return memberType;
+	}
+
+	public void setMemberType(MemberType memberType) {
+		this.memberType = memberType;
 	}
 
 	public String getFirstName() {
@@ -316,5 +337,36 @@ public class Member extends Person {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	@Override
+	public int hashCode() {
+		
+		int hash = 7;
+		hash = 89 * hash + (this.memberId != null ? this.memberId.hashCode() : 0);
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		/*
+		 * If it is same object then return true.
+		 */
+		if(object == this) {
+			return true;
+		}
+		
+		/*
+		 * If the object is null or not an account then return false. 
+		 */
+		if(object == null || object.getClass() != this.getClass()) {
+			return false;
+		}
+		
+		/*
+		 * If member id is same of both member object then return true.
+		 */
+		Member member = (Member) object;
+		return member.getMemberId().equals(memberId);
 	}
 }

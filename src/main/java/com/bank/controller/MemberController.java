@@ -1,8 +1,6 @@
 package com.bank.controller;
 
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
@@ -22,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.bank.model.Member;
 import com.bank.service.MasterDataLoaderService;
 import com.bank.service.MemberService;
-import com.bank.utils.Gender;
 
 /**
  * 
@@ -48,14 +45,15 @@ public class MemberController {
 
 	@RequestMapping(value={"/member-info" ,"/member-info/add"}, method=RequestMethod.GET)
 	public String initCreationForm(Model model) {
-		Member member = new Member(); 
+		Member member = new Member();
 		model.addAttribute("member", member);
-		model.addAttribute("genderList", getGenderList());
-		model.addAttribute("maritalStatusList", masterDataLoaderService.getMaritalStatusList());
-		model.addAttribute("religionList", masterDataLoaderService.getReligions());
+		model.addAttribute("genderList", masterDataLoaderService.getMasterTableData().getMap().get("genders"));;
+		model.addAttribute("relations", masterDataLoaderService.getMasterTableData().getMap().get("relations"));
+		model.addAttribute("maritalStatusList", masterDataLoaderService.getMasterTableData().getMap().get("maritalStatus"));;
+		model.addAttribute("religionList", masterDataLoaderService.getMasterTableData().getMap().get("religions"));
 		//model.addAttribute("casteCategoryList", getCasteCategoryList());
-		model.addAttribute("occupationList", masterDataLoaderService.getOccupations());
-		model.addAttribute("educationalQualificationList", masterDataLoaderService.getEducationalQualifications());
+		model.addAttribute("occupationList", masterDataLoaderService.getMasterTableData().getMap().get("occupations"));
+		model.addAttribute("educationalQualificationList", masterDataLoaderService.getMasterTableData().getMap().get("qualifications"));
 		return "createOrUpdateMemberForm";
 	}
 
@@ -156,8 +154,5 @@ public class MemberController {
 		mav.addObject(this.memberService.findById(memberId));
 		return mav;
 	}
-	private List<Gender> getGenderList() {
-		final List<Gender> genderList = Arrays.asList(Gender.values());
-		return genderList;
-	}
+	
 }

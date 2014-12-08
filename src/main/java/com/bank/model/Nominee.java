@@ -4,9 +4,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.bank.utils.Relation;
 
 /**
  * Simple JavaBean domain object representing a nominee for a particular
@@ -26,6 +25,9 @@ public class Nominee extends Person {
 
 	@Column(name = "share")
 	private BigDecimal sharePercentage;
+	
+	@ManyToOne
+	private Account account;
 
 	public Nominee() {
 		// TODO Auto-generated constructor stub
@@ -45,5 +47,13 @@ public class Nominee extends Person {
 
 	public void setSharePercentage(BigDecimal sharePercentage) {
 		this.sharePercentage = sharePercentage;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 }

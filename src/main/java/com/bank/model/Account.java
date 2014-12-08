@@ -15,10 +15,12 @@ import com.bank.utils.InterestCalculationMode;
 import com.bank.utils.StatementFrequency;
 
 /**
+ * Simple JavaBean domain object representing a member's account.
  * 
- * @author Ajay
- *
+ * @author Ajay Gupta
+ * @since 1.0
  */
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name="account")
@@ -58,7 +60,7 @@ public class Account extends BaseEntity {
 	/*
 	 * List of nominess for this account. More than one nominee can be possible for one account.
 	 */
-	@OneToMany
+	@OneToMany(mappedBy="account")
 	private Set<Nominee> nominees = new HashSet<Nominee>();
 	
 	/*
@@ -210,5 +212,36 @@ public class Account extends BaseEntity {
 
 	public void setUnclearedFunds(BigDecimal unclearedFunds) {
 		this.unclearedFunds = unclearedFunds;
+	}
+
+	@Override
+	public int hashCode() {
+		
+		int hash = 7;
+		hash = 89 * hash + (this.accountNumber != null ? this.accountNumber.hashCode() : 0);
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		/*
+		 * If it is same object then return true.
+		 */
+		if(object == this) {
+			return true;
+		}
+		
+		/*
+		 * If the object is null or not an account then return false. 
+		 */
+		if(object == null || object.getClass() != this.getClass()) {
+			return false;
+		}
+		
+		/*
+		 * If account number is same of both account object then return true.
+		 */
+		Account account = (Account) object;
+		return account.getAccountNumber().equals(accountNumber);
 	}
 }
