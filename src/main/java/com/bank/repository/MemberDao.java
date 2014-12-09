@@ -34,4 +34,6 @@ public interface MemberDao extends GenericDao<Member, Long>{
 	 *            the id to delete the member
 	 */
 	void deleteMember(Long memberId);
+	
+	List<Member> getMembersByType(char memberType);
 }

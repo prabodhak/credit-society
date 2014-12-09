@@ -16,7 +16,7 @@ import javax.persistence.criteria.CriteriaQuery;
  * 
  * @param <T>
  */
-public class HibernateDao<E, K extends Serializable> implements
+public abstract class HibernateDao<E, K extends Serializable> implements
 		GenericDao<E, K> {
 
 	@PersistenceContext

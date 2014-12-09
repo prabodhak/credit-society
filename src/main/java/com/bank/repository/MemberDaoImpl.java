@@ -1,5 +1,6 @@
 package com.bank.repository;
 
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EntityManager;
@@ -46,6 +47,12 @@ public class MemberDaoImpl extends HibernateDao<Member, Long> implements
 	@Override
 	public Set<Member> findMemberByFirstName(String firsttName) {
 		String queryString = "Select from Member m where m.firstNumber";
+		return null;
+	}
+
+	@Override
+	public List<Member> getMembersByType(char memberType) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

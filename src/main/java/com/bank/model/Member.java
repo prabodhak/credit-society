@@ -34,7 +34,7 @@ public class Member extends Person {
 
 	private Long memberId;
 	
-	
+	@Column(name = "member_type")
 	private MemberType memberType;
 	
 	@Column(name = "first_name")
@@ -114,9 +114,12 @@ public class Member extends Person {
 
 	@Column(name = "active")
 	private boolean active;
+	
+	@Column(name = "special_instruction")
+	private String specialInstruction;
 
 	public Member() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Long getMemberId() {
@@ -326,6 +329,14 @@ public class Member extends Person {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public String getSpecialInstruction() {
+		return specialInstruction;
+	}
+
+	public void setSpecialInstruction(String specialInstruction) {
+		this.specialInstruction = specialInstruction;
 	}
 
 	@Override
