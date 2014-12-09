@@ -1,9 +1,12 @@
 package com.bank.repository;
 
-import java.util.ArrayList;
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
 
 /**
  * This is a hibernate implementation of base dao interface. All hibernate
@@ -13,47 +16,38 @@ import org.springframework.beans.factory.annotation.Autowired;
  * 
  * @param <T>
  */
-public abstract class HibernateDao<T> implements Dao<T> {
+public class HibernateDao<E, K extends Serializable> implements
+		GenericDao<E, K> {
 
-	private SessionFactory sessionFactory;
+	@PersistenceContext
+	private EntityManager em;
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	private Class<? extends E> daoType;
+	
+	public HibernateDao() {
+		this.daoType = (Class<E>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+	}
+	
+	public E findById(K key) {
+		return em.find(daoType, key);
 	}
 
-	@Autowired
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public final void add(E entity) {
+		em.persist(entity);
 	}
 
-	public Object findById(Long id) {
-
-		return sessionFactory.getCurrentSession().get(getDomainClass(), id);
+	public final void delete(E entity) {
+		em.remove(entity);
 	}
 
-	public final void add(T entity) {
-
-		sessionFactory.getCurrentSession().save(entity);
+	public final void save(E entity) {
+		em.merge(entity);
 	}
 
-	public final void delete(Long id) {
-
-		sessionFactory.getCurrentSession().delete(
-				sessionFactory.getCurrentSession().get(getDomainClass(), id));
-		sessionFactory.getCurrentSession().flush();
-
+	public final List<E> findAll() {
+		CriteriaQuery<E> criteria = (CriteriaQuery<E>) em.getCriteriaBuilder().createQuery(daoType);
+		criteria.select(criteria.from(daoType));
+		List<E> list = em.createQuery(criteria).getResultList();
+		return list;
 	}
-
-	public final void save(T entity) {
-		sessionFactory.getCurrentSession().update(entity);
-	}
-
-	public final ArrayList<T> findAll() {
-
-		// sessionFactory.getCurrentSession()
-		return null;
-	}
-
-	abstract public Class<T> getDomainClass();
-
 }

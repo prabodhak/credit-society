@@ -23,7 +23,7 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 	@Override
 	@Transactional(readOnly=true)
 	public void findAccountTypeById(Long accountTypeId) {
-		accountTypeDao.findAccountTypeById(accountTypeId);
+		accountTypeDao.findById(accountTypeId);
 	}
 
 	@Override
@@ -36,13 +36,13 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 	@Transactional(readOnly=true)
 	@Cacheable(value="accountTypes")
 	public List<AccountType> findAllAccountType() {
-		return accountTypeDao.findAllAccountType();
+		return accountTypeDao.findAll();
 	}
 
 	@Override
 	@Transactional
 	public void saveAccountType(AccountType accountType) {
-		accountTypeDao.saveAccountType(accountType);
+		accountTypeDao.save(accountType);
 	}
 
 	@Override
@@ -54,6 +54,6 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 	@Override
 	@Transactional
 	public void deleteAccountType(AccountType accountType) {
-		accountTypeDao.removeAccountType(accountType);
+		accountTypeDao.delete(accountType);
 	}
 }

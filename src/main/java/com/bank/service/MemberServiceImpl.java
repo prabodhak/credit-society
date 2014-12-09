@@ -26,17 +26,17 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member findById(Long memberId) {
-		return memberDao.findMemberById(memberId);
+		return memberDao.findById(memberId);
 	}
 
 	@Override
 	public List<Member> findAll() {
-		return memberDao.findAllMember();
+		return memberDao.findAll();
 	}
 
 	@Override
 	public void save(Member member) throws DataAccessException {
-		memberDao.saveMember(member);
+		memberDao.save(member);
 	}
 	
 	@Override
@@ -46,7 +46,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void delete(Member member) throws DataAccessException {
-		memberDao.deleteMember(member);
+		memberDao.delete(member);
 	}
 
 	@Override

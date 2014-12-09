@@ -1,3 +1,8 @@
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<script src="resources/js/dojo.js" type="text/javascript"></script>
+<script src="resources/js/Spring.js" type="text/javascript"></script>
+<script src="resources/js/Spring-Dojo.js" type="text/javascript"></script>
 <!-- Left side column. contains the logo and sidebar -->
 <aside class="left-side sidebar-offcanvas">
     <!-- sidebar: style can be found in sidebar.less -->
@@ -32,7 +37,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="master/account-master-type"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
+                    <li><a id="accountMasterType" href="#"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
                     <li><a href="master/account-type"><i class="fa fa-angle-double-right"></i>Account Type</a></li>
                     <li><a href="master/verification-document"><i class="fa fa-angle-double-right"></i> Verification Document</a></li>
                     <li><a href="pages/master/account.html"><i class="fa fa-angle-double-right"></i> Account</a></li>
@@ -141,3 +146,15 @@
     </section>
     <!-- /.sidebar -->
 </aside>
+
+<!-- <script type="text/javascript">
+
+	  //alert("hi");
+		/*Spring.addDecoration(new Spring.AjaxEventDecoration({
+			elementId : "accountMasterType",
+			event : "onclick",
+			params: {fragments: "main-content"}
+		}));*/
+		//alert("End");
+ 
+</script> -->

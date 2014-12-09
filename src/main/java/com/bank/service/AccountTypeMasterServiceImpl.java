@@ -52,6 +52,6 @@ public class AccountTypeMasterServiceImpl implements AccountTypeMasterService {
 	@Override
 	@Transactional
 	public void deleteAccountTypeMaster(AccountTypeMaster accountTypeMaster) {
-		accountTypeMasterDao.remove(accountTypeMaster);
+		accountTypeMasterDao.delete(accountTypeMaster);
 	}
 }

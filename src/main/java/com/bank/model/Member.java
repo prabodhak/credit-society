@@ -112,9 +112,6 @@ public class Member extends Person {
 	@OneToOne
 	private Guardian guardian;
 
-	@OneToOne
-	private Introducer introducer;
-
 	@Column(name = "active")
 	private boolean active;
 
@@ -321,14 +318,6 @@ public class Member extends Person {
 
 	public void setGuardian(Guardian guardian) {
 		this.guardian = guardian;
-	}
-
-	public Introducer getIntroducer() {
-		return introducer;
-	}
-
-	public void setIntroducer(Introducer introducer) {
-		this.introducer = introducer;
 	}
 
 	public boolean isActive() {

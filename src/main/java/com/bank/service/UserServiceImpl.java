@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 	
-	@Transactional
+	@Transactional(readOnly=true)
 	public boolean checkLogin(String username, String password) throws UserNotRegisteredException {
 		return userDao.checkLogin(username, password);
 	}
