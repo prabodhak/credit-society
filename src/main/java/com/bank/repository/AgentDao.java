@@ -1,20 +1,10 @@
 package com.bank.repository;
 
-import java.util.Collection;
-
 import org.springframework.dao.DataAccessException;
 
 import com.bank.model.Agent;
 
-public interface AgentDao {
-
-	Agent findById(Long agentid);
-	
-	Collection<Agent> finadAll();
-	
-	void save(Agent agent) throws DataAccessException;
+public interface AgentDao extends GenericDao<Agent, Long>{
 	
 	void remove(Long agentId) throws DataAccessException;
-	
-	void remove(Agent agent) throws DataAccessException;
 }

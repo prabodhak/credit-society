@@ -1,7 +1,5 @@
 package com.bank.controller;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bank.model.AccountType;
 import com.bank.service.AccountTypeService;
-import com.bank.utils.MaritalStatus;
-import com.bank.utils.Relation;
 
 @Controller
 @RequestMapping("/master/account-type")

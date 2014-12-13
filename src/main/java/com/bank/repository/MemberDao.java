@@ -5,17 +5,18 @@ import java.util.Set;
 
 import org.springframework.dao.DataAccessException;
 
+import com.bank.model.BaseEntity;
 import com.bank.model.Member;
 
 /**
+ * Repository class for <code>Member</code> domain objects.
  * 
- * @author Ajay
- * 
+ * @author Ajay Gupta
+ * @since 1.0
  */
-public interface MemberDao {
-	Member findMemberById(Long MemberId);
+public interface MemberDao extends GenericDao<Member, Long>{
 
-	void findMemberByName(String name);
+	void findMemberByName(String name) throws DataAccessException;
 
 	Set<Member> findMemberByLastName(String lastName)
 			throws DataAccessException;
@@ -26,11 +27,13 @@ public interface MemberDao {
 	Set<Member> findMemberByFirstName(String firsttName)
 			throws DataAccessException;
 
-	List<Member> findAllMember();
-
+	/**
+	 * Delete a <code>Member</code> from the data store by member id.
+	 * 
+	 * @param memberId
+	 *            the id to delete the member
+	 */
 	void deleteMember(Long memberId);
-
-	void deleteMember(Member member);
-
-	void saveMember(Member member);
+	
+	List<Member> getMembersByType(char memberType);
 }

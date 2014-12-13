@@ -27,12 +27,13 @@ public class VerificationDocumentServiceImpl implements
 	}
 
 	@Override
+	@Transactional
 	public void removeDocumentType(VerificationDocument verificationDocument) {
-		verificationDocumentDao.remove(verificationDocument);
+		verificationDocumentDao.delete(verificationDocument);
 	}
 
 	@Override
-	@Transactional
+	@Transactional(readOnly=true)
 	public Collection<VerificationDocument> findAllDocumentTypes() {
 		
 		return verificationDocumentDao.findAll();

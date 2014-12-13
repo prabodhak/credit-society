@@ -15,60 +15,63 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.bank.utils.InterestCalculationMode;
 
 /**
- * This class represent a template to create different types of Account. Using this administrator can
- * create different kind of accounts according to their need.
+ * Represent JavaBean domain object for generic account. This class represent a
+ * template to create different types of society specific accounts. Using this
+ * system administrator can create different kind of accounts according to their
+ * need.
  * 
- * @author Ajay
+ * @author Ajay Gupta
+ * @since 1.0
  * 
  */
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="account_type")
+@Table(name = "account_type")
 public class AccountType extends NamedEntity {
 
 	@OneToOne
-	@JoinColumn(name="account_type_master")
+	@JoinColumn(name = "account_type_master")
 	private AccountTypeMaster accountTypeMaster;
-	
-	@Column(name="interest_rate")
+
+	@Column(name = "interest_rate")
 	@NotEmpty
 	private BigDecimal interestRate;
-	
-	@Column(name="minimum_balance")
+
+	@Column(name = "minimum_balance")
 	@NotEmpty
 	private BigDecimal minimumBalance;
-	
-	@Column(name="interest_calculation_mode")
+
+	@Column(name = "interest_calculation_mode")
 	@NotEmpty
 	private InterestCalculationMode interestCalculationMode;
-	
-	@Column(name="granter_required")
+
+	@Column(name = "granter_required")
 	@NotEmpty
 	private boolean granterRequired;
-	
-	@Column(name="pan_number_required")
+
+	@Column(name = "pan_number_required")
 	@NotEmpty
 	private boolean panNumberRequired;
-	
-	@Column(name="identity_proof_required")
+
+	@Column(name = "identity_proof_required")
 	@NotEmpty
 	private boolean identityProofRequired;
-	
-	@Column(name="address_proof_required")
+
+	@Column(name = "address_proof_required")
 	@NotEmpty
 	private boolean addressProofRequired;
-	
+
 	@OneToMany()
 	private List<VerificationDocument> identityProofDocuments;
-	
+
 	@OneToMany
 	private List<VerificationDocument> addressProofDocuments;
 
 	public AccountType() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public AccountTypeMaster getAccountTypeMaster() {
 		return accountTypeMaster;
 	}
@@ -97,7 +100,8 @@ public class AccountType extends NamedEntity {
 		return interestCalculationMode;
 	}
 
-	public void setInterestCalculationMode(InterestCalculationMode interestCalculationMode) {
+	public void setInterestCalculationMode(
+			InterestCalculationMode interestCalculationMode) {
 		this.interestCalculationMode = interestCalculationMode;
 	}
 

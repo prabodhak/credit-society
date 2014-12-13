@@ -18,7 +18,7 @@ public interface MemberService {
 	
 	Member findById(Long memberId);
 	
-	List<Member>finadAll();
+	List<Member>findAll();
 	
 	void save(Member member) throws DataAccessException;
 	
@@ -39,4 +39,6 @@ public interface MemberService {
 	List<Account> getAccounts(Long memberId);
 	
 	List<Account> getAccounts(Member member);
+	
+	
 }

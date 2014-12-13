@@ -14,16 +14,17 @@ import org.springframework.format.annotation.DateTimeFormat;
 /**
  * Simple JavaBean domain object representing an person.
  * 
- * @author Ajay
+ * @author Ajay Gupta
+ * @since 1.0
  */
 @SuppressWarnings("serial")
 @MappedSuperclass
 public class Person extends BaseEntity {
 
-	@Column(name="name")
+	@Column(name = "name")
 	private String name;
-	
-	@Column(name="gender")
+
+	@Column(name = "gender")
 	private String gender;
 
 	@Column(name = "email_id")
@@ -34,13 +35,13 @@ public class Person extends BaseEntity {
 	@Digits(fraction = 0, integer = 10)
 	private String mobile;
 
-	@OneToOne(cascade=CascadeType.ALL, optional=true)
+	@OneToOne(cascade = CascadeType.ALL, optional = true)
 	private Address localAddress;
-	
-	@OneToOne(cascade=CascadeType.ALL, optional=true)
+
+	@OneToOne(cascade = CascadeType.ALL, optional = true)
 	private Address permanentAddress;
 
-	@Column(name="birth_date")
+	@Column(name = "birth_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private DateTime birthDate;

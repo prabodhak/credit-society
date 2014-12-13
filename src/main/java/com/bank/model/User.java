@@ -9,8 +9,8 @@ import javax.validation.constraints.Size;
 /**
  * Represent a system user who can do operations for this organization
  * 
- * @author Ajay
- * 
+ * @author Ajay Gupta
+ * @since 1.0
  */
 @SuppressWarnings("serial")
 @Entity
@@ -43,5 +43,37 @@ public class User extends Person {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@Override
+	public int hashCode() {
+		
+		int hash = 7;
+		hash = 89 * hash + (this.username != null ? this.username.hashCode() : 0);
+		return hash;
+	}
+	
+	@Override
+	public boolean equals(Object object) {
+		
+		/*
+		 * If it is same object then return true.
+		 */
+		if(object == this) {
+			return true;
+		}
+		
+		/*
+		 * If the object is null or not a user then return false. 
+		 */
+		if(object == null || object.getClass() != this.getClass()) {
+			return false;
+		}
+		
+		/*
+		 * If username is same of both user object then return true.
+		 */
+		User user = (User) object;
+		return user.getUsername().equals(username);
 	}
 }

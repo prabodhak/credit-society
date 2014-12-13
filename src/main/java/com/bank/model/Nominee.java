@@ -4,25 +4,35 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.bank.utils.Relation;
+/**
+ * Simple JavaBean domain object representing a nominee for a particular
+ * account. A nominee must be associated with some account.
+ * 
+ * @author Ajay Gupta
+ * @since 1.0
+ */
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="nominee")
+@Table(name = "nominee")
 public class Nominee extends Person {
-	
-	@Column(name="relationship")
+
+	@Column(name = "relationship")
 	private Relation relationship;
-	
-	@Column(name="share")
+
+	@Column(name = "share")
 	private BigDecimal sharePercentage;
+	
+	@ManyToOne
+	private Account account;
 
 	public Nominee() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Relation getRelationship() {
 		return relationship;
 	}
@@ -37,5 +47,13 @@ public class Nominee extends Person {
 
 	public void setSharePercentage(BigDecimal sharePercentage) {
 		this.sharePercentage = sharePercentage;
+	}
+
+	public Account getAccount() {
+		return account;
+	}
+
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 }
