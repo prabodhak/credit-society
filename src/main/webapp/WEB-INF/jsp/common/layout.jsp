@@ -31,6 +31,11 @@
 	<script src="resources/js/plugins/jquery/jquery-ui-1.10.3.min.js" type="text/javascript"></script>
 	<!-- jQuery form validation v1.13.1-->
 	<script src="resources/js/plugins/jquery/jquery.validate.min.js" type="text/javascript"></script>
+	
+	<script src="resources/js/dojo.js" type="text/javascript"></script>
+	<script src="resources/js/Spring.js" type="text/javascript"></script>
+	<script src="resources/js/Spring-Dojo.js" type="text/javascript"></script>
+	
 </head>
 <body class="skin-blue">
 	<tiles:insertAttribute name="header"/>

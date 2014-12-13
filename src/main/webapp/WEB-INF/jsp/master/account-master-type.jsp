@@ -5,7 +5,7 @@
 
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
-
+<div id="main-content">
 <aside class="right-side">
 	<!-- <a class="btn btn-app"> <i class="fa fa-edit"></i> Add
 	</a> <a class="btn btn-app"> <i class="fa fa-edit"></i> Edit
@@ -122,6 +122,7 @@
 	</section>
 	<!-- /.content -->
 </aside>
+</div>
 <!-- /.right-side -->
 
 <!-- DATA TABES SCRIPT -->

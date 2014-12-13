@@ -7,12 +7,18 @@
          http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+	<!-- <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass">
 			<value>
 				org.springframework.web.servlet.view.tiles2.TilesView
 			</value>
 		</property>
+	</bean> -->
+
+	<bean class="org.springframework.js.ajax.AjaxUrlBasedViewResolver"
+		id="ajaxViewResolver">
+		<property name="viewClass"
+			value="org.springframework.js.ajax.tiles2.AjaxTilesView" />
 	</bean>
 
 	<bean id="tilesConfigurer"
