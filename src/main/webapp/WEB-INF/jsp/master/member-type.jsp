@@ -15,11 +15,11 @@
 					<!-- general form elements -->
 					<div class="box box-primary">
 						<div class="box-header" style="padding:2px;">
-							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Add
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Edit
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> View
+							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="button.add"/>
+							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="button.edit"/>
+							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="button.view"/>
 							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
-								Delete
+								<spring:message code="button.delete"/>
 							</a>
 						</div>
 					</div>
@@ -34,7 +34,7 @@
 					<!-- general form elements -->
 					<div class="box box-solid box-primary">
 						<div class="box-header">
-							<h3 class="box-title">Add Member Type</h3>
+							<h3 class="box-title"><spring:message code="master$memberType$add"/></h3>
 							<div class="box-tools pull-right">
 								<button class="btn btn-primary btn-sm" data-widget="collapse">
 									<i class="fa fa-minus"></i>
@@ -72,7 +72,7 @@
 									<label class="form-label" for="participateInElectionId"><spring:message code="label.participateInElection"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="participateInElection"
-												id="participateInElectionId" path="participateInElection" /> Yes
+												id="participateInElectionId" path="participateInElection" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
 								</div>	
@@ -80,7 +80,7 @@
 									<label class="form-label" for="eligibleForVotingId"><spring:message code="label.eligibleForVoting"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="eligibleForVoting"
-												id="eligibleForVotingId" path="eligibleForVoting" /> Yes
+												id="eligibleForVotingId" path="eligibleForVoting" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
 								</div>	
@@ -88,7 +88,7 @@
 									<label class="form-label" for="eligibleForLoanId"><spring:message code="label.eligibleForLoan"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="eligibleForLoan"
-												id="eligibleForLoanId" path="eligibleForLoan" /> Yes
+												id="eligibleForLoanId" path="eligibleForLoan" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
 								</div>	
@@ -97,12 +97,12 @@
 									<label class="form-label" for="eligibleforGuarantorId"><spring:message code="label.eligibleForGuarantor"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="eligibleforGuarantor"
-												id="eligibleforGuarantorId" path="eligibleforGuarantor" /> Yes
+												id="eligibleforGuarantorId" path="eligibleforGuarantor" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
 								</div>
 								<div class="form-group col-md-3 add-verification-docs">
-									<button type="submit" name="memberTypeButton" class="btn btn-success add-verification-docs-but">Add</button>
+									<button type="submit" name="memberTypeButton" class="btn btn-success add-verification-docs-but"><spring:message code="button.add"/></button>
 								</div>		
 								<div class="clearfix"></div>		
 							</div>

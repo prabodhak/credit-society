@@ -34,28 +34,28 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i>
-                    <span>Master</span>
+                    <span><spring:message code="master"/></span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a id="accountMasterTypeId" href="master/account-master-type"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
-                    <li><a id="accountTypeId" href="master/account-type"><i class="fa fa-angle-double-right"></i>Account Type</a></li>
-                    <li><a id="memberTypeId" href="master/member-type"><i class="fa fa-angle-double-right"></i>Member Type</a></li>
-                    <li><a id="associatedBankId" href="master/associated-bank"><i class="fa fa-angle-double-right"></i>Associated Bank</a></li>
-                    <li><a id="verificationDocumentId" href="master/verification-document"><i class="fa fa-angle-double-right"></i> Verification Document</a></li>
-                    <li><a href="pages/master/account.html"><i class="fa fa-angle-double-right"></i> Account</a></li>
-                    <li><a href="pages/master/share.html"><i class="fa fa-angle-double-right"></i> Share</a></li>
+                    <li><a id="accountMasterTypeId" href="master/account-master-type"><i class="fa fa-angle-double-right"></i><spring:message code="master$accountTypeMaster"/></a></li>
+                    <li><a id="accountTypeId" href="master/account-type"><i class="fa fa-angle-double-right"></i><spring:message code="master$accountType"/></a></li>
+                    <li><a id="memberTypeId" href="master/member-type"><i class="fa fa-angle-double-right"></i><spring:message code="master$memberType"/></a></li>
+                    <li><a id="associatedBankId" href="master/associated-bank"><i class="fa fa-angle-double-right"></i><spring:message code="master$associatedBank"/></a></li>
+                    <li><a id="verificationDocumentId" href="master/verification-document"><i class="fa fa-angle-double-right"></i> <spring:message code="master$verificationDocument"/></a></li>
+                    <li><a href="pages/master/account.html"><i class="fa fa-angle-double-right"></i><spring:message code="master$account"/></a></li>
+                    <li><a href="pages/master/share.html"><i class="fa fa-angle-double-right"></i> <spring:message code="master$share"/></a></li>
                 </ul>                            
             </li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-th"></i>
-                    <span>Members</span>
+                    <span><spring:message code="members"/></span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a id="memberInfoId" href="member/member-info"><i class="fa fa-angle-double-right"></i>Information Management</a></li>
-                    <li><a id="memberAccountId" href="member/member-account"><i class="fa fa-angle-double-right"></i>Account Management</a></li>
+                    <li><a id="memberInfoId" href="member/member-info"><i class="fa fa-angle-double-right"></i><spring:message code="members$informationManagement"/></a></li>
+                    <li><a id="memberAccountId" href="member/member-account"><i class="fa fa-angle-double-right"></i><spring:message code="members$accountManagement"/></a></li>
                     <li><a href="pages/member/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
                 </ul>
             </li>
