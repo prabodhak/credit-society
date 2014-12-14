@@ -28,7 +28,7 @@ public class MemberType extends BaseEntity {
 	}
 
 	public void setType(String type) {
-		this.type = type;
+		this.type = type.toUpperCase();
 	}
 
 	public BigDecimal getSharesAmount() {
@@ -86,5 +86,5 @@ public class MemberType extends BaseEntity {
 	public void setEligibleforGuarantor(boolean eligibleforGuarantor) {
 		this.eligibleforGuarantor = eligibleforGuarantor;
 	}
-
+	
 }

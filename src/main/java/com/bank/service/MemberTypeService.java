@@ -12,5 +12,7 @@ public interface MemberTypeService {
 	
 	void add(MemberType memberType) throws DataAccessException;
 	
+	void save(MemberType memberType) throws DataAccessException;
+	
 	void delete(Long id) throws DataAccessException;
 }

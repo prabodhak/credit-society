@@ -46,30 +46,30 @@
 						<form:form role="form" modelAttribute="memberType" action="master/member-type/add" method="post">
 							<div class="box-body">
 								<div class="form-group col-md-4">
-									<label class="form-label" for="memberTypeId">Member Type</label>
+									<label class="form-label" for="memberTypeId"><spring:message code="label.memberType"/></label>
 									<form:input type="text" name="memberType" class="form-control width-3"
 										id="memberTypeId" placeholder="Member Type" path="type" />
 								</div>		
 								<div class="clearfix"></div>
 								<div class="form-group col-md-4">
-									<label class="form-label" for="sharesAmountId">Share Amount</label>
+									<label class="form-label" for="sharesAmountId"><spring:message code="label.shareAmount"/></label>
 									<form:input type="text" name="sharesAmount" class="form-control width-3"
 										id="sharesAmountId" placeholder="Shares Amount" path="sharesAmount" />
 								</div>	
 								<div class="form-group col-md-4">
-									<label class="form-label" for="memberFeeId">Member Fee</label>
+									<label class="form-label" for="memberFeeId"><spring:message code="label.memberFee"/></label>
 									<form:input type="text" name="memberFee" class="form-control width-3"
 										id="memberFeeId" placeholder="memberFee" path="memberFee" />
 								</div>	
 								<div class="form-group col-md-4">
-									<label class="form-label" for="miscellaneousChargeId">Miscellaneous Charge</label>
+									<label class="form-label" for="miscellaneousChargeId"><spring:message code="label.miscellaneousCharge"/></label>
 									<form:input type="text" name="miscellaneousCharge" class="form-control width-3"
 										id="miscellaneousChargeId" placeholder="miscellaneousCharge" path="miscellaneousCharge" />
 								</div>	
 								<div class="clearfix"></div>	
 							
 								<div class="form-group col-md-4">
-									<label class="form-label" for="participateInElectionId">Can Participate In Election?</label>
+									<label class="form-label" for="participateInElectionId"><spring:message code="label.participateInElection"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="participateInElection"
 												id="participateInElectionId" path="participateInElection" /> Yes
@@ -77,7 +77,7 @@
 									</div>
 								</div>	
 								<div class="form-group col-md-4">
-									<label class="form-label" for="eligibleForVotingId">Is eligible for Voting?</label>
+									<label class="form-label" for="eligibleForVotingId"><spring:message code="label.eligibleForVoting"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="eligibleForVoting"
 												id="eligibleForVotingId" path="eligibleForVoting" /> Yes
@@ -85,7 +85,7 @@
 									</div>
 								</div>	
 								<div class="form-group col-md-4">
-									<label class="form-label" for="eligibleForLoanId">Is eligible For Loan?</label>
+									<label class="form-label" for="eligibleForLoanId"><spring:message code="label.eligibleForLoan"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="eligibleForLoan"
 												id="eligibleForLoanId" path="eligibleForLoan" /> Yes
@@ -94,7 +94,7 @@
 								</div>	
 								<div class="clearfix"></div>
 								<div class="form-group col-md-4">
-									<label class="form-label" for="eligibleforGuarantorId">Is eligible for Guarantor?</label>
+									<label class="form-label" for="eligibleforGuarantorId"><spring:message code="label.eligibleForGuarantor"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox name="eligibleforGuarantor"
 												id="eligibleforGuarantorId" path="eligibleforGuarantor" /> Yes

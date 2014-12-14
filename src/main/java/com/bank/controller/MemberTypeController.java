@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.bank.model.MemberType;
 import com.bank.service.MemberTypeService;
@@ -24,33 +25,40 @@ public class MemberTypeController {
 		this.memberTypeService = memberTypeService;
 	}
 	
+	@ModelAttribute("memberType")
+	public MemberType createMemberType() {
+		return new MemberType();
+	}
 	
 	@RequestMapping( method=RequestMethod.GET)
 	public String showMemberTypes(Model model) {
-		
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
-		MemberType memberType = new MemberType();
-		model.addAttribute("memberType", memberType);
 		model.addAttribute("memberTypes", results);
 		return "memberType";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Model model) {
-		MemberType memberType = new MemberType();
-		model.addAttribute("memberType", memberType);
 		return "addMemberTypeForm";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String processCreationForm(@ModelAttribute MemberType memberType) {
+	public String processCreationForm(@ModelAttribute MemberType memberType, SessionStatus sessionStatus) {
 		memberTypeService.add(memberType);
+		sessionStatus.setComplete();
 		return "redirect:/master/member-type";
 	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
-    public String deleteBooking(@PathVariable Long id) {
+    public String deleteMemberType(@PathVariable Long id) {
 	memberTypeService.delete(id);
+	return "redirect:/master/member-type";
+    }
+	
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    public String updateMemberType(@ModelAttribute MemberType memberType, SessionStatus sessionStatus) {
+	memberTypeService.save(memberType);
+	sessionStatus.setComplete();
 	return "redirect:/master/member-type";
     }
 }

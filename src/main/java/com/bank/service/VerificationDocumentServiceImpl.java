@@ -23,7 +23,7 @@ public class VerificationDocumentServiceImpl implements
 	@Override
 	@Transactional
 	public void addDocumentType(VerificationDocument verificationDocument) {
-		verificationDocumentDao.save(verificationDocument);
+		verificationDocumentDao.add(verificationDocument);
 	}
 
 	@Override
