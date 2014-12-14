@@ -33,6 +33,16 @@
 		<put-attribute name="main-content" value="/WEB-INF/jsp/master/account-type.jsp"/>
 	</definition>
 	
+	<definition name="memberType" extends="base.definition">
+		<put-attribute name="title" value="Member Type"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/master/member-type.jsp"/>
+	</definition>
+	
+	<definition name="associatedBank" extends="base.definition">
+		<put-attribute name="title" value="Associated Bank"/>
+		<put-attribute name="main-content" value="/WEB-INF/jsp/master/associated-bank.jsp"/>
+	</definition>	
+	
 	<definition name="verificationDocument" extends="base.definition">
 		<put-attribute name="title" value="Verification Document"/>
 		<put-attribute name="main-content" value="/WEB-INF/jsp/master/verification-document.jsp"/>

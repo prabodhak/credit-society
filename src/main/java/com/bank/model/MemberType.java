@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Table(name="member_type")
 public class MemberType extends BaseEntity {
 
-	private char type;
+	private String type;
 	private BigDecimal sharesAmount;
 	private BigDecimal memberFee;
 	private BigDecimal miscellaneousCharge;
@@ -19,14 +19,18 @@ public class MemberType extends BaseEntity {
 	private boolean eligibleForLoan;
 	private boolean eligibleforGuarantor;
 
-	public char getType() {
+	public MemberType() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String getType() {
 		return type;
 	}
 
-	public void setType(char type) {
+	public void setType(String type) {
 		this.type = type;
 	}
-	
+
 	public BigDecimal getSharesAmount() {
 		return sharesAmount;
 	}

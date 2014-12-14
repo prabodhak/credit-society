@@ -18,18 +18,20 @@ import javax.persistence.Table;
 public class Guardian extends Person {
 
 	@Column(name = "relationship")
-	private Relation relationship;
+	private String relationship;
+
+	public String getRelationship() {
+		return relationship;
+	}
+
+	public void setRelationship(String relationship) {
+		this.relationship = relationship;
+	}
 
 	public Guardian() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Relation getRelationship() {
-		return relationship;
-	}
-
-	public void setRelationship(Relation relationship) {
-		this.relationship = relationship;
-	}
+	
 
 }

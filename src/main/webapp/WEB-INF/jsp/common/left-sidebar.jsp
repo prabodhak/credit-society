@@ -40,6 +40,8 @@
                 <ul class="treeview-menu">
                     <li><a id="accountMasterTypeId" href="master/account-master-type"><i class="fa fa-angle-double-right"></i>Account Master Type</a></li>
                     <li><a id="accountTypeId" href="master/account-type"><i class="fa fa-angle-double-right"></i>Account Type</a></li>
+                    <li><a id="memberTypeId" href="master/member-type"><i class="fa fa-angle-double-right"></i>Member Type</a></li>
+                    <li><a id="associatedBankId" href="master/associated-bank"><i class="fa fa-angle-double-right"></i>Associated Bank</a></li>
                     <li><a id="verificationDocumentId" href="master/verification-document"><i class="fa fa-angle-double-right"></i> Verification Document</a></li>
                     <li><a href="pages/master/account.html"><i class="fa fa-angle-double-right"></i> Account</a></li>
                     <li><a href="pages/master/share.html"><i class="fa fa-angle-double-right"></i> Share</a></li>
@@ -160,6 +162,16 @@ dojo.addOnLoad(function() {
 		event: "onclick",
 		params: { fragments: "main-content" }
 	}));
+	Spring.addDecoration(new Spring.AjaxEventDecoration({
+		elementId: "memberTypeId",
+		event: "onclick",
+		params: { fragments: "main-content" }
+	}));
+	Spring.addDecoration(new Spring.AjaxEventDecoration({
+		elementId: "associatedBankId",
+		event: "onclick",
+		params: { fragments: "main-content" }
+	}));	
 	Spring.addDecoration(new Spring.AjaxEventDecoration({
 		elementId: "verificationDocumentId",
 		event: "onclick",
