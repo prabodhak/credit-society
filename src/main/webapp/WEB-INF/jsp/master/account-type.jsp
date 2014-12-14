@@ -412,7 +412,7 @@
 			</div>
 		</section>
 	</aside>
-</div>
+
 <!-- /.right-side -->
 <!-- DATA TABES SCRIPT -->
 <script src="resources/js/plugins/datatables/jquery.dataTables.js"
@@ -453,3 +453,4 @@
 		xmlhttp.send();
 	}
 </script>
+</div>

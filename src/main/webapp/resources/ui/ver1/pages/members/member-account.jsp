@@ -1,7 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
 <!-- Right side column. Contains the navbar and content of the page -->
 <div id="main-content">
 	<aside class="right-side">
@@ -39,7 +35,7 @@
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
-						<form:form role="form" modelAttribute="member" name="memberAccount" id="memberAccountId"
+						<form role="form" name="personalDetail" id="personalDetailId"
 							method="POST" action="#">
 							<div class="box-body">
 								<div class="form-group col-md-4">
@@ -258,10 +254,6 @@
 								    </div>
 								</div> 
 								<div class="clearfix"></div>
-								<jsp:directive.include file="../template/nominee-template.jsp" />
-								<div class="clearfix"></div>
-								<jsp:directive.include file="../template/guardian-template.jsp" />
-								<div class="clearfix"></div>
 							</div>
 							<!-- /.box-body -->
 							<div class="box-footer next-btn">
@@ -269,7 +261,7 @@
 									class="btn btn-primary" id="accountOpeningNextId">Next</button>
 							</div>
 							<div class="clearfix"></div>
-						</form:form>
+						</form>
 					</div>
 					<!-- /.box -->
 				</div>
@@ -277,11 +269,11 @@
 		</section>
 	</aside>
 	<!-- nominee form -->
-	<%-- <jsp:directive.include file="nominee.jsp" /> --%>
+	<jsp:directive.include file="nominee.jsp" />
 	<!-- guardian form -->
-	<%-- <jsp:directive.include file="guardian.jsp" /> --%>
+	<jsp:directive.include file="guardian.jsp" />
 	<!-- introducer form -->
-	<%-- <jsp:directive.include file="introducer.jsp" /> --%>
+	<jsp:directive.include file="introducer.jsp" />
 </div>
 <script>
 var currentBoxNumber = 0;

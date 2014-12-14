@@ -1,0 +1,54 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<!-- Right side column. Contains the navbar and content of the page -->
+<aside class="right-side">
+	<section class="content" style="padding-bottom:0px;">
+		<div class="row">
+			<!-- left column -->
+			<div class="col-md-12">
+				<!-- general form elements -->
+				<div class="box box-primary">
+					<div class="box-header" style="padding:2px;">
+						<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Add
+						</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Edit
+						</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> View
+						</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
+							Delete
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>	
+	<!-- Gaurdian Form -->
+	<section class="content">
+		<div class="row">
+			<!-- left column -->
+			<div class="col-md-12">
+				<div class="box box-solid box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Gaurdian Details (If A/C holder is
+							minor)</h3>
+						<div class="box-tools pull-right">
+							<button class="btn btn-primary btn-sm" data-widget="collapse">
+								<i class="fa fa-minus"></i>
+							</button>
+						</div>
+					</div>
+					<!-- form start -->
+					<!-- include guardian template -->
+					<form:form role="form" modelAttribute="member" action="" method="post">
+						<jsp:directive.include file="../template/guardian-template.jsp" />
+						<div class="box-footer next-btn">
+							<button type="submit" name="guardianNextBtn"
+								class="btn btn-primary" id="guardianNextBtnId">Next</button>
+						</div>
+						<div class="clearfix"></div>
+					</form:form>
+				</div>
+				<!-- Gaurdian /.box -->
+			</div>
+		</div>
+	</section>
+</aside>

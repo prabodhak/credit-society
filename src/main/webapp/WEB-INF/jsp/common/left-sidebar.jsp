@@ -52,8 +52,8 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="member/member-info"><i class="fa fa-angle-double-right"></i>Information Management</a></li>
-                    <li><a href="member/member-account"><i class="fa fa-angle-double-right"></i>Account Management</a></li>
+                    <li><a id="memberInfoId" href="member/member-info"><i class="fa fa-angle-double-right"></i>Information Management</a></li>
+                    <li><a id="memberAccountId" href="member/member-account"><i class="fa fa-angle-double-right"></i>Account Management</a></li>
                     <li><a href="pages/member/3.html"><i class="fa fa-angle-double-right"></i> 3</a></li>
                 </ul>
             </li>
@@ -155,17 +155,25 @@ dojo.addOnLoad(function() {
 		event: "onclick",
 		params: { fragments: "main-content" }
 	}));
-	
 	Spring.addDecoration(new Spring.AjaxEventDecoration({
 		elementId: "accountTypeId",
 		event: "onclick",
 		params: { fragments: "main-content" }
 	}));
-	
 	Spring.addDecoration(new Spring.AjaxEventDecoration({
 		elementId: "verificationDocumentId",
 		event: "onclick",
 		params: { fragments: "main-content" }
 	}));
+	Spring.addDecoration(new Spring.AjaxEventDecoration({
+		elementId: "memberInfoId",
+		event: "onclick",
+		params: { fragments: "main-content" }
+	}));
+	Spring.addDecoration(new Spring.AjaxEventDecoration({
+		elementId: "memberAccountId",
+		event: "onclick",
+		params: { fragments: "main-content" }
+	}));	
 });
 </script>
