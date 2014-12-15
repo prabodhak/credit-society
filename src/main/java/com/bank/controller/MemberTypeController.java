@@ -25,11 +25,6 @@ public class MemberTypeController {
 		this.memberTypeService = memberTypeService;
 	}
 	
-	@ModelAttribute("memberType")
-	public MemberType createMemberType() {
-		return new MemberType();
-	}
-	
 	@RequestMapping( method=RequestMethod.GET)
 	public String showMemberTypes(Model model) {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
@@ -39,14 +34,15 @@ public class MemberTypeController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Model model) {
+		model.addAttribute("memberType", new MemberType());
 		return "addMemberTypeForm";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String processCreationForm(@ModelAttribute MemberType memberType, SessionStatus sessionStatus) {
+	public String processCreationForm(@ModelAttribute("memberType") MemberType memberType, SessionStatus sessionStatus) {
 		memberTypeService.add(memberType);
 		sessionStatus.setComplete();
-		return "redirect:/master/member-type";
+		return "redirect:/master/member-type/add";
 	}
 	
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)

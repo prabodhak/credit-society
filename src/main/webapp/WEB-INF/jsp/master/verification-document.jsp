@@ -6,26 +6,8 @@
 	rel="stylesheet" type="text/css" />
 
 <!-- Right side column. Contains the navbar and content of the page -->
-<div id="main-content">
+<div id="body">
 	<aside class="right-side">
-		<section class="content" style="padding-bottom:0px;">
-			<div class="row" align="left">
-				<!-- left column -->
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary">
-						<div class="box-header" style="padding:2px;">
-							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i><spring:message code="button.add"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i><spring:message code="button.edit"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i><spring:message code="button.view"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
-								<spring:message code="button.delete"/>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<!-- Main content -->
 		<section class="content" style="padding-top:0px;">
 			<div class="row">
@@ -47,7 +29,7 @@
 							<div class="box-body">
 								<div class="clearfix"></div>
 								<div class="form-group col-md-3">
-									<label class="form-label" for="documentNameId"><spring:message code="documentName"/></label> <form:input
+									<label class="form-label" for="documentNameId">Document Name</label> <form:input
 										type="text" name="documentName" class="form-control" id="documentNameId"
 										placeholder="Document Name" path="name"/>
 								</div>

@@ -1,25 +1,7 @@
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
-<div id="main-content">	
+<div id="body">	
 	<aside class="right-side">
-		<section class="content menu-tool-bar">
-			<div class="row">
-				<!-- left column -->
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary">
-						<div class="box-header" style="padding:2px;">
-							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Add
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Edit
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> View
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
-								Delete
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<!-- Main content -->
 		<section class="content" style="padding-top:0px;">
 			<div class="row">

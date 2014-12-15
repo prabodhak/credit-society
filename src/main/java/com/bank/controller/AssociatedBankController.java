@@ -28,7 +28,7 @@ public class AssociatedBankController {
 		AssociatedBank associatedBank = new AssociatedBank();
 		model.addAttribute("associatedBank", associatedBank);
 		model.addAttribute("associatedBanks", results);
-		return "associatedBank";
+		return "addAssociatedBank";
 	}
 
 }

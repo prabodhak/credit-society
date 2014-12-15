@@ -6,26 +6,8 @@
 	rel="stylesheet" type="text/css" />
 
 <!-- Right side column. Contains the navbar and content of the page -->
-<div id="main-content">
+<div id="body">
 	<aside class="right-side">
-		<section class="content" style="padding-bottom:0px;">
-			<div class="row" align="left">
-				<!-- left column -->
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary">
-						<div class="box-header" style="padding:2px;">
-							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="button.add"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="button.edit"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="button.view"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
-								<spring:message code="button.delete"/>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<!-- Main content -->
 		<section class="content" style="padding-top:0px;">
 			<div class="row">
@@ -47,23 +29,23 @@
 							<div class="box-body">
 								<div class="form-group col-md-4">
 									<label class="form-label" for="memberTypeId"><spring:message code="label.memberType"/></label>
-									<form:input type="text" name="memberType" class="form-control width-3"
+									<form:input type="text" class="form-control width-3"
 										id="memberTypeId" placeholder="Member Type" path="type" />
 								</div>		
 								<div class="clearfix"></div>
 								<div class="form-group col-md-4">
 									<label class="form-label" for="sharesAmountId"><spring:message code="label.shareAmount"/></label>
-									<form:input type="text" name="sharesAmount" class="form-control width-3"
+									<form:input type="text" class="form-control width-3"
 										id="sharesAmountId" placeholder="Shares Amount" path="sharesAmount" />
 								</div>	
 								<div class="form-group col-md-4">
 									<label class="form-label" for="memberFeeId"><spring:message code="label.memberFee"/></label>
-									<form:input type="text" name="memberFee" class="form-control width-3"
+									<form:input type="text" class="form-control width-3"
 										id="memberFeeId" placeholder="memberFee" path="memberFee" />
 								</div>	
 								<div class="form-group col-md-4">
 									<label class="form-label" for="miscellaneousChargeId"><spring:message code="label.miscellaneousCharge"/></label>
-									<form:input type="text" name="miscellaneousCharge" class="form-control width-3"
+									<form:input type="text" class="form-control width-3"
 										id="miscellaneousChargeId" placeholder="miscellaneousCharge" path="miscellaneousCharge" />
 								</div>	
 								<div class="clearfix"></div>	
@@ -71,7 +53,7 @@
 								<div class="form-group col-md-4">
 									<label class="form-label" for="participateInElectionId"><spring:message code="label.participateInElection"/></label>
 									<div class="checkbox margin-none">
-										<label> <form:checkbox name="participateInElection"
+										<label> <form:checkbox
 												id="participateInElectionId" path="participateInElection" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
@@ -79,7 +61,7 @@
 								<div class="form-group col-md-4">
 									<label class="form-label" for="eligibleForVotingId"><spring:message code="label.eligibleForVoting"/></label>
 									<div class="checkbox margin-none">
-										<label> <form:checkbox name="eligibleForVoting"
+										<label> <form:checkbox
 												id="eligibleForVotingId" path="eligibleForVoting" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
@@ -87,7 +69,7 @@
 								<div class="form-group col-md-4">
 									<label class="form-label" for="eligibleForLoanId"><spring:message code="label.eligibleForLoan"/></label>
 									<div class="checkbox margin-none">
-										<label> <form:checkbox name="eligibleForLoan"
+										<label> <form:checkbox
 												id="eligibleForLoanId" path="eligibleForLoan" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
@@ -96,7 +78,7 @@
 								<div class="form-group col-md-4">
 									<label class="form-label" for="eligibleforGuarantorId"><spring:message code="label.eligibleForGuarantor"/></label>
 									<div class="checkbox margin-none">
-										<label> <form:checkbox name="eligibleforGuarantor"
+										<label> <form:checkbox
 												id="eligibleforGuarantorId" path="eligibleforGuarantor" /> <spring:message code="label.yes"/>
 										</label>
 									</div>
