@@ -42,12 +42,17 @@
 							method="POST" action="member/member-info/add">
 							<jsp:directive.include file="../template/member-info-template.jsp" />
 							<jsp:directive.include file="../template/guardian-template.jsp" />
+							
 							<div class="box-footer next-btn">
 								<button type="submit" name="personalNextBtn"
 									class="btn btn-primary" id="personalNextBtnId">Next</button>
 							</div>
 							<div class="clearfix"></div>						
 						</form:form>
+<%-- 						<form:form role="form" modelAttribute="memberType" name="memberType" id="memberTypeId"
+							method="POST" action="member/member-type/add">
+							<jsp:directive.include file="../template/member-type-template.jsp" />
+						</form:form>	 --%>					
 					</div>
 					<!-- /.box -->
 				</div>
