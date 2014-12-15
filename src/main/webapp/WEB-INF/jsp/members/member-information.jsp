@@ -2,26 +2,8 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!-- Right side column. Contains the navbar and content of the page -->
-<div id="main-content">
+<div id="body">
 	<aside class="right-side">
-		<section class="content menu-tool-bar">
-			<div class="row">
-				<!-- left column -->
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-primary">
-						<div class="box-header" style="padding:2px;">
-							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Add
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> Edit
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> View
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
-								Delete
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		<!-- Personal Details (1/2) -->
 		<section class="content" style="padding-top:0px;">
 			<div class="row">

@@ -40,6 +40,11 @@ public abstract class HibernateDao<E, K extends Serializable> implements
 		em.remove(entity);
 	}
 
+	public final void delete(K key) {
+		E entity = em.find(daoType, key);
+		em.remove(entity);
+	}
+	
 	public final void save(E entity) {
 		em.merge(entity);
 	}

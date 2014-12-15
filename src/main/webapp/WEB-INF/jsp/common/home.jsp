@@ -1,5 +1,7 @@
 <!-- Right side column. Contains the navbar and content of the page -->
-<div id="main-content">
+<div id="menu">
+</div>
+<div id="body">
 	<aside class="right-side">
 	    <!-- Content Header (Page header) -->
 	    <section class="content-header">

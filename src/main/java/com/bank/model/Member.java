@@ -13,7 +13,6 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -51,11 +50,9 @@ public class Member extends Person {
 	protected String nickName;
 
 	@Column(name = "father_name")
-	@NotEmpty
 	private String fatherName;
 
 	@Column(name = "mother_maiden_name")
-	@NotEmpty
 	private String motherMaidenName;
 
 	@Column(name = "customer_type")
@@ -84,6 +81,9 @@ public class Member extends Person {
 
 	@Column(name = "designation")
 	private String designation;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Address permanentAddress;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private Address officeAddress;
@@ -109,7 +109,7 @@ public class Member extends Person {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private DateTime creationDate;
 
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	private Guardian guardian;
 
 	@Column(name = "active")
@@ -256,6 +256,14 @@ public class Member extends Person {
 
 	public void setDesignation(String designation) {
 		this.designation = designation;
+	}
+
+	public Address getPermanentAddress() {
+		return permanentAddress;
+	}
+
+	public void setPermanentAddress(Address permanentAddress) {
+		this.permanentAddress = permanentAddress;
 	}
 
 	public Address getOfficeAddress() {

@@ -3,7 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 <!-- Right side column. Contains the navbar and content of the page -->
-<div id="main-content">
+<div id="body">
 	<aside class="right-side">
 		<section class="content menu-tool-bar">
 			<div class="row">

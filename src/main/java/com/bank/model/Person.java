@@ -4,10 +4,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.Digits;
 
 import org.hibernate.annotations.Type;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,15 +29,10 @@ public class Person extends BaseEntity {
 	private String emailId;
 
 	@Column(name = "mobile")
-	@NotEmpty
-	@Digits(fraction = 0, integer = 10)
 	private String mobile;
 
 	@OneToOne(cascade = CascadeType.ALL, optional = true)
 	private Address localAddress;
-
-	@OneToOne(cascade = CascadeType.ALL, optional = true)
-	private Address permanentAddress;
 
 	@Column(name = "birth_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
@@ -84,14 +77,6 @@ public class Person extends BaseEntity {
 
 	public void setLocalAddress(Address localAddress) {
 		this.localAddress = localAddress;
-	}
-
-	public Address getPermanentAddress() {
-		return permanentAddress;
-	}
-
-	public void setPermanentAddress(Address permanentAddress) {
-		this.permanentAddress = permanentAddress;
 	}
 
 	public DateTime getBirthDate() {

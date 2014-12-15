@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,10 +39,10 @@ public class MemberController {
 		this.masterDataLoaderService = masterDataLoaderService;
 	}
 
-	@InitBinder
+	/*@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
 		dataBinder.setDisallowedFields("id");
-	}
+	}*/
 
 	@RequestMapping(value={"/member-info" ,"/member-info/add"}, method=RequestMethod.GET)
 	public String initCreationForm(Model model) {
@@ -58,7 +59,7 @@ public class MemberController {
 	}
 
 	@RequestMapping(value="/member-info/add", method=RequestMethod.POST)
-	public String processCreationForm(Member member) {
+	public String processCreationForm(@ModelAttribute Member member) {
 		
 		memberService.save(member);
 		return "redirect:/member/member-info/add";

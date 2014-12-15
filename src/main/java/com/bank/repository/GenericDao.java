@@ -37,6 +37,14 @@ public interface GenericDao<E, K extends Serializable> {
 	 *            the entity object to delete the entity
 	 */
 	void delete(E entity);
+	
+	/**
+	 * Delete a <code>Entity</code> from the data store by entity.
+	 * 
+	 * @param entity
+	 *            the entity object to delete the entity
+	 */
+	void delete(K key);
 
 	/**
 	 * Save a <code>Entity</code> to the data store, either inserting or
