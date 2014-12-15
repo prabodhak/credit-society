@@ -112,7 +112,7 @@
 										path="branchAddress.pincode" />
 								</div>		
 								<div class="form-group col-md-3 add-verification-docs">
-									<button name="associatedButton" class="btn btn-success">Add</button>
+									<button name="associatedButton" class="btn btn-success"><spring:message code="button$add"/></button>
 								</div>								
 								<div class="clearfix"></div>		
 							</div>

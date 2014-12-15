@@ -84,7 +84,7 @@
 									</div>
 								</div>
 								<div class="form-group col-md-3 add-verification-docs">
-									<button type="submit" name="memberTypeButton" class="btn btn-success add-verification-docs-but"><spring:message code="button.add"/></button>
+									<button type="submit" name="memberTypeButton" class="btn btn-success add-verification-docs-but"><spring:message code="button$add"/></button>
 								</div>		
 								<div class="clearfix"></div>		
 							</div>

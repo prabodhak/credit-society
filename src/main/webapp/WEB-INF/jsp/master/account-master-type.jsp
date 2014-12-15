@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@page pageEncoding="utf-8" %>
 
@@ -28,18 +28,16 @@
 						<div class="box-body">
 							<div class="clearfix"></div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="masterAccountNameId">Master
-									Account Name</label> <form:input type="text" name="masterAccountName" class="form-control width-3"
+								<label class="form-label" for="masterAccountNameId"><spring:message code="master$accountTypeMaster$masterAccountName.label"/></label> <form:input type="text" class="form-control width-3"
 									id="masterAccountNameId" placeholder="Master Accoount Name" path="name"/>
 							</div>
 							<div class="form-group col-md-4">
-								<label class="form-label" for="masterAccountDescriptionId">Master
-									Account Description</label> <form:input type="text" name="masterAccountDescription"
+								<label class="form-label" for="masterAccountDescriptionId"><spring:message code="master$accountTypeMaster$masterAccountdescription.label"/></label> <form:input type="text" 
 									class="form-control width-3" id="masterAccountDescriptionId"
 									placeholder="Master Accoount Description" path="accountDescription"/>
 							</div>
 							<div class="form-group col-md-4 add-master-account-type-docs">
-								<button name="accountMasterTypeAddBut" class="btn btn-success add-master-account-type-docs-but">Add</button>
+								<button name="accountMasterTypeAddBut" class="btn btn-success add-master-account-type-docs-but"><spring:message code="button$add"/></button>
 							</div>
 							<div class="clearfix"></div>
 						</div>
@@ -56,9 +54,9 @@
 						<table id="accountMasterTypeListId" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th style="width: 25%;">Account Type</th>
-									<th style="width: 60%;">Account Description</th>
-									<th style="width: 15%;">Status</th>
+									<th style="width: 25%;"><spring:message code="master$accountTypeMaster$masterAccountName.label"/></th>
+									<th style="width: 60%;"><spring:message code="master$accountTypeMaster$masterAccountdescription.label"/></th>
+									<th style="width: 15%;"><spring:message code="master$accountTypeMaster$status.label"/></th>
 								</tr>
 							</thead>
 							<tbody>

@@ -44,7 +44,7 @@
 									</form:select>
 								</div>
 								<div class="form-group col-md-3 add-verification-docs">
-									<button name="verificationDocBut" class="btn btn-success add-verification-docs-but">Add</button>
+									<button name="verificationDocBut" class="btn btn-success add-verification-docs-but"><spring:message code="button$add"/></button>
 								</div>
 								<div class="clearfix"></div>
 							</div>
