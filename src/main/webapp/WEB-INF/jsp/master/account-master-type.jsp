@@ -15,7 +15,7 @@
 				<!-- general form elements -->
 				<div class="box box-solid box-primary">
 					<div class="box-header">
-						<h3 class="box-title">Add Master Account Type</h3>
+						<h3 class="box-title"><spring:message code="master$accountTypeMaster$add"/></h3>
 						<div class="box-tools pull-right">
 							<button class="btn btn-primary btn-sm" data-widget="collapse">
 								<i class="fa fa-minus"></i>

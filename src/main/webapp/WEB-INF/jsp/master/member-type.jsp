@@ -54,7 +54,7 @@
 									<label class="form-label" for="participateInElectionId"><spring:message code="label.participateInElection"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox
-												id="participateInElectionId" path="participateInElection" /> <spring:message code="label.yes"/>
+												id="participateInElectionId" path="participateInElection" /> <spring:message code="yes"/>
 										</label>
 									</div>
 								</div>	
@@ -62,7 +62,7 @@
 									<label class="form-label" for="eligibleForVotingId"><spring:message code="label.eligibleForVoting"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox
-												id="eligibleForVotingId" path="eligibleForVoting" /> <spring:message code="label.yes"/>
+												id="eligibleForVotingId" path="eligibleForVoting" /> <spring:message code="yes"/>
 										</label>
 									</div>
 								</div>	
@@ -70,7 +70,7 @@
 									<label class="form-label" for="eligibleForLoanId"><spring:message code="label.eligibleForLoan"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox
-												id="eligibleForLoanId" path="eligibleForLoan" /> <spring:message code="label.yes"/>
+												id="eligibleForLoanId" path="eligibleForLoan" /> <spring:message code="yes"/>
 										</label>
 									</div>
 								</div>	
@@ -79,7 +79,7 @@
 									<label class="form-label" for="eligibleforGuarantorId"><spring:message code="label.eligibleForGuarantor"/></label>
 									<div class="checkbox margin-none">
 										<label> <form:checkbox
-												id="eligibleforGuarantorId" path="eligibleforGuarantor" /> <spring:message code="label.yes"/>
+												id="eligibleforGuarantorId" path="eligibleforGuarantor" /> <spring:message code="yes"/>
 										</label>
 									</div>
 								</div>
