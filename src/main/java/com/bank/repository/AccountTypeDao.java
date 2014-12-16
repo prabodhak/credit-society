@@ -18,7 +18,7 @@ public interface AccountTypeDao  extends GenericDao<AccountType, Long>{
      * @param name Value to search for
      * @return a matching <code>AccountMaster</code>s (or a null if none found)
      */	
-	void findAccountTypeByName(String name);
+	AccountType findAccountTypeByName(String name);
 	
 	void removeAccountType(Long accountId);
 	

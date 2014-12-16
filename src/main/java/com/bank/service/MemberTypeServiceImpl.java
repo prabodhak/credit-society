@@ -20,6 +20,11 @@ public class MemberTypeServiceImpl implements MemberTypeService {
 	public MemberTypeServiceImpl(MemberTypeDao memberTypeDao) {
 		this.memberTypeDao = memberTypeDao;
 	}
+	
+	@Override
+	public MemberType findMemberType(Long id) throws DataAccessException {
+		return memberTypeDao.findById(id);
+	}
 
 	@Override
 	public void add(MemberType memberType) throws DataAccessException {

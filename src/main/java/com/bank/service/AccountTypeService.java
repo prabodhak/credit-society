@@ -8,8 +8,8 @@ import com.bank.model.AccountType;
 
 @Service
 public interface AccountTypeService {
-	void findAccountTypeById(Long accountTypeId);
-	void findAccountTypeByName(String name);
+	AccountType findAccountTypeById(Long accountTypeId);
+	AccountType findAccountTypeByName(String name);
 	List<AccountType> findAllAccountType();
 	void saveAccountType(AccountType accountType);
 	void deleteAccountType(Long accountId);

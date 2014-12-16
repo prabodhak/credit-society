@@ -22,14 +22,14 @@ public class AccountTypeServiceImpl implements AccountTypeService {
 
 	@Override
 	@Transactional(readOnly=true)
-	public void findAccountTypeById(Long accountTypeId) {
-		accountTypeDao.findById(accountTypeId);
+	public AccountType findAccountTypeById(Long accountTypeId) {
+		return accountTypeDao.findById(accountTypeId);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public void findAccountTypeByName(String name) {
-		accountTypeDao.findAccountTypeByName(name);
+	public AccountType findAccountTypeByName(String name) {
+		return accountTypeDao.findAccountTypeByName(name);
 	}
 
 	@Override

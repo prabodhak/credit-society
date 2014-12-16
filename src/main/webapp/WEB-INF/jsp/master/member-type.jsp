@@ -25,6 +25,9 @@
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
+						<c:if test="${not empty message}">
+							<div id="message" class="success">${message}</div>	
+				  		</c:if>
 						<form:form role="form" modelAttribute="memberType" action="master/member-type/add" method="post">
 							<div class="box-body">
 								<div class="form-group col-md-4">

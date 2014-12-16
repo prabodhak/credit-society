@@ -8,6 +8,8 @@ import com.bank.model.MemberType;
 
 public interface MemberTypeService {
 
+	MemberType findMemberType(Long id) throws DataAccessException;
+	
 	Collection<MemberType> findAllMemberTypes();
 	
 	void add(MemberType memberType) throws DataAccessException;

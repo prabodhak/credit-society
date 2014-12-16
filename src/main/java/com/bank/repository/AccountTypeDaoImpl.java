@@ -14,8 +14,8 @@ public class AccountTypeDaoImpl extends HibernateDao<AccountType, Long> implemen
 	EntityManager em;
 
 	@Override
-	public void findAccountTypeByName(String name) {
-		
+	public AccountType findAccountTypeByName(String name) {
+		return null;
 	}
 
 	@Override
