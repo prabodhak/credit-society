@@ -20,7 +20,7 @@
 										<th style="width: 20%;"><spring:message code="label.memberType"/></th>
 										<th style="width: 15%;"><spring:message code="label.shareAmount"/></th>
 										<th style="width: 15%"><spring:message code="label.memberFee"/></th>
-										<th style="width: 10%;"><spring:message code="label.miscellaneousCharge"/></th>
+										<th style="width: 10%;"><spring:message code="label.miscCharge"/></th>
 										<th style="width: 10%;"><spring:message code="label.electionParticipation"/></th>
 										<th style="width: 10%;"><spring:message code="label.voteElibility"/></th>
 										<th style="width: 10%;"><spring:message code="label.loanElibility"/></th>
