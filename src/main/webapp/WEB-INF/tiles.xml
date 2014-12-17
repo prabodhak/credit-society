@@ -126,7 +126,7 @@
 	</definition>
 	<definition name="viewMemberType" extends="memberType.definition">
 		<put-attribute name="title" value="Edit Member Type"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-view.jsp"/>
 	</definition>
 	<definition name="editMemberType" extends="memberType.definition">
 		<put-attribute name="title" value="Edit Member Type"/>

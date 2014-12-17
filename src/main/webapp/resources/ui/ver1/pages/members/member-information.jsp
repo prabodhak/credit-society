@@ -41,6 +41,7 @@
 						<form:form role="form" modelAttribute="member" name="personalDetail" id="personalDetailId"
 							method="POST" action="member/member-info/add">
 							<jsp:directive.include file="../template/member-info-template.jsp" />
+							<jsp:directive.include file="../template/member-type-template.jsp" />
 							<div class="box-footer next-btn">
 								<button type="submit" name="personalNextBtn"
 									class="btn btn-primary" id="personalNextBtnId">Next</button>
