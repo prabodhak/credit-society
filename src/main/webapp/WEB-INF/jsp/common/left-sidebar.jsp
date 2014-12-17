@@ -39,7 +39,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a id="accountMasterTypeId" href="master/account-master-type"><i class="fa fa-angle-double-right"></i><spring:message code="master$accountTypeMaster"/></a></li>
-                    <li><a id="accountTypeId" href="master/account-type"><i class="fa fa-angle-double-right"></i><spring:message code="master$accountType"/></a></li>
+                    <li><a id="accountTypeId" href="master/account-type/add"><i class="fa fa-angle-double-right"></i><spring:message code="master$accountType"/></a></li>
                     <li><a id="memberTypeId" href="master/member-type/add"><i class="fa fa-angle-double-right"></i><spring:message code="master$memberType"/></a></li>
                     <li><a id="associatedBankId" href="master/associated-bank"><i class="fa fa-angle-double-right"></i><spring:message code="master$associatedBank"/></a></li>
                     <li><a id="verificationDocumentId" href="master/verification-document"><i class="fa fa-angle-double-right"></i> <spring:message code="master$verificationDocument"/></a></li>
@@ -150,7 +150,7 @@
     <!-- /.sidebar -->
 </aside>
 
-<script type="text/javascript">
+<%-- <script type="text/javascript">
 dojo.addOnLoad(function() {
 	Spring.addDecoration(new Spring.AjaxEventDecoration({
 		elementId: "accountMasterTypeId",
@@ -188,4 +188,4 @@ dojo.addOnLoad(function() {
 		params: { fragments: "menu, body" }
 	}));	
 });
-</script>
+</script> --%>

@@ -52,7 +52,8 @@ public class MemberTypeController {
 	 * When a user hit the url "/delete" we will show the same "/view" page with
 	 * one extra column "delete checkbox". That's why the return view name of
 	 * this is same as "/view". For showing extra column we are adding a boolean
-	 * attribute in model.
+	 * attribute in model. In this jsp we check this boolean flag and display
+	 * the delete column accordingly.
 	 */
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public String initDeleteMemberType(Model model) {

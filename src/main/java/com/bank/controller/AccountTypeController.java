@@ -2,6 +2,7 @@ package com.bank.controller;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,11 +22,16 @@ public class AccountTypeController {
 
 	private AccountTypeService accountTypeService;
 	
-	@ModelAttribute
+	@Autowired
+	public AccountTypeController(AccountTypeService accountTypeService) {
+		this.accountTypeService = accountTypeService;
+	}
+	
+	/*@ModelAttribute
 	public void getAccountTypeList(Model model) {
 		Collection<AccountType> resluts = accountTypeService.findAllAccountType();
 		model.addAttribute("accountTypes", resluts);
-	}
+	}*/
 	
 	/**
 	 * Show all Account types.
