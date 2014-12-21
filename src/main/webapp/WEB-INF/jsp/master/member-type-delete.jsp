@@ -136,4 +136,6 @@
             "bAutoWidth": false
         });
     });
+    
+    $('#memberTypeId').addClass('active');
 </script>
