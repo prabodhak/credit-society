@@ -14,10 +14,11 @@
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive">
-							<table id="memberTypeListViewId" class="table table-bordered table-striped">
+							<table id="memberTypeListDeleteId" class="table table-bordered table-striped">
 								<thead>
 									<tr>
-										<th style="width: 20%;"><spring:message code="label.memberType"/></th>
+										<th style="width: 5%;"></th>
+										<th style="width: 15%;"><spring:message code="label.memberType"/></th>
 										<th style="width: 15%;"><spring:message code="label.shareAmount"/></th>
 										<th style="width: 15%"><spring:message code="label.memberFee"/></th>
 										<th style="width: 10%;"><spring:message code="label.miscCharge"/></th>
@@ -29,6 +30,11 @@
 								</thead>
 								<tbody>
 									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
 										<td>Trident</td>
 										<td>Internet Explorer 4.0</td>
 										<td>10000</td>
@@ -39,6 +45,11 @@
 										<td>Daily</td>
 									</tr>
 									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
 										<td>Trident</td>
 										<td>Internet Explorer 5.0</td>
 										<td>10000</td>
@@ -49,6 +60,11 @@
 										<td>Daily</td>
 									</tr>
 									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
 										<td>Trident</td>
 										<td>Internet Explorer 5.5</td>
 										<td>10000</td>
@@ -59,6 +75,11 @@
 										<td>Daily</td>
 									</tr>
 									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
 										<td>Trident</td>
 										<td>Internet Explorer 6</td>
 										<td>10000</td>
@@ -69,6 +90,11 @@
 										<td>Daily</td>
 									</tr>
 									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
 										<td>Trident</td>
 										<td>Internet Explorer 7</td>
 										<td>10000</td>
@@ -82,14 +108,18 @@
 							</table>
 						</div>
 						<!-- /.box-body -->
+						<div class="clearfix"></div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Delete</button>
+						</div>
 					</div>
 					<!-- /.box -->
 				</div>
 			</div>
-		</section>
+		</section>		
 	</aside>
-</div>
 <!-- /.right-side -->
+</div>
 <!-- DATA TABES SCRIPT -->
 <script src="resources/js/plugins/datatables/jquery.dataTables.js"
 	type="text/javascript"></script>
@@ -97,7 +127,7 @@
 	type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
-        $("#memberTypeListViewId").dataTable({
+        $("#memberTypeListDeleteId").dataTable({
             "bPaginate": true,
             "bLengthChange": false,
             "bFilter": false,
