@@ -14,9 +14,9 @@
 					<!-- general form elements -->
 					<div class="box box-primary">
 						<div class="box-header" style="padding:2px;">
-							<a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$add"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$edit"/>
-							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$view"/>
+							<a class="btn btn-app" style="margin:0px;" href="master/member-type/add"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$add"/>
+							</a> <a class="btn btn-app" style="margin:0px;" href="master/member-type/edit"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$edit"/>
+							</a> <a class="btn btn-app" style="margin:0px;" href="master/member-type/view"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$view"/>
 							</a> <a class="btn btn-app" style="margin:0px;"> <i class="fa fa-edit"></i>
 								<spring:message code="crud$menu$delete"/>
 							</a>

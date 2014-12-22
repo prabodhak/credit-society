@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,6 +18,7 @@ import com.bank.service.MemberTypeService;
 
 @Controller
 @RequestMapping(value="/master/member-type")
+@SessionAttributes("memberType")
 public class MemberTypeController {
 
 	private MemberTypeService memberTypeService;
@@ -69,7 +71,7 @@ public class MemberTypeController {
 	
 	@RequestMapping(value="/edit")
 	public String editMemberType() {
-		return "editMemberType";
+		return "viewMemberType";
 	}
 	
 	/*
@@ -83,7 +85,7 @@ public class MemberTypeController {
 		return "addMemberTypeForm";
 	}
 	
-	@RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT)
+	@RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public String updateMemberType(@ModelAttribute MemberType memberType, SessionStatus sessionStatus, RedirectAttributes redirectAttributes) {
 	memberTypeService.save(memberType);
 	sessionStatus.setComplete();

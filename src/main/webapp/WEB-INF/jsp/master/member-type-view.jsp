@@ -28,7 +28,20 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									<c:forEach var="memberType" items="${memberTypes}">
+										<tr>
+											<td><a href="master/member-type/${memberType.id}/edit">${memberType.type}</a></td>
+											<td>${memberType.sharesAmount}</td>
+											<td>${memberType.memberFee}</td>
+											<td>${memberType.miscellaneousCharge}</td>
+											<td>${memberType.participateInElection}</td>
+											<td>${memberType.eligibleForVoting}</td>
+											<td>${memberType.eligibleForLoan}</td>
+											<td>${memberType.eligibleforGuarantor}</td>
+										</tr>
+									
+									</c:forEach>
+									<!-- <tr>
 										<td>Trident</td>
 										<td>Internet Explorer 4.0</td>
 										<td>10000</td>
@@ -77,7 +90,7 @@
 										<td>12.59</td>
 										<td>Daily</td>
 										<td>Active</td>
-									</tr>
+									</tr> -->
 								</tbody>
 							</table>
 						</div>
