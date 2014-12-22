@@ -541,6 +541,14 @@ body > .header .logo .icon {
   font-size: 14px;
   margin: 0px 0px;
 }
+.sidebar .sidebar-menu .treeview-menu > li > a:hover {
+	background: #F4F4F4;
+	/*background: #76cdff;*/
+	/*background: #c5eaff;*/
+}
+.sidebar .sidebar-menu .treeview-menu > li > a.active{
+	background: #76cdff;
+}
 .sidebar .sidebar-menu .treeview-menu > li > a > .fa,
 .sidebar .sidebar-menu .treeview-menu > li > a > .glyphicon,
 .sidebar .sidebar-menu .treeview-menu > li > a > .ion {
@@ -2483,7 +2491,8 @@ Component: timeline
 .skin-blue .sidebar > .sidebar-menu > li > a:hover,
 .skin-blue .sidebar > .sidebar-menu > li.active > a {
   color: #222;
-  background: #f9f9f9;
+  /*background: #f9f9f9;*/
+  background: #01A1FF;
 }
 .skin-blue .sidebar > .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
