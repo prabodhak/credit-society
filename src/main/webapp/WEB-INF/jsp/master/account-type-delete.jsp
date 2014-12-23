@@ -10,7 +10,7 @@
 						<div class="box-header">
 							<h3 class="box-title">Account Type List</h3>
 						</div>
-						<table id="accountTypeListViewId" class="table table-bordered table-striped">
+						<table id="accountTypeListDeleteId" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th style="width:5%;"></th>
@@ -538,10 +538,10 @@
 		}
 	} );
 	
-    $('#accountTypeId').addClass('active');
+    $('#accountTypeListDeleteId').addClass('active');
     //alert($('#accountTypeId').attr('class'));
     
     $('#crudMenuDeleteId').addClass('active');
     
-  	alert($('#accountTypeId').parent().nodeName);
+  	//alert($('#accountTypeId').parent().nodeName);
 </script>

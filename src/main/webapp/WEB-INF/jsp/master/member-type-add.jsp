@@ -96,6 +96,8 @@
 										</label>
 									</div>
 								</div>
+								<div class="clearfix"></div>
+								<hr>
 								<div class="form-group col-md-3 add-verification-docs">
 						            <c:choose>
 						                <c:when test="${memberType['new']}">
@@ -124,3 +126,6 @@
 	</aside>
 </div>
 <!-- /.right-side -->
+<script type="text/javascript">
+    $('#crudMenuAddId').addClass('active');
+</script>

@@ -68,11 +68,13 @@
     $(function() {
         $("#memberTypeListViewId").dataTable({
             "bPaginate": true,
-            "bLengthChange": false,
-            "bFilter": false,
+            "bLengthChange": true,
+            "bFilter": true,
             "bSort": true,
             "bInfo": true,
             "bAutoWidth": false
         });
     });
+    
+    $('#crudMenuViewId').addClass('active');
 </script>
