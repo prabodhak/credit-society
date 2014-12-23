@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -65,10 +66,12 @@ public class MemberTypeController {
 		return "deleteMemberType";
 	}
 	
-	@RequestMapping(value = "/{id}/delete", method = RequestMethod.DELETE)
-    public String deleteMemberType(@PathVariable Long id) {
-	memberTypeService.delete(id);
-	return "redirect:/master/member-type";
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteMemberType(@RequestParam("deleted") String[] deleted)  {
+		for(String name : deleted) {
+			memberTypeService.delete(Long.valueOf(name));
+		}
+		return "redirect:/master/member-type/delete";
     }
 	
 	@RequestMapping(value="/edit")

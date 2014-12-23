@@ -9,6 +9,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="box">
+					<form action="master/member-type/delete" method="post">
 						<div class="box-header">
 							<h3 class="box-title">Member Type List</h3>
 						</div>
@@ -29,11 +30,12 @@
 									</tr>
 								</thead>
 								<tbody>
+									
 									<c:forEach var="memberType" items="${memberTypes}">
 										<tr>
 											<td>
 												<div class="checkbox">
-													<form:checkbox  path="" id="govtOfficeIdentityId" value="${memberType.id}"/>
+													<input type="checkbox" name="deleted" id="govtOfficeIdentityId" value="${memberType.id}"/>
 												</div>
 											</td>
 											<td>${memberType.type}</td>
@@ -54,6 +56,7 @@
 						<div class="box-footer">
 							<button type="submit" class="btn btn-primary">Delete</button>
 						</div>
+						</form>
 					</div>
 					<!-- /.box -->
 				</div>
