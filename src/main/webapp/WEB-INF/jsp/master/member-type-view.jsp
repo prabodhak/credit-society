@@ -3,6 +3,9 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
+<script>var operation="${operation}";
+alert(operation);
+</script>
 <div id="body">	
 	<aside class="right-side">
 		<section class="content">
@@ -31,7 +34,7 @@
 									<c:forEach var="memberType" items="${memberTypes}">
 										<tr>
 											<c:choose>
-												<c:when test="${not empty operation}">
+												<c:when test="${operation eq 'edit'}">
 													<td><a href="master/member-type/${memberType.id}/edit">${memberType.type}</a></td>
 												</c:when>
 												<c:otherwise>

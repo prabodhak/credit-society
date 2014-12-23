@@ -32,6 +32,7 @@ public class MemberTypeController {
 	public String showMemberTypes(Model model) {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
+		model.addAttribute("operation", "view");
 		return "viewMemberType";
 	}
 	
