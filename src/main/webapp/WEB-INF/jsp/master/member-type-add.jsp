@@ -28,7 +28,17 @@
 						<c:if test="${not empty message}">
 							<div id="message" class="success">${message}</div>	
 				  		</c:if>
-						<form:form role="form" modelAttribute="memberType" action="master/member-type/add" method="post">
+				  		<c:choose>
+					        <c:when test="${memberType['new']}">
+					        	<c:set var="method" value="post"/>
+					        	<c:set var="action" value="add"/>
+					        </c:when>
+					        <c:otherwise>
+					        	<c:set var="method" value="put"/>
+					        	<c:set var="action" value="edit"/>
+					        </c:otherwise>
+					    </c:choose>
+						<form:form role="form" modelAttribute="memberType" action="master/member-type/${action}" method="${method}">
 							<div class="box-body">
 								<div class="form-group col-md-4">
 									<label class="form-label" for="memberTypeId"><spring:message code="label.memberType"/></label>
@@ -87,8 +97,15 @@
 									</div>
 								</div>
 								<div class="form-group col-md-3 add-verification-docs">
-									<button type="submit" name="memberTypeButton" class="btn btn-success add-verification-docs-but"><spring:message code="button$add"/></button>
-								</div>		
+						            <c:choose>
+						                <c:when test="${memberType['new']}">
+						                    <button type="submit" class="btn btn-success"><spring:message code="master$members$memberType$addMemberType.button"/></button>
+						                </c:when>
+						                <c:otherwise>
+						                    <button type="submit" class="btn btn-success"><spring:message code="master$members$memberType$updateMemberType.button"/></button>
+						                </c:otherwise>
+						            </c:choose>
+						        </div>	
 								<div class="clearfix"></div>		
 							</div>
 							<!-- /.box-body -->	

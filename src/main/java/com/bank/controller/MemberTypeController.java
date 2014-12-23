@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,6 +18,7 @@ import com.bank.service.MemberTypeService;
 
 @Controller
 @RequestMapping(value="/master/member-type")
+@SessionAttributes("memberType")
 public class MemberTypeController {
 
 	private MemberTypeService memberTypeService;
@@ -36,7 +38,7 @@ public class MemberTypeController {
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Model model) {
 		model.addAttribute("memberType", new MemberType());
-		return "addMemberTypeForm";
+		return "createOrUpdateMemberTypeForm";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
@@ -57,8 +59,9 @@ public class MemberTypeController {
 	 */
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public String initDeleteMemberType(Model model) {
-		model.addAttribute("delete", Boolean.TRUE);
-		return "viewMemberType";
+		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
+		model.addAttribute("memberTypes", results);
+		return "deleteMemberType";
 	}
 	
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.DELETE)
@@ -68,8 +71,11 @@ public class MemberTypeController {
     }
 	
 	@RequestMapping(value="/edit")
-	public String editMemberType() {
-		return "editMemberType";
+	public String editMemberType(Model model) {
+		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
+		model.addAttribute("memberTypes", results);
+		model.addAttribute("operation", "edit");
+		return "viewMemberType";
 	}
 	
 	/*
@@ -80,10 +86,10 @@ public class MemberTypeController {
 	public String initEditMemberTypeForm(@PathVariable("id") Long id, Model model) {
 		MemberType memberType = memberTypeService.findMemberType(id);
 		model.addAttribute(memberType);
-		return "addMemberTypeForm";
+		return "createOrUpdateMemberTypeForm";
 	}
 	
-	@RequestMapping(value = "/{id}/edit", method = RequestMethod.PUT)
+	@RequestMapping(value = "/edit", method = RequestMethod.PUT)
     public String updateMemberType(@ModelAttribute MemberType memberType, SessionStatus sessionStatus, RedirectAttributes redirectAttributes) {
 	memberTypeService.save(memberType);
 	sessionStatus.setComplete();

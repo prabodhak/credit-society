@@ -101,7 +101,7 @@ public class AccountTypeController {
 		return "addAccountType";
 	}
 	
-	@RequestMapping(value="/{id}/edit", method=RequestMethod.PUT)
+	@RequestMapping(value="/edit", method=RequestMethod.PUT)
 	public String editAccountType(@ModelAttribute AccountType accountType, SessionStatus sessionStatus) {
 		accountTypeService.saveAccountType(accountType);
 		sessionStatus.setComplete();

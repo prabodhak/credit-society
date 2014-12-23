@@ -287,6 +287,25 @@
 										<td>Daily</td>
 										<td>Active</td>
 									</tr>								</tbody>
+=======
+									<c:forEach var="memberType" items="${memberTypes}">
+										<tr>
+											<td>
+												<div class="checkbox">
+													<form:checkbox  path="" id="govtOfficeIdentityId" value="${memberType.id}"/>
+												</div>
+											</td>
+											<td>${memberType.type}</td>
+											<td>${memberType.sharesAmount}</td>
+											<td>${memberType.memberFee}</td>
+											<td>${memberType.miscellaneousCharge}</td>
+											<td>${memberType.participateInElection}</td>
+											<td>${memberType.eligibleForVoting}</td>
+											<td>${memberType.eligibleForLoan}</td>
+											<td>${memberType.eligibleforGuarantor}</td>
+										</tr>
+									</c:forEach>
+								</tbody>
 							</table>
 						</div>
 						<!-- /.box-body -->
