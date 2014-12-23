@@ -38,7 +38,7 @@ public class MemberTypeController {
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Model model) {
 		model.addAttribute("memberType", new MemberType());
-		return "addMemberTypeForm";
+		return "createOrUpdateMemberTypeForm";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
@@ -59,8 +59,9 @@ public class MemberTypeController {
 	 */
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public String initDeleteMemberType(Model model) {
-		model.addAttribute("delete", Boolean.TRUE);
-		return "viewMemberType";
+		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
+		model.addAttribute("memberTypes", results);
+		return "deleteMemberType";
 	}
 	
 	@RequestMapping(value = "/{id}/delete", method = RequestMethod.DELETE)
@@ -70,7 +71,10 @@ public class MemberTypeController {
     }
 	
 	@RequestMapping(value="/edit")
-	public String editMemberType() {
+	public String editMemberType(Model model) {
+		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
+		model.addAttribute("memberTypes", results);
+		model.addAttribute("operation", "edit");
 		return "viewMemberType";
 	}
 	
@@ -82,7 +86,7 @@ public class MemberTypeController {
 	public String initEditMemberTypeForm(@PathVariable("id") Long id, Model model) {
 		MemberType memberType = memberTypeService.findMemberType(id);
 		model.addAttribute(memberType);
-		return "addMemberTypeForm";
+		return "createOrUpdateMemberTypeForm";
 	}
 	
 	@RequestMapping(value = "/edit", method = RequestMethod.PUT)

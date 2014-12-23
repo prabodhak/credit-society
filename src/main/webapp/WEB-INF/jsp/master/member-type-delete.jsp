@@ -29,81 +29,23 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
-											</div>
-										</td>
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Daily</td>
-										<td>Active</td>
-										<td>12.59</td>
-										<td>Daily</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
-											</div>
-										</td>
-										<td>Trident</td>
-										<td>Internet Explorer 5.0</td>
-										<td>10000</td>
-										<td>14.20</td>
-										<td>yearly</td>
-										<td>InActive</td>
-										<td>12.59</td>
-										<td>Daily</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
-											</div>
-										</td>
-										<td>Trident</td>
-										<td>Internet Explorer 5.5</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Monthly</td>
-										<td>Active</td>
-										<td>12.59</td>
-										<td>Daily</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
-											</div>
-										</td>
-										<td>Trident</td>
-										<td>Internet Explorer 6</td>
-										<td>10000</td>
-										<td>12.00</td>
-										<td>Quartly</td>
-										<td>Active</td>
-										<td>12.59</td>
-										<td>Daily</td>
-									</tr>
-									<tr>
-										<td>
-											<div class="checkbox">
-												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
-											</div>
-										</td>
-										<td>Trident</td>
-										<td>Internet Explorer 7</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Half Yearly</td>
-										<td>12.59</td>
-										<td>Daily</td>
-										<td>Active</td>
-									</tr>
+									<c:forEach var="memberType" items="${memberTypes}">
+										<tr>
+											<td>
+												<div class="checkbox">
+													<form:checkbox  path="" id="govtOfficeIdentityId" value="${memberType.id}"/>
+												</div>
+											</td>
+											<td>${memberType.type}</td>
+											<td>${memberType.sharesAmount}</td>
+											<td>${memberType.memberFee}</td>
+											<td>${memberType.miscellaneousCharge}</td>
+											<td>${memberType.participateInElection}</td>
+											<td>${memberType.eligibleForVoting}</td>
+											<td>${memberType.eligibleForLoan}</td>
+											<td>${memberType.eligibleforGuarantor}</td>
+										</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>

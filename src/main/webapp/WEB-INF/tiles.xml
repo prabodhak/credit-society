@@ -120,7 +120,7 @@
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type.jsp"/>
 	</definition>
-	<definition name="addMemberTypeForm" extends="memberType.definition">
+	<definition name="createOrUpdateMemberTypeForm" extends="memberType.definition">
 		<put-attribute name="title" value="Member Type Add"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-add.jsp"/>
 	</definition>
@@ -128,9 +128,9 @@
 		<put-attribute name="title" value="Edit Member Type"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-view.jsp"/>
 	</definition>
-	<definition name="editMemberType" extends="memberType.definition">
+	<definition name="deleteMemberType" extends="memberType.definition">
 		<put-attribute name="title" value="Edit Member Type"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-delete.jsp"/>
 	</definition>
 	
 </tiles-definitions>
