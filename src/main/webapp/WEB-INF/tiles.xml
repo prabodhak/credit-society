@@ -47,7 +47,7 @@
 	
 	<definition name="addAccountType" extends="accountType.definition">
 		<put-attribute name="title" value="Account Type"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type-delete.jsp"/>
 	</definition>
 	
 	<definition name="editAccountType" extends="accountType.definition">
@@ -126,7 +126,7 @@
 	</definition>
 	<definition name="viewMemberType" extends="memberType.definition">
 		<put-attribute name="title" value="Edit Member Type"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-view.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-delete.jsp"/>
 	</definition>
 	<definition name="editMemberType" extends="memberType.definition">
 		<put-attribute name="title" value="Edit Member Type"/>

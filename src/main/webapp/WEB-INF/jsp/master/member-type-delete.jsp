@@ -104,7 +104,189 @@
 										<td>Daily</td>
 										<td>Active</td>
 									</tr>
-								</tbody>
+									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>									<tr>
+										<td>
+											<div class="checkbox">
+												<input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId">
+											</div>
+										</td>
+										<td>Trident</td>
+										<td>Internet Explorer 7</td>
+										<td>10000</td>
+										<td>12.59</td>
+										<td>Half Yearly</td>
+										<td>12.59</td>
+										<td>Daily</td>
+										<td>Active</td>
+									</tr>								</tbody>
 							</table>
 						</div>
 						<!-- /.box-body -->
@@ -129,8 +311,8 @@
     $(function() {
         $("#memberTypeListDeleteId").dataTable({
             "bPaginate": true,
-            "bLengthChange": false,
-            "bFilter": false,
+            "bLengthChange": true,
+            "bFilter": true,
             "bSort": true,
             "bInfo": true,
             "bAutoWidth": false
