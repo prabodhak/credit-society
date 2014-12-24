@@ -1,3 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
 <div id="body">	
@@ -29,315 +33,16 @@
 										<option value="3">Deposite</option>
 									</select>
 								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="accountNameId">Account Name</label>
-									<input type="text" name="accountName" class="form-control width-3" id="accountNameId"
-										placeholder="Account Name">
-								</div>
 								<div class="clearfix"></div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="minimumBalanceId">Minimum
-										Balance</label> <input type="text" name="minimumBalance" class="form-control width-3"
-										id="minimumBalanceId" placeholder="Minimum Balance">
+								<div id="depositeAccountTypeBodyId" style="display:none;">
+									<jsp:directive.include file="../template/deposit-account-type-template.jsp" />
 								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="interestRateId">Interest
-										Rate</label> <input type="text" name="interestRate" class="form-control width-3"
-										id="interestRateId" placeholder="Interest Rate">
+								<div id="loanAccountTypeBodyId" style="display:none;">
+									<jsp:directive.include file="../template/loan-account-type-template.jsp" />
 								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="interestCalculationModeId">Interest
-										Calculation Mode</label> <select class="form-control width-3"
-										id="interestCalculationModeId">
-										<option>Select Interest Calculation Mode</option>
-										<option value="1">Daily</option>
-										<option value="2">Weekly</option>
-										<option value="3">Mothly</option>
-										<option value="4">Quartly</option>
-										<option value="5">Half Yearly</option>
-										<option value="6">Yearly</option>
-									</select>
-								</div>
-								<div class="clearfix"></div>
-								<hr>
-								<div class="form-group col-md-4">
-									<label class="form-label">Required Items</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="guarantorRequired" id="guarantorRequiredId">
-											Guarantor Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCardRequired" id="panCardRequiredId">
-											PAN Card Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="idetityRequired" id="idetityRequiredId">
-											Identity Proof Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="addressRequired" id="addressRequiredId">
-											Address Proof Required
-										</label>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label">Identity Proof
-										Documents</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="voterId" id="voterIdId"> Voter Id Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="drivingLiscence" id="drivingLiscenceId"> Driving
-											Liscence
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCard" id="panCardId"> PAN Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="aadharCard" id="aadharCardId"> Aadhar Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="studentIdentity" id="studentIdentityId"> Student
-											Identity Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId"> Govt Office
-											Issued Identity Card
-										</label>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label">Address Proof Documents</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="voterId" id="voterIdId"> Voter Id Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="drivingLiscence" id="drivingLiscenceId"> Driving
-											Liscence
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCard" id="panCardId"> PAN Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="aadharCard" id="aadharCardId"> Aadhar Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="studentIdentity" id="studentIdentityId"> Student
-											Identity Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId"> Govt Office
-											Issued Identity Card
-										</label>
-									</div>
-								</div>
-								<div class="clearfix"></div>
-
-
-								<h3>Laon</h3>
-								<div class="form-group col-md-3">
-									<label class="form-label" for="accountNameId">Account Name</label>
-									<input type="text" name="accountName" class="form-control" id="accountNameId"
-										placeholder="Account Name">
-								</div>								
-								<div class="form-group col-md-3">
-									<label class="form-label" for="memberTypeId">Member Type</label>
-									<select name="memberType" class="form-control" id="memberTypeId">
-										<option value="1">Select Member Type</option>
-										<option value="2">A</option>
-										<option value="3">B</option>
-										<option value="3">C</option>
-									</select>
-								</div>
-								<div class="form-group col-md-3">
-								<!-- TODO - change name from creationDate to dob -->
-									<label class="form-label" for="creationDate">Apply Date</label>
-									<input type="text" name="creationDate" class="form-control" id="applyDateId"
-										placeholder="Date of Birth" data-date-format="dd MM yyyy" readonly="true"/>
-								</div>								
-								<div class="form-group col-md-3">
-									<label class="form-label" for="maxLoanAmt">Max Loan Amount</label>
-									<input type="text" name="maxLoanAmt" class="form-control" id="maxLoanAmtId"
-										placeholder="Max Loan Amount">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="form-label" for="numOfInstallment">Num of Installment</label>
-									<input type="text" name="numOfInstallment" class="form-control" id="numOfInstallmentId"
-										placeholder="Num of Installment">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="form-label" for="startRepayment">Start Repayment</label>
-									<input type="text" name="startRepayment" class="form-control" id="startRepaymentId"
-										placeholder="Start Repayment">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="form-label" for="interestRate">Interest Rate</label>
-									<input type="text" name="interestRate" class="form-control" id="interestRateId"
-										placeholder="Interest Rate">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="form-label" for="penaltyRate">Penalty Rate</label>
-									<input type="text" name="penaltyRate" class="form-control" id="penaltyRateId"
-										placeholder="Penalty Rate">
-								</div>									
-								<div class="clearfix"></div>
-								<fieldset class="scheduler-border">
-									<legend class="scheduler-border">Deduction Details</legend>
-									<div class="col-md-2">
-										<label class="form-label" for="fixedDeposit">Fixed Deposit</label>
-										<input type="text" name="fixedDeposit" class="form-control" id="fixedDepositPerId"
-											placeholder="Percentage">
-										<span class="or">OR</span>
-										<input type="text" name="fixedDeposit" class="form-control" id="fixedDepositAmtId"
-											placeholder="Amount">
-									</div>
-									<div class="col-md-2">
-										<label class="form-label" for="savingDeposit">Saving Deposit</label>
-										<input type="text" name="savingDeposit" class="form-control" id="savingDepositPerId"
-											placeholder="Percentage">
-										<span class="or">OR</span>
-										<input type="text" name="savingDeposit" class="form-control" id="savingDepositAmttId"
-											placeholder="Amount">
-									</div>	
-									<div class="col-md-2">
-										<label class="form-label" for="share">Share</label>
-										<input type="text" name="share" class="form-control" id="sharePerId"
-											placeholder="Percentage">
-										<span class="or">OR</span>
-										<input type="text" name="share" class="form-control" id="shareAmttId"
-											placeholder="Amount">
-									</div>
-									<div class="col-md-2">
-										<label class="form-label" for="buildingFund">Building Fund</label>
-										<input type="text" name="buildingFund" class="form-control" id="buildingFundPerId"
-											placeholder="Percentage">
-										<span class="or">OR</span>
-										<input type="text" name="buildingFund" class="form-control" id="buildingFundAmttId"
-											placeholder="Amount">
-									</div>
-									<div class="col-md-2">
-										<label class="form-label" for="serviceCharge">Service Charge</label>
-										<input type="text" name="serviceCharge" class="form-control" id="serviceChargePerId"
-											placeholder="Percentage">
-										<span class="or">OR</span>
-										<input type="text" name="serviceCharge" class="form-control" id="serviceChargeAmttId"
-											placeholder="Amount">
-									</div>
-									<div class="col-md-2">
-										<label class="form-label" for="miscCharge">Misc Charge</label>
-										<input type="text" name="miscCharge" class="form-control" id="miscChargePerId"
-											placeholder="Percentage">
-										<span class="or">OR</span>
-										<input type="text" name="miscCharge" class="form-control" id="miscChargeAmttId"
-											placeholder="Amount">
-									</div>								
-									</fieldset>
-								<hr>
-								<div class="form-group col-md-4">
-									<label class="form-label">Required Items</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="guarantorRequired" id="guarantorRequiredId">
-											Guarantor Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCardRequired" id="panCardRequiredId">
-											PAN Card Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="idetityRequired" id="idetityRequiredId">
-											Identity Proof Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="addressRequired" id="addressRequiredId">
-											Address Proof Required
-										</label>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label">Identity Proof
-										Documents</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="voterId" id="voterIdId"> Voter Id Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="drivingLiscence" id="drivingLiscenceId"> Driving
-											Liscence
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCard" id="panCardId"> PAN Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="aadharCard" id="aadharCardId"> Aadhar Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="studentIdentity" id="studentIdentityId"> Student
-											Identity Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId"> Govt Office
-											Issued Identity Card
-										</label>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label">Address Proof Documents</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="voterId" id="voterIdId"> Voter Id Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="drivingLiscence" id="drivingLiscenceId"> Driving
-											Liscence
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCard" id="panCardId"> PAN Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="aadharCard" id="aadharCardId"> Aadhar Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="studentIdentity" id="studentIdentityId"> Student
-											Identity Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId"> Govt Office
-											Issued Identity Card
-										</label>
-									</div>
-								</div>
-	
 								<div class="clearfix"></div>
 							</div>
 							<!-- /.box-body -->
-							<div class="clearfix"></div>
-							<div class="box-footer">
-								<button type="submit" class="btn btn-primary">Create</button>
-							</div>
 						</form>
 					</div>
 					<!-- /.box -->
@@ -603,19 +308,60 @@
             "bAutoWidth": false
         });
     });
-    
-	// datetimepicker
-	$('#applyDateId').datetimepicker({
-	    weekStart: 1,
-	    todayBtn:  1,
-		autoclose: 1,
-		todayHighlight: 1,
-		startView: 2,
-		minView: 2,
-		forceParse: 0
-	});
 </script> 
 <script>
+$(document).on('change', '#accountTypeId', function(){
+	//alert($( "select option:selected" ).text());
+	//alert($(this).find(":selected").text());
+	if($(this).find(":selected").text() == "Loan"){
+		$("#loanAccountTypeBodyId").css("display", "block");
+		$("#depositeAccountTypeBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else if($(this).find(":selected").text() == "Deposite"){
+		$("#depositeAccountTypeBodyId").css("display", "block");
+		$("#loanAccountTypeBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else{
+		$("#depositeAccountTypeBodyId").css("display", "none");
+		$("#loanAccountTypeBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").attr('disabled', 'disabled');
+	}
+	
+});
+/*$(document).on('change', '#accountTypeId', function(){
+	$.ajax({
+		type: "GET",
+	    url: 'resources/html/loan-account-template.html',
+	})
+	.done(function(data, textStatus, jqxhr){ 
+		console.log( "Success" );
+	})
+	.fail(function(jqXHR, textStatus, errorThrown){ 
+		console.log( "Error" );//alert("Error"); 
+	})
+	.always(function(jqXHROrData, textStatus, jqXHROrErrorThrown){
+		console.log( "Always" );//alert("complete");
+	});
+});
+*/
+/*$("#accountTypeId").change(function(){
+	
+	alert("AA");
+	$.ajax({
+		type: "POST",
+	    url: 'template/loan-account-template.jsp',
+	})
+	.done(function(data, textStatus, jqxhr){ 
+		console.log( "Success" );
+	})
+	.fail(function(jqXHR, textStatus, errorThrown){ 
+		console.log( "Error" );//alert("Error"); 
+	})
+	.always(function(jqXHROrData, textStatus, jqXHROrErrorThrown){
+		console.log( "Always" );//alert("complete");
+	});
+});*/
+
 	function loadAccountTypeEditForm() {
 		alert("in");
 		var xmlhttp;

@@ -47,7 +47,7 @@
 }
 .next-btn{
 	text-align:right;
-	margin-right:75px;
+	/*margin-right:75px;*/
 }
 input.error, select.error, textarea.error{
 	border:1px solid red;

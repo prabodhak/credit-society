@@ -3,9 +3,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
-<script>var operation="${operation}";
-alert(operation);
-</script>
+
 <div id="body">	
 	<aside class="right-side">
 		<section class="content">
@@ -78,6 +76,12 @@ alert(operation);
             "bAutoWidth": false
         });
     });
+
+    var operation="${operation}";
+    if(operation == "edit" ){
+    	$('#crudMenuEditId').addClass('active');
+    }else if( operation == "view" ){
+    	$('#crudMenuViewId').addClass('active');	
+    }
     
-    $('#crudMenuViewId').addClass('active');
 </script>
