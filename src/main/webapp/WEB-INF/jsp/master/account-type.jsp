@@ -7,6 +7,52 @@
 <div id="body">	
 	<aside class="right-side">
 		<!-- Main content -->
+ 		<section class="content" style="padding-top:0px;">
+			<div class="row">
+				<!-- left column -->
+				<div class="col-md-12">
+					<!-- general form elements -->
+					<div class="box box-solid box-primary">
+						<div class="box-header">
+							<h3 class="box-title">Account Type Creation</h3>
+							<div class="box-tools pull-right">
+								<button class="btn btn-primary btn-sm" data-widget="collapse">
+									<i class="fa fa-minus"></i>
+								</button>
+							</div>
+						</div>
+						<!-- /.box-header -->
+						<!-- form start -->
+						<form role="form" action="account-type-creation.html" method="get">
+							<div class="box-body">
+								<div class="form-group col-md-3">
+									<label class="form-label" for="accountTypeAdd">Account Type</label>
+									<select name="accountTypeAdd" class="form-control" id="accountTypeAddId">
+										<option value="1">Select Account Type</option>
+										<option value="2">Loan</option>
+										<option value="3">Deposit</option>
+									</select>
+								</div>
+								<div class="clearfix"></div>
+								<div id="depositAccountTypeBodyId" style="display:none;">
+									<jsp:directive.include file="../template/deposit-account-type-add-template.jsp" />
+								</div>
+								<div id="loanAccountTypeBodyId" style="display:none;">
+									<jsp:directive.include file="../template/loan-account-type-add-template.jsp" />
+								</div>
+								<div class="clearfix"></div>
+							</div>
+							<!-- /.box-body -->
+						</form>
+					</div>
+					<!-- /.box -->
+				</div>
+				<!--/.col (left) -->
+			</div>
+			<!-- /.row -->
+		</section>
+		<!-- /.content -->
+		<h4>Edit Form</h4>
 		<section class="content" style="padding-top:0px;">
 			<div class="row">
 				<!-- left column -->
@@ -25,183 +71,24 @@
 						<!-- form start -->
 						<form role="form" action="account-type-creation.html" method="get">
 							<div class="box-body">
-								<div class="form-group col-md-4">
-									<label class="form-label" for="accountTypeId">Account Type</label>
-									<select name="accountType" class="form-control width-3" id="accountTypeId">
+								<div class="form-group col-md-3">
+									<label class="form-label" for="accountTypeEdit">Account Type</label>
+									<select name="accountTypeEdit" class="form-control" id="accountTypeEditId">
 										<option value="1">Select Account Type</option>
 										<option value="2">Loan</option>
-										<option value="3">Deposite</option>
+										<option value="3">Deposit</option>
 									</select>
 								</div>
 								<div class="clearfix"></div>
-								<div id="depositeAccountTypeBodyId" style="display:none;">
-									<jsp:directive.include file="../template/deposit-account-type-template.jsp" />
+								<div id="depositAccountTypeEditBodyId" style="display:none;">
+									<jsp:directive.include file="../template/deposit-account-type-add-template.jsp" />
 								</div>
-								<div id="loanAccountTypeBodyId" style="display:none;">
-									<jsp:directive.include file="../template/loan-account-type-template.jsp" />
+								<div id="loanAccountTypeEditBodyId" style="display:none;">
+									<jsp:directive.include file="../template/loan-account-type-add-template.jsp" />
 								</div>
 								<div class="clearfix"></div>
 							</div>
 							<!-- /.box-body -->
-						</form>
-					</div>
-					<!-- /.box -->
-				</div>
-				<!--/.col (left) -->
-			</div>
-			<!-- /.row -->
-		</section>
-		<!-- /.content -->
-		<h4>Edit Form</h4>
-		<section class="content">
-			<div class="row">
-				<!-- left column -->
-				<div class="col-md-12">
-					<!-- general form elements -->
-					<div class="box box-solid box-primary">
-						<div class="box-header">
-							<h3 class="box-title">Account Type Edit</h3>
-							<div class="box-tools pull-right">
-								<button class="btn btn-primary btn-sm" data-widget="collapse">
-									<i class="fa fa-minus"></i>
-								</button>
-							</div>
-						</div>
-						<!-- /.box-header -->
-						<!-- form start -->
-						<form role="form" action="account-type-creation.html" method="get">
-							<div class="box-body">
-								<div class="form-group col-md-4">
-									<label class="form-label" for="accountTypeId">Account Type</label>
-									<select name="accountType" class="form-control width-3" id="accountTypeId">
-										<option value="1">Select Account Type</option>
-										<option value="2">Loan</option>
-										<option value="3">Deposite</option>
-									</select>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="accountNameId">Account Name</label>
-									<input type="text" name="accountName" class="form-control width-3" id="accountNameId"
-										placeholder="Account Name">
-								</div>
-								<div class="clearfix"></div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="minimumBalanceId">Minimum
-										Balance</label> <input type="text" name="minimumBalance" class="form-control width-3"
-										id="minimumBalanceId" placeholder="Minimum Balance">
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="interestRateId">Interest
-										Rate</label> <input type="text" name="interestRate" class="form-control width-3"
-										id="interestRateId" placeholder="Interest Rate">
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label" for="interestCalculationModeId">Interest
-										Calculation Mode</label> <select class="form-control width-3"
-										id="interestCalculationModeId">
-										<option>Select Interest Calculation Mode</option>
-										<option value="1">Daily</option>
-										<option value="2">Weekly</option>
-										<option value="3">Mothly</option>
-										<option value="4">Quartly</option>
-										<option value="5">Half Yearly</option>
-										<option value="6">Yearly</option>
-									</select>
-								</div>
-								<div class="clearfix"></div>
-								<hr>
-								<div class="form-group col-md-4">
-									<label class="form-label">Required Items</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="guarantorRequired" id="guarantorRequiredId">
-											Guarantor Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCardRequired" id="panCardRequiredId">
-											PAN Card Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="idetityRequired" id="idetityRequiredId">
-											Identity Proof Required
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="addressRequired" id="addressRequiredId">
-											Address Proof Required
-										</label>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label">Identity Proof
-										Documents</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="voterId" id="voterIdId"> Voter Id Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="drivingLiscence" id="drivingLiscenceId"> Driving
-											Liscence
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCard" id="panCardId"> PAN Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="aadharCard" id="aadharCardId"> Aadhar Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="studentIdentity" id="studentIdentityId"> Student
-											Identity Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId"> Govt Office
-											Issued Identity Card
-										</label>
-									</div>
-								</div>
-								<div class="form-group col-md-4">
-									<label class="form-label">Address Proof Documents</label>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="voterId" id="voterIdId"> Voter Id Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="drivingLiscence" id="drivingLiscenceId"> Driving
-											Liscence
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="panCard" id="panCardId"> PAN Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="aadharCard" id="aadharCardId"> Aadhar Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="studentIdentity" id="studentIdentityId"> Student
-											Identity Card
-										</label>
-									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="govtOfficeIdentity" id="govtOfficeIdentityId"> Govt Office
-											Issued Identity Card
-										</label>
-									</div>
-								</div>
-	
-								<div class="clearfix"></div>
-							</div>
-							<!-- /.box-body -->
-							<div class="clearfix"></div>
-							<div class="box-footer">
-								<button type="submit" class="btn btn-primary">Create</button>
-							</div>
 						</form>
 					</div>
 					<!-- /.box -->
@@ -221,69 +108,26 @@
 						<div class="box-header">
 							<h3 class="box-title">Account Type List</h3>
 						</div>
-						<!-- /.box-header -->
-						<div class="box-body table-responsive">
-							<table id="accountTypeListId" class="table table-bordered table-striped">
-								<thead>
-									<tr>
-										<th style="width: 20%;">Account Master Type</th>
-										<th style="width: 32%;">Account Type</th>
-										<th style="width: 12%">Min Balance</th>
-										<th style="width: 10%;">Interest</th>
-										<th style="width: 13%;">Interest Mode</th>
-										<th style="width: 13%;">Status</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Daily</td>
-										<td>Active</td>
-									</tr>
-									<tr>
-										<td>Trident</td>
-										<td>Internet Explorer 5.0</td>
-										<td>10000</td>
-										<td>14.20</td>
-										<td>yearly</td>
-										<td>InActive</td>
-									</tr>
-									<tr>
-										<td>Trident</td>
-										<td>Internet Explorer 5.5</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Monthly</td>
-										<td>Active</td>
-									</tr>
-									<tr>
-										<td>Trident</td>
-										<td>Internet Explorer 6</td>
-										<td>10000</td>
-										<td>12.00</td>
-										<td>Quartly</td>
-										<td>Active</td>
-									</tr>
-									<tr>
-										<td>Trident</td>
-										<td>Internet Explorer 7</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Half Yearly</td>
-										<td>Active</td>
-									</tr>
-								</tbody>
-							</table>
+						<div class="form-group col-md-3">
+							<label class="form-label" for="accountTypeView">Account Type</label>
+							<select name="accountTypeView" class="form-control" id="accountTypeViewId">
+								<option value="1">Select Account Type</option>
+								<option value="2">Loan</option>
+								<option value="3">Deposit</option>
+							</select>
 						</div>
-						<!-- /.box-body -->
+						<div class="clearfix"></div>
+						<div id="loanAccountTypeViewBodyId" style="display:none;">
+							<jsp:directive.include file="../template/loan-account-type-view-template.jsp" />
+						</div>
+						<div id="depositAccountTypeViewBodyId" style="display:none;">
+							<jsp:directive.include file="../template/deposit-account-type-view-template.jsp" />
+						</div>						
+					
 					</div>
-					<!-- /.box -->
 				</div>
 			</div>
-		</section>
+		</section>		
 	</aside>
 
 <!-- /.right-side -->
@@ -308,27 +152,84 @@
             "bAutoWidth": false
         });
     });
+    
+    // Add event listener for opening and closing details
+	$('#accountTypeListViewId tbody').on('click', 'td.details-control', function () {
+		var tr = $(this).closest('tr');
+		if( tr.hasClass('shown') )
+		{
+			tr.removeClass('shown');
+		}
+		else
+		{
+			tr.addClass('shown');
+		}
+	} );
+	
+    $('#accountTypeListDeleteId').addClass('active');
+    //alert($('#accountTypeAddId').attr('class'));
+    
+    $('#crudMenuDeleteId').addClass('active');
 </script> 
 <script>
-$(document).on('change', '#accountTypeId', function(){
+$(document).on('change', '#accountTypeAddId', function(){
 	//alert($( "select option:selected" ).text());
 	//alert($(this).find(":selected").text());
 	if($(this).find(":selected").text() == "Loan"){
 		$("#loanAccountTypeBodyId").css("display", "block");
-		$("#depositeAccountTypeBodyId").css("display", "none");
+		$("#depositAccountTypeBodyId").css("display", "none");
 		//$("#accountTypeCreateButId").removeAttr('disabled');
-	}else if($(this).find(":selected").text() == "Deposite"){
-		$("#depositeAccountTypeBodyId").css("display", "block");
+	}else if($(this).find(":selected").text() == "Deposit"){
+		$("#depositAccountTypeBodyId").css("display", "block");
 		$("#loanAccountTypeBodyId").css("display", "none");
 		//$("#accountTypeCreateButId").removeAttr('disabled');
 	}else{
-		$("#depositeAccountTypeBodyId").css("display", "none");
+		$("#depositAccountTypeBodyId").css("display", "none");
 		$("#loanAccountTypeBodyId").css("display", "none");
 		//$("#accountTypeCreateButId").attr('disabled', 'disabled');
 	}
 	
 });
-/*$(document).on('change', '#accountTypeId', function(){
+
+$(document).on('change', '#accountTypeEditId', function(){
+	//alert($( "select option:selected" ).text());
+	//alert($(this).find(":selected").text());
+	if($(this).find(":selected").text() == "Loan"){
+		$("#loanAccountTypeEditBodyId").css("display", "block");
+		$("#depositAccountTypeEditBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else if($(this).find(":selected").text() == "Deposit"){
+		$("#depositAccountTypeEditBodyId").css("display", "block");
+		$("#loanAccountTypeEditBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else{
+		$("#depositAccountTypeEditBodyId").css("display", "none");
+		$("#loanAccountTypeEditBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").attr('disabled', 'disabled');
+	}
+	
+});
+
+$(document).on('change', '#accountTypeViewId', function(){
+	//alert($( "select option:selected" ).text());
+	//alert($(this).find(":selected").text());
+	if($(this).find(":selected").text() == "Loan"){
+		$("#loanAccountTypeViewBodyId").css("display", "block");
+		$("#depositAccountTypeViewBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else if($(this).find(":selected").text() == "Deposit"){
+		$("#depositAccountTypeViewBodyId").css("display", "block");
+		$("#loanAccountTypeViewBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else{
+		$("#depositAccountTypeViewBodyId").css("display", "none");
+		$("#loanAccountTypeViewBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").attr('disabled', 'disabled');
+	}
+	
+});
+
+/*$(document).on('change', '#accountTypeAddId', function(){
 	$.ajax({
 		type: "GET",
 	    url: 'resources/html/loan-account-template.html',
@@ -344,7 +245,7 @@ $(document).on('change', '#accountTypeId', function(){
 	});
 });
 */
-/*$("#accountTypeId").change(function(){
+/*$("#accountTypeAddId").change(function(){
 	
 	alert("AA");
 	$.ajax({
