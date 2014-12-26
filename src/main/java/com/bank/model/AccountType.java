@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -33,22 +34,17 @@ public class AccountType extends NamedEntity {
 	@OneToOne
 	@JoinColumn(name = "account_type_master")
 	private AccountTypeMaster accountTypeMaster;
+	
+	@ElementCollection
+	private List<String> memberTypes;
 
 	@Column(name = "interest_rate")
 	@NotEmpty
 	private BigDecimal interestRate;
 
-	@Column(name = "minimum_balance")
-	@NotEmpty
-	private BigDecimal minimumBalance;
-
 	@Column(name = "interest_calculation_mode")
 	@NotEmpty
 	private InterestCalculationMode interestCalculationMode;
-
-	@Column(name = "granter_required")
-	@NotEmpty
-	private boolean granterRequired;
 
 	@Column(name = "pan_number_required")
 	@NotEmpty
@@ -88,14 +84,6 @@ public class AccountType extends NamedEntity {
 		this.interestRate = interestRate;
 	}
 
-	public BigDecimal getMinimumBalance() {
-		return minimumBalance;
-	}
-
-	public void setMinimumBalance(BigDecimal minimumBalance) {
-		this.minimumBalance = minimumBalance;
-	}
-
 	public InterestCalculationMode getInterestCalculationMode() {
 		return interestCalculationMode;
 	}
@@ -103,14 +91,6 @@ public class AccountType extends NamedEntity {
 	public void setInterestCalculationMode(
 			InterestCalculationMode interestCalculationMode) {
 		this.interestCalculationMode = interestCalculationMode;
-	}
-
-	public boolean isGranterRequired() {
-		return granterRequired;
-	}
-
-	public void setGranterRequired(boolean granterRequired) {
-		this.granterRequired = granterRequired;
 	}
 
 	public boolean isPanNumberRequired() {

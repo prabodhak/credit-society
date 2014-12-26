@@ -34,12 +34,14 @@ public class MemberTypeController {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
 		model.addAttribute("operation", "view");
+		model.addAttribute("baseUrl", "master/member-type");
 		return "viewMemberType";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Model model) {
 		model.addAttribute("memberType", new MemberType());
+		model.addAttribute("baseUrl", "master/member-type");
 		return "createOrUpdateMemberTypeForm";
 	}
 	
@@ -63,6 +65,7 @@ public class MemberTypeController {
 	public String initDeleteMemberType(Model model) {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
+		model.addAttribute("baseUrl", "master/member-type");
 		return "deleteMemberType";
 	}
 	
@@ -79,6 +82,7 @@ public class MemberTypeController {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
 		model.addAttribute("operation", "edit");
+		model.addAttribute("baseUrl", "master/member-type");
 		return "viewMemberType";
 	}
 	
@@ -90,6 +94,7 @@ public class MemberTypeController {
 	public String initEditMemberTypeForm(@PathVariable("id") Long id, Model model) {
 		MemberType memberType = memberTypeService.findMemberType(id);
 		model.addAttribute(memberType);
+		model.addAttribute("baseUrl", "master/member-type");
 		return "createOrUpdateMemberTypeForm";
 	}
 	
