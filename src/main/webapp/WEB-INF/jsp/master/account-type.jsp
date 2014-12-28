@@ -34,12 +34,13 @@
 									</select>
 								</div>
 								<div class="clearfix"></div>
-								<div id="depositAccountTypeBodyId" style="display:none;">
+								<div id="accountTypeAddBodyId"></div>
+								<%-- <div id="depositAccountTypeBodyId" style="display:none;">
 									<jsp:directive.include file="../template/deposit-account-type-add-template.jsp" />
 								</div>
 								<div id="loanAccountTypeBodyId" style="display:none;">
 									<jsp:directive.include file="../template/loan-account-type-add-template.jsp" />
-								</div>
+								</div> --%>
 								<div class="clearfix"></div>
 							</div>
 							<!-- /.box-body -->
@@ -175,7 +176,7 @@
 $(document).on('change', '#accountTypeAddId', function(){
 	//alert($( "select option:selected" ).text());
 	//alert($(this).find(":selected").text());
-	if($(this).find(":selected").text() == "Loan"){
+/* 	if($(this).find(":selected").text() == "Loan"){
 		$("#loanAccountTypeBodyId").css("display", "block");
 		$("#depositAccountTypeBodyId").css("display", "none");
 		//$("#accountTypeCreateButId").removeAttr('disabled');
@@ -187,8 +188,20 @@ $(document).on('change', '#accountTypeAddId', function(){
 		$("#depositAccountTypeBodyId").css("display", "none");
 		$("#loanAccountTypeBodyId").css("display", "none");
 		//$("#accountTypeCreateButId").attr('disabled', 'disabled');
-	}
+	} */
 	
+	$.ajax({
+		url: "master/account-type/add",
+		dataType: "text",
+		success: function(text) {
+			alert(text);
+			consol.log("Success");
+			$('#accountTypeAddBodyId').html(text);
+		},
+		error: function(xhr) {
+			consol.log("Error");
+		}
+	});
 });
 
 $(document).on('change', '#accountTypeEditId', function(){

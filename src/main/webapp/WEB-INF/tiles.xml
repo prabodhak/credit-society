@@ -45,19 +45,17 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/>
 	</definition>
 	
-	<definition name="addAccountType" extends="accountType.definition">
+	<definition name="createOrUpdateAccounttypeForm" extends="accountType.definition">
 		<put-attribute name="title" value="Account Type"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type-add.jsp"/>
 	</definition>
-	
-	<definition name="editAccountType" extends="accountType.definition">
+	<definition name="LoanAccountAjaxForm">
 		<put-attribute name="title" value="Account Type"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type-add.jsp"/>
 	</definition>
-	
-	<definition name="viewAccountTypes" extends="accountType.definition">
+	<definition name="viewAccountType" extends="accountType.definition">
 		<put-attribute name="title" value="View Account Types"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type-view.jsp"/>
 	</definition>
 	
 	<definition name="deleteAccountType" extends="accountType.definition">
@@ -72,20 +70,17 @@
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank.jsp"/>
 	</definition>
-	
-	<definition name="addAssociatedBank" extends="associatedBank.definition">
+	<definition name="createOrUpdateAssociatedBankForm" extends="associatedBank.definition">
 		<put-attribute name="title" value="Associated Bank"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank-add.jsp"/>
 	</definition>
-	
-	<definition name="editAssociatedBank" extends="associatedBank.definition">
-		<put-attribute name="title" value="Associated Bank"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank.jsp"/>
-	</definition>
-	
 	<definition name="viewAssociatedBank" extends="associatedBank.definition">
 		<put-attribute name="title" value="Associated Bank"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank-view.jsp"/>
+	</definition>
+	<definition name="deleteAddAssociatedBank" extends="associatedBank.definition">
+		<put-attribute name="title" value="Associated Bank"/>
+		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank-delete.jsp"/>
 	</definition>
 	
 	<!-- Verification documents tiles definitions -->

@@ -9,11 +9,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bank.model.AccountType;
+import com.bank.model.DepositAccountType;
+import com.bank.model.LoanAccountType;
 import com.bank.service.AccountTypeService;
+import com.bank.utils.AjaxUtils;
 
 @Controller
 @RequestMapping("/master/account-type")
@@ -25,6 +31,11 @@ public class AccountTypeController {
 	@Autowired
 	public AccountTypeController(AccountTypeService accountTypeService) {
 		this.accountTypeService = accountTypeService;
+	}
+	
+	@ModelAttribute
+	public void ajaxAttribute(WebRequest request, Model model) {
+		model.addAttribute("ajaxRequest", AjaxUtils.isAjaxRequest(request));
 	}
 	
 	/*@ModelAttribute
@@ -39,8 +50,12 @@ public class AccountTypeController {
 	 * @return
 	 */
 	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public String showAccountPage(Model model) {
-		return "viewAccountTypes";
+	public String showAccountTypes(Model model) {
+		Collection<AccountType> accounts = accountTypeService.findAllAccountType();
+		model.addAttribute("accounts", accounts);
+		model.addAttribute("operation", "view");
+		model.addAttribute("baseUrl", "master/account-type");
+		return "viewAccountType";
 	}
 	
 	/**
@@ -51,10 +66,24 @@ public class AccountTypeController {
 	 * @return
 	 */
 	@RequestMapping(value="/add", method=RequestMethod.GET)
-	public String initAccountTypeCreationForm(Model model) {
+	public String initAccountTypeCreationForm(Model model, boolean ajaxRequest) {
 		AccountType accountType = new AccountType();
 		model.addAttribute(accountType);
-		return "addAccountType";
+		model.addAttribute("baseUrl", "master/account-type");
+		return "createOrUpdateAccounttypeForm";
+	}
+	
+	@RequestMapping(value="/addAjax", method=RequestMethod.GET)
+	public String initaccountMasterTypeCreationFormAjax(@RequestParam("accountType") String type, Model model) {
+		model.addAttribute("baseUrl", "master/member-type");
+		if("Loan".equals(type)) {
+			model.addAttribute("accountType", new LoanAccountType());
+			return "LoanAccountAjaxForm";
+		}
+		else {
+			model.addAttribute("accountType", new DepositAccountType());
+			return "DepositAccountAjaxForm";
+		}		
 	}
 	
 	/**
@@ -66,9 +95,11 @@ public class AccountTypeController {
 	 * @return
 	 */
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String processCreationForm(@ModelAttribute("accountType") AccountType accountType, SessionStatus sessionStatus) {
+	public String processCreationForm(@ModelAttribute("accountType") AccountType accountType, SessionStatus sessionStatus, RedirectAttributes redirectAttributes) {
 		accountTypeService.saveAccountType(accountType);
 		sessionStatus.setComplete();
+		String message = "Account Type created successfully.";
+		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/master/account-type/add";
 	}
 	

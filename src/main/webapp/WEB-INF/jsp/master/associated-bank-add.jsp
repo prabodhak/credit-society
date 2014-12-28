@@ -25,7 +25,20 @@
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
-						<form:form role="form" modelAttribute="associatedBank" action="master/associated-bank/add" method="post">
+						<c:if test="${not empty message}">
+							<div id="message" class="success">${message}</div>	
+				  		</c:if>
+				  		<c:choose>
+					        <c:when test="${associatedBank['new']}">
+					        	<c:set var="method" value="post"/>
+					        	<c:set var="action" value="add"/>
+					        </c:when>
+					        <c:otherwise>
+					        	<c:set var="method" value="put"/>
+					        	<c:set var="action" value="edit"/>
+					        </c:otherwise>
+					    </c:choose>
+						<form:form role="form" modelAttribute="associatedBank" action="master/associated-bank/${action}" method="${method}">
 							<div class="box-body">
 								<div class="form-group col-md-4">
 									<label class="form-label" for="accountHolderNameId"><spring:message code="master$associatedBank$accountHolderName.label"/></label>

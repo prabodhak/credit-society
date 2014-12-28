@@ -21,7 +21,7 @@
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
-						<form role="form" action="account-type-creation.html" method="get">
+						<form:form role="form" action="" method="get" modelAttribute="accountType">
 							<div class="box-body">
 								<div class="form-group col-md-3">
 									<label class="form-label" for="accountTypeAdd">Account Type</label>
@@ -32,16 +32,17 @@
 									</select>
 								</div>
 								<div class="clearfix"></div>
-								<div id="depositAccountTypeBodyId" style="display:none;">
+								<div id="accountTypeAddBodyId"></div>
+								<%-- <div id="depositAccountTypeBodyId" style="display:none;">
 									<jsp:directive.include file="../template/deposit-account-type-add-template.jsp" />
 								</div>
 								<div id="loanAccountTypeBodyId" style="display:none;">
 									<jsp:directive.include file="../template/loan-account-type-add-template.jsp" />
-								</div>
+								</div> --%>
 								<div class="clearfix"></div>
 							</div>
 							<!-- /.box-body -->
-						</form>
+						</form:form>
 					</div>
 					<!-- /.box -->
 				</div>
@@ -51,3 +52,39 @@
 		</section>
 	</aside>
 </div>
+<script>
+$(document).on('change', '#accountTypeAddId', function(){
+	//alert($( "select option:selected" ).text());
+	//alert($(this).find(":selected").text());
+/* 	if($(this).find(":selected").text() == "Loan"){
+		$("#loanAccountTypeBodyId").css("display", "block");
+		$("#depositAccountTypeBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else if($(this).find(":selected").text() == "Deposit"){
+		$("#depositAccountTypeBodyId").css("display", "block");
+		$("#loanAccountTypeBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").removeAttr('disabled');
+	}else{
+		$("#depositAccountTypeBodyId").css("display", "none");
+		$("#loanAccountTypeBodyId").css("display", "none");
+		//$("#accountTypeCreateButId").attr('disabled', 'disabled');
+	} */
+	
+	var accountType =  $(this).find(":selected").text();
+	alert(accountType);
+	$.ajax({
+		url: "master/account-type/addAjax",
+		dataType: "text",
+		data:	{	"accountType" : accountType},
+		type:	"get",
+		success: function(text) {
+			alert(text);
+			consol.log("Success");
+			$('#accountTypeAddBodyId').html(text);
+		},
+		error: function(xhr) {
+			consol.log("Error");
+		}
+	});
+});
+</script>

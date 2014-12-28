@@ -32,5 +32,13 @@ public class AssociatedBankServiceImpl implements AssociatedBankService{
 	public void delete(Long id) throws DataAccessException {
 		associatedBankDao.delete(id);
 	}
+	@Override
+	public AssociatedBank findAssociatedBank(Long id) {
+		return associatedBankDao.findById(id);
+	}
+	@Override
+	public void save(AssociatedBank associatedBank) throws DataAccessException {
+		associatedBankDao.save(associatedBank);
+	}
 
 }
