@@ -97,8 +97,7 @@
 									</div>
 								</div>
 								<div class="clearfix"></div>
-								<hr>
-								<div class="form-group col-md-3 add-verification-docs">
+								<div class="box-footer add-verification-docs">
 						            <c:choose>
 						                <c:when test="${memberType['new']}">
 						                    <button type="submit" class="btn btn-success"><spring:message code="master$members$memberType$addMemberType.button"/></button>

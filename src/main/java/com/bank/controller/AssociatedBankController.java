@@ -20,7 +20,7 @@ import com.bank.service.AssociatedBankService;
 @RequestMapping(value="/master/associated-bank")
 public class AssociatedBankController {
 	private AssociatedBankService associatedBankService;
-	public static final String BASE_URL = "/master/associated-bank";
+	public static final String BASE_URL = "master/associated-bank";
 	
 	@Autowired
 	public AssociatedBankController(AssociatedBankService associatedBankService) {

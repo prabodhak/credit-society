@@ -18,10 +18,10 @@
 						</div>
 						<div class="clearfix"></div>
 						<div id="loanAccountTypeViewBodyId" style="display:none;">
-							<jsp:directive.include file="../template/loan-account-type-view-template.jsp" />
+							<jsp:directive.include file="../template/account-type-view-loan-template.jsp" />
 						</div>
 						<div id="depositAccountTypeViewBodyId" style="display:none;">
-							<jsp:directive.include file="../template/deposit-account-type-view-template.jsp" />
+							<jsp:directive.include file="../template/account-type-view-loan-template.jsp" />
 						</div>						
 					
 					</div>
