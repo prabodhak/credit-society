@@ -121,7 +121,14 @@
 								</div>
 								<div class="clearfix"></div>		
 								<div class="box-footer add-verification-docs">
-									<button name="associatedButton" class="btn btn-success"><spring:message code="button$add"/></button>
+									<c:choose>
+						                <c:when test="${associatedBank['new']}">
+						                    <button type="submit" class="btn btn-success"><spring:message code="button$add"/></button>
+						                </c:when>
+						                <c:otherwise>
+						                    <button type="submit" class="btn btn-success"><spring:message code="button$update"/></button>
+						                </c:otherwise>
+						            </c:choose>
 								</div>								
 								<div class="clearfix"></div>		
 							</div>

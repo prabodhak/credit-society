@@ -23,6 +23,7 @@ import com.bank.service.MemberTypeService;
 public class MemberTypeController {
 
 	private MemberTypeService memberTypeService;
+	private final String BASE_URL = "master/member-type";
 	
 	@Autowired
 	public MemberTypeController(MemberTypeService memberTypeService) {
@@ -34,14 +35,14 @@ public class MemberTypeController {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
 		model.addAttribute("operation", "view");
-		model.addAttribute("baseUrl", "master/member-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "viewMemberType";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public String initaccountMasterTypeCreationForm(Model model) {
 		model.addAttribute("memberType", new MemberType());
-		model.addAttribute("baseUrl", "master/member-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "createOrUpdateMemberTypeForm";
 	}
 	
@@ -51,7 +52,7 @@ public class MemberTypeController {
 		sessionStatus.setComplete();
 		String message = "Member Type created successfully.";
 		redirectAttributes.addFlashAttribute("message", message);
-		return "redirect:/master/member-type/add";
+		return "redirect:/" + BASE_URL + "/add";
 	}
 	
 	/*
@@ -65,7 +66,7 @@ public class MemberTypeController {
 	public String initDeleteMemberType(Model model) {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
-		model.addAttribute("baseUrl", "master/member-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "deleteMemberType";
 	}
 	
@@ -74,7 +75,7 @@ public class MemberTypeController {
 		for(String name : deleted) {
 			memberTypeService.delete(Long.valueOf(name));
 		}
-		return "redirect:/master/member-type/delete";
+		return "redirect:/" + BASE_URL + "/delete";
     }
 	
 	@RequestMapping(value="/edit")
@@ -82,7 +83,7 @@ public class MemberTypeController {
 		Collection<MemberType> results = memberTypeService.findAllMemberTypes();
 		model.addAttribute("memberTypes", results);
 		model.addAttribute("operation", "edit");
-		model.addAttribute("baseUrl", "master/member-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "viewMemberType";
 	}
 	
@@ -94,7 +95,7 @@ public class MemberTypeController {
 	public String initEditMemberTypeForm(@PathVariable("id") Long id, Model model) {
 		MemberType memberType = memberTypeService.findMemberType(id);
 		model.addAttribute(memberType);
-		model.addAttribute("baseUrl", "master/member-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "createOrUpdateMemberTypeForm";
 	}
 	
@@ -104,6 +105,6 @@ public class MemberTypeController {
 	sessionStatus.setComplete();
 	String message = "Member Type updated successfully.";
 	redirectAttributes.addFlashAttribute("message",message);
-	return "redirect:/master/member-type/edit";
+	return "redirect:/" + BASE_URL + "/edit";
     }
 }

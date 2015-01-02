@@ -24,82 +24,81 @@
 						<c:if test="${not empty message}">
 							<div id="message" class="success">${message}</div>	
 				  		</c:if>
-				  		<c:choose>
-					        <c:when test="${associatedBank['new']}">
-					        	<c:set var="method" value="post"/>
-					        	<c:set var="action" value="add"/>
-					        </c:when>
-					        <c:otherwise>
-					        	<c:set var="method" value="put"/>
-					        	<c:set var="action" value="edit"/>
-					        </c:otherwise>
-					    </c:choose>
 						<table id="associatedBankViewId" class="table table-bordered table-striped">
 							<thead>
 								<tr>
 									<th style="width:5%;"></th>
+									<th style="width:25%"><spring:message code="master$associatedBank$bankName.label"/></th>
 									<th style="width:25%;"><spring:message code="master$associatedBank$accountHolderName.label"/></th>
 									<th style="width:15%;"><spring:message code="master$associatedBank$accountNumber.label"/></th>
-									<th style="width:25%"><spring:message code="master$associatedBank$bankName.label"/></th>
 									<th style="width:15%;"><spring:message code="city.label"/></th>
 									<th style="width:10%;"><spring:message code="master$associatedBank$branchCode.label"/></th>
 									<th style="width:5%;"><spring:message code="status.label"/></th>
 								</tr>
 							</thead>
 							<tbody>
+								<c:forEach var="bank" items="${associatedBanks}">
 								<tr>
 									<td class="details-control" data-toggle="collapse" data-target="#row1DetailsId"></td>
-									<td>Trident</td>
-									<td>Internet Explorer 4.0</td>
-									<td>10000</td>
-									<td>12.59</td>
-									<td>Daily</td>
+									<c:choose>
+												<c:when test="${operation eq 'edit'}">
+													<td><a href="master/associated-bank/${bank.id}/edit">${bank.bankName}</a></td>
+												</c:when>
+												<c:otherwise>
+													<td>${bank.bankName}</td>
+												</c:otherwise>
+									</c:choose>
+									<td>${bank.accountHolderName}</td>
+									<td>${bank.accountNumber}</td>
+									<td>${bank.branchAddress.city}</td>
+									<td>${bank.branchCode}</td>
 									<td>Active</td>
 								</tr>
 								<tr id="row1DetailsId" class="collapse out">
 									<td colspan="7">
 										<div class="form-group col-md-3">
 											<label class="form-label" for="ifscCodeId"><spring:message code="master$associatedBank$ifscCode.label"/> </label>
-											<input type="text" name="ifscCode" id="ifscCodeId" class="form-control" value="${associatedBank.ifscCode}" readonly="readonly"/>
+											<input type="text" name="ifscCode" id="ifscCodeId" class="form-control" value="${bank.ifscCode}" readonly="readonly"/>
 										</div>	
 										<div class="form-group col-md-3">
 											<label class="form-label" for="micrId"><spring:message code="master$associatedBank$micr.label"/></label>
-											<input type="text" name="micr" id="micrId" class="form-control"value="${associatedBank.micr}" readonly="readonly"/>
+											<input type="text" name="micr" id="micrId" class="form-control"value="${bank.micr}" readonly="readonly"/>
 										</div>	
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankAddr1Id"><spring:message code="addressLine1.label"/></label>
-											<input type="text" name="associatedBankAddr1" id="associatedBankAddr1Id" class="form-control"value="${associatedBank.branchAddress.addressLine1}" readonly="readonly"/>
+											<input type="text" name="associatedBankAddr1" id="associatedBankAddr1Id" class="form-control"value="${bank.branchAddress.addressLine1}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankAddr2Id"><spring:message code="addressLine2.label"/></label>
-											<input type="text" name="associatedBankAddr1" id="associatedBankAddr1Id" class="form-control"value="${associatedBank.branchAddress.addressLine2}" readonly="readonly"/>
+											<input type="text" name="associatedBankAddr1" id="associatedBankAddr1Id" class="form-control"value="${bank.branchAddress.addressLine2}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankLandmarkId"><spring:message code="landmark.label"/></label>
-											<input type="text" name="associatedBankLandmark" id="associatedBankLandmarkId" class="form-control"value="${associatedBank.branchAddress.landmark}" readonly="readonly"/>
+											<input type="text" name="associatedBankLandmark" id="associatedBankLandmarkId" class="form-control"value="${bank.branchAddress.landmark}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankCityId"><spring:message code="city.label"/></label>
-											<input type="text" name="associatedBankCity" id="associatedBankCityId" class="form-control"value="${associatedBank.branchAddress.city}" readonly="readonly"/>
+											<input type="text" name="associatedBankCity" id="associatedBankCityId" class="form-control"value="${bank.branchAddress.city}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankDistrictId"><spring:message code="district.label"/></label>
-											<input type="text" name="associatedBankDistrict" id="associatedBankDistrictId" class="form-control"value="${associatedBank.branchAddress.district}" readonly="readonly"/>
+											<input type="text" name="associatedBankDistrict" id="associatedBankDistrictId" class="form-control"value="${bank.branchAddress.district}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankStateId"><spring:message code="state.label"/></label>
-											<input type="text" name="associatedBankState" id="associatedBankStateId" class="form-control"value="${associatedBank.branchAddress.state}" readonly="readonly"/>
+											<input type="text" name="associatedBankState" id="associatedBankStateId" class="form-control"value="${bank.branchAddress.state}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankCountryId"><spring:message code="country.label"/></label>
-											<input type="text" name="associatedBankCountry" id="associatedBankCountryId" class="form-control"value="${associatedBank.branchAddress.country}" readonly="readonly"/>
+											<input type="text" name="associatedBankCountry" id="associatedBankCountryId" class="form-control"value="${bank.branchAddress.country}" readonly="readonly"/>
 										</div>
 										<div class="form-group col-md-3">
 											<label class="form-label" for="associatedBankPinId"><spring:message code="pinCode.label"/></label>
-											<input type="text" name="associatedBankPin" id="associatedBankPinId" class="form-control"value="${associatedBank.branchAddress.pincode}" readonly="readonly"/>
+											<input type="text" name="associatedBankPin" id="associatedBankPinId" class="form-control"value="${bank.branchAddress.pincode}" readonly="readonly"/>
 										</div>
 									</td>
 								</tr>
+								</c:forEach>
 							</tbody>
 						</table>
 						<div style="text-align:right;">

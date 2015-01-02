@@ -27,6 +27,7 @@ import com.bank.utils.AjaxUtils;
 public class AccountTypeController {
 
 	private AccountTypeService accountTypeService;
+	private final String BASE_URL = "master/account-type";
 	
 	@Autowired
 	public AccountTypeController(AccountTypeService accountTypeService) {
@@ -51,10 +52,10 @@ public class AccountTypeController {
 	 */
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String showAccountTypes(Model model) {
-		Collection<AccountType> accounts = accountTypeService.findAllAccountType();
-		model.addAttribute("accounts", accounts);
+		Collection<AccountType> accountTypes = accountTypeService.findAllAccountType();
+		model.addAttribute("accountTypes", accountTypes);
 		model.addAttribute("operation", "view");
-		model.addAttribute("baseUrl", "master/account-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "viewAccountType";
 	}
 	
@@ -69,7 +70,7 @@ public class AccountTypeController {
 	public String initAccountTypeCreationForm(Model model, boolean ajaxRequest) {
 		AccountType accountType = new AccountType();
 		model.addAttribute(accountType);
-		model.addAttribute("baseUrl", "master/account-type");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "createOrUpdateAccounttypeForm";
 	}
 	
@@ -100,7 +101,7 @@ public class AccountTypeController {
 		sessionStatus.setComplete();
 		String message = "Account Type created successfully.";
 		redirectAttributes.addFlashAttribute("message", message);
-		return "redirect:/master/account-type/add";
+		return "redirect:/" + BASE_URL +"/add";
 	}
 	
 	/**
@@ -110,18 +111,27 @@ public class AccountTypeController {
 	 * @return
 	 */
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
-	public String initDeleteAccountType() {
+	public String initDeleteAccountType(Model model) {
+		Collection<AccountType> accountTypes = accountTypeService.findAllAccountType();
+		model.addAttribute("accountTypes", accountTypes);
+		model.addAttribute("baseUrl", BASE_URL);
 		return "deleteAccountType";
 	}
 	
-	@RequestMapping(value="/{id}/delete", method=RequestMethod.DELETE)
-	public String deleteAccountType(Long accountId) {
-		accountTypeService.deleteAccountType(accountId);
-		return "redirect:/master/account-type/delete";
+	@RequestMapping(value="/{id}/delete", method=RequestMethod.POST)
+	public String deleteAccountType(@RequestParam("deleted") String[] deleted) {
+		for (String id : deleted) {
+			accountTypeService.deleteAccountType(Long.valueOf(id));
+		}
+		return "redirect:/" + BASE_URL + "/delete";
 	}
 	
 	@RequestMapping(value="/edit")
-	public String editAccountType() {
+	public String editAccountType(Model model) {
+		Collection<AccountType> accountTypes = accountTypeService.findAllAccountType();
+		model.addAttribute("accountTypes", accountTypes);
+		model.addAttribute("operation", "edit");
+		model.addAttribute("baseUrl", BASE_URL);
 		return "editAccountType";
 	}
 	
@@ -129,13 +139,16 @@ public class AccountTypeController {
 	public String initEditAccountTypeForm(@PathVariable("id") Long id, Model model) {
 		AccountType accountType = accountTypeService.findAccountTypeById(id);
 		model.addAttribute(accountType);
+		model.addAttribute("baseUrl", BASE_URL);
 		return "addAccountType";
 	}
 	
 	@RequestMapping(value="/edit", method=RequestMethod.PUT)
-	public String editAccountType(@ModelAttribute AccountType accountType, SessionStatus sessionStatus) {
+	public String editAccountType(@ModelAttribute AccountType accountType, SessionStatus sessionStatus, RedirectAttributes redirectAttributes) {
 		accountTypeService.saveAccountType(accountType);
 		sessionStatus.setComplete();
-		return "redirect:/master/account-type/edit";
+		String message = "Account Type updated successfully.";
+		redirectAttributes.addFlashAttribute("message",message);
+		return "redirect:/" + BASE_URL + "/edit";
 	}
 }

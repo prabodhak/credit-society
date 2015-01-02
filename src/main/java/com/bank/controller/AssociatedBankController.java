@@ -20,7 +20,7 @@ import com.bank.service.AssociatedBankService;
 @RequestMapping(value="/master/associated-bank")
 public class AssociatedBankController {
 	private AssociatedBankService associatedBankService;
-	public static final String BASE_URL = "master/associated-bank";
+	private final String BASE_URL = "master/associated-bank";
 	
 	@Autowired
 	public AssociatedBankController(AssociatedBankService associatedBankService) {
@@ -49,7 +49,7 @@ public class AssociatedBankController {
 		sessionStatus.setComplete();
 		String message = "Associated Bank created successfully.";
 		redirectAttributes.addFlashAttribute("message", message);
-		return "redirect:" + BASE_URL + "/add";
+		return "redirect:/" + BASE_URL + "/add";
 	}
 	
 	/*
@@ -72,13 +72,13 @@ public class AssociatedBankController {
 		for(String name : deleted) {
 			associatedBankService.delete(Long.valueOf(name));
 		}
-		return "redirect:" + BASE_URL + "/delete";
+		return "redirect:/" + BASE_URL + "/delete";
     }
 	
 	@RequestMapping(value="/edit")
 	public String editMemberType(Model model) {
 		Collection<AssociatedBank> results = associatedBankService.findAllAssociatedBanks();
-		model.addAttribute("banks", results);
+		model.addAttribute("associatedBanks", results);
 		model.addAttribute("operation", "edit");
 		model.addAttribute("baseUrl", BASE_URL);
 		return "viewAssociatedBank";
@@ -102,7 +102,7 @@ public class AssociatedBankController {
 	sessionStatus.setComplete();
 	String message = "Associated Bank updated successfully.";
 	redirectAttributes.addFlashAttribute("message",message);
-	return "redirect:" + BASE_URL + "/edit";
+	return "redirect:/" + BASE_URL + "/edit";
     }
 
 }
