@@ -10,9 +10,9 @@
 			<div class="row">
 				<div class="col-md-12">
 					<!-- form heading -->
-					<div class="box box-solid box-primary">
+					<div class="box box-solid box-primary">						
 						<div class="box-header">
-							<h3 class="box-title"><spring:message code="master$associatedBank$view"/></h3>
+							<h3 class="box-title"><spring:message code="master$associatedBank$delete"/></h3>
 							<div class="box-tools pull-right">
 								<button class="btn btn-primary btn-sm" data-widget="collapse">
 									<i class="fa fa-minus"></i>
@@ -21,44 +21,33 @@
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
-						<c:if test="${not empty message}">
-							<div id="message" class="success">${message}</div>	
-				  		</c:if>
-				  		<c:choose>
-					        <c:when test="${associatedBank['new']}">
-					        	<c:set var="method" value="post"/>
-					        	<c:set var="action" value="add"/>
-					        </c:when>
-					        <c:otherwise>
-					        	<c:set var="method" value="put"/>
-					        	<c:set var="action" value="edit"/>
-					        </c:otherwise>
-					    </c:choose>
+						<form:form action="master/associated-bank/delete" method="post">
 					    <div class="box-body table-responsive">
 							<table id="associatedBankViewId" class="table table-bordered table-striped">
 								<thead>
 									<tr>
 										<th style="width:4%;"></th>
 										<th style="width:4%;"></th>
+										<th style="width:25%"><spring:message code="master$associatedBank$bankName.label"/></th>
 										<th style="width:22%;"><spring:message code="master$associatedBank$accountHolderName.label"/></th>
 										<th style="width:15%;"><spring:message code="master$associatedBank$accountNumber.label"/></th>
-										<th style="width:25%"><spring:message code="master$associatedBank$bankName.label"/></th>
 										<th style="width:15%;"><spring:message code="city.label"/></th>
 										<th style="width:10%;"><spring:message code="master$associatedBank$branchCode.label"/></th>
 										<th style="width:5%;"><spring:message code="status.label"/></th>
 									</tr>
 								</thead>
 								<tbody>
+									<c:forEach var="bank" items="${associatedBanks}">
 									<tr>
 										<td>
-											<input type="checkbox" name="deleted" id="associatedBankId" value="${associatedBank.id}"/>
+											<input type="checkbox" name="deleted" id="associatedBankId" value="${bank.id}"/>
 										</td>
 										<td class="details-control" data-toggle="collapse" data-target="#row1DetailsId"></td>
-										<td>Trident</td>
-										<td>Internet Explorer 4.0</td>
-										<td>10000</td>
-										<td>12.59</td>
-										<td>Daily</td>
+										<td>${bank.bankName}</td>
+										<td>${bank.accountHolderName}</td>
+										<td>${bank.accountNumber}</td>
+										<td>${bank.branchAddress.city}</td>
+										<td>${bank.branchCode}</td>
 										<td>Active</td>
 									</tr>
 									<tr id="row1DetailsId" class="collapse out">
@@ -105,13 +94,16 @@
 											</div>
 										</td>
 									</tr>
+									</c:forEach>
 								</tbody>
 							</table>
 						</div>
+						
 						<div class="clearfix"></div>
 						<div class="box-footer">
 							<button type="submit" class="btn btn-primary"><spring:message code="button$delete"/></button>
-						</div>									
+						</div>
+						</form:form>				
 					</div>
 				</div>
 			</div>

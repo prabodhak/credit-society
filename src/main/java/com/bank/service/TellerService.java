@@ -2,19 +2,21 @@ package com.bank.service;
 
 import java.math.BigDecimal;
 
+import com.bank.model.MemberAccount;
+
 public interface TellerService {
 
 	/**
 	 * Deposit money in the specified account
 	 * @param amount
 	 */
-	void deposit(BigDecimal amount);
+	void deposit(MemberAccount account, BigDecimal amount);
 	
 	/**
 	 * Withdraw money from specified account
 	 * @param amount
 	 */
-	void withdrawal(BigDecimal amount);
+	void withdrawal(MemberAccount account, BigDecimal amount);
 	
 	/**
 	 * Open a new account for existing or new customer
@@ -25,6 +27,7 @@ public interface TellerService {
 	 * 
 	 */
 	void printDepositeSlip();
+	
 	void updatePassbook(Long accountNumber);
 	
 	/**

@@ -3,16 +3,16 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
-<div id="body">	
+<div id="body">
 	<aside class="right-side">
 		<section class="content">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="box">
+					<div class="box box-solid box-primary">
+						<div class="box-header">
+							<h3 class="box-title"><spring:message code="master$memberType$delete"/></h3>
+						</div>
 						<form action="master/member-type/delete" method="post">
-							<div class="box-header">
-								<h3 class="box-title">Member Type List</h3>
-							</div>
 							<!-- /.box-header -->
 							<div class="box-body table-responsive">
 								<table id="memberTypeListDeleteId" class="table table-bordered table-striped">

@@ -5,11 +5,13 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bank.model.AssociatedBank;
 import com.bank.repository.AssociatedBankDao;
 
 @Service
+@Transactional
 public class AssociatedBankServiceImpl implements AssociatedBankService{
 
 	private AssociatedBankDao associatedBankDao;

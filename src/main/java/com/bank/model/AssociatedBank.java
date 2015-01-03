@@ -1,7 +1,9 @@
 package com.bank.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @SuppressWarnings("serial")
@@ -27,7 +29,7 @@ public class AssociatedBank extends BaseEntity {
 	@Column(name = "micr")
 	private String micr;
 
-	@Column
+	@OneToOne(cascade=CascadeType.ALL)
 	private Address branchAddress;
 
 	public String getAccountHolderName() {

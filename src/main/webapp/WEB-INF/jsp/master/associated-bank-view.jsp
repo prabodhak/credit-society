@@ -12,7 +12,14 @@
 					<!-- form heading -->
 					<div class="box box-solid box-primary">
 						<div class="box-header">
-							<h3 class="box-title"><spring:message code="master$associatedBank$view"/></h3>
+							<c:choose>
+								<c:when test="${operation eq 'edit'}">
+									<h3 class="box-title"><spring:message code="master$associatedBank$edit"/></h3>
+								</c:when>
+								<c:otherwise>
+									<h3 class="box-title"><spring:message code="master$associatedBank$view"/></h3>
+								</c:otherwise>
+							</c:choose>
 							<div class="box-tools pull-right">
 								<button class="btn btn-primary btn-sm" data-widget="collapse">
 									<i class="fa fa-minus"></i>

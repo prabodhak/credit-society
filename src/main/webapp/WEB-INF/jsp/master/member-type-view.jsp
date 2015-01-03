@@ -9,9 +9,16 @@
 		<section class="content">
 			<div class="row">
 				<div class="col-md-12">
-					<div class="box">
+					<div class="box box-solid box-primary">
 						<div class="box-header">
-							<h3 class="box-title">Member Type List</h3>
+							<c:choose>
+								<c:when test="${operation eq 'edit'}">
+									<h3 class="box-title"><spring:message code="master$memberType$edit"/></h3>
+								</c:when>
+								<c:otherwise>
+									<h3 class="box-title"><spring:message code="master$memberType$view"/></h3>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body table-responsive">

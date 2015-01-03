@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -17,6 +18,7 @@ import com.bank.model.AssociatedBank;
 import com.bank.service.AssociatedBankService;
 
 @Controller
+@SessionAttributes("associatedBank")
 @RequestMapping(value="/master/associated-bank")
 public class AssociatedBankController {
 	private AssociatedBankService associatedBankService;
@@ -29,10 +31,10 @@ public class AssociatedBankController {
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
 	public String showAllAssociatedBanks(Model model) {
-		Collection<AssociatedBank> results = associatedBankService.findAllAssociatedBanks();
+		Collection<AssociatedBank> associatedBanks = associatedBankService.findAllAssociatedBanks();
 		model.addAttribute("operation", "view");
 		model.addAttribute("baseUrl", BASE_URL);
-		model.addAttribute("associatedBanks", results);
+		model.addAttribute("associatedBanks", associatedBanks);
 		return "viewAssociatedBank";
 	}
 	
@@ -61,8 +63,8 @@ public class AssociatedBankController {
 	 */
 	@RequestMapping(value="/delete", method=RequestMethod.GET)
 	public String initDeleteAssociatedBank(Model model) {
-		Collection<AssociatedBank> banks = associatedBankService.findAllAssociatedBanks();
-		model.addAttribute("banks", banks);
+		Collection<AssociatedBank> associatedBanks = associatedBankService.findAllAssociatedBanks();
+		model.addAttribute("associatedBanks", associatedBanks);
 		model.addAttribute("baseUrl", BASE_URL);
 		return "deleteAddAssociatedBank";
 	}
@@ -77,8 +79,8 @@ public class AssociatedBankController {
 	
 	@RequestMapping(value="/edit")
 	public String editMemberType(Model model) {
-		Collection<AssociatedBank> results = associatedBankService.findAllAssociatedBanks();
-		model.addAttribute("associatedBanks", results);
+		Collection<AssociatedBank> associatedBanks = associatedBankService.findAllAssociatedBanks();
+		model.addAttribute("associatedBanks", associatedBanks);
 		model.addAttribute("operation", "edit");
 		model.addAttribute("baseUrl", BASE_URL);
 		return "viewAssociatedBank";
@@ -104,5 +106,5 @@ public class AssociatedBankController {
 	redirectAttributes.addFlashAttribute("message",message);
 	return "redirect:/" + BASE_URL + "/edit";
     }
-
+	
 }
