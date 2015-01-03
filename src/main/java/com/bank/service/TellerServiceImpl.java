@@ -2,6 +2,9 @@ package com.bank.service;
 
 import java.math.BigDecimal;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class TellerServiceImpl implements TellerService {
 
 	@Override

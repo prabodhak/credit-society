@@ -1,5 +1,6 @@
 package com.bank.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -8,12 +9,25 @@ import javax.persistence.Table;
 @Table(name = "associated_bank")
 public class AssociatedBank extends BaseEntity {
 
+	@Column(name = "accountHolderName")
 	private String accountHolderName;
+
+	@Column(name = "accountNumber")
 	private String accountNumber;
+
+	@Column(name = "bankName")
 	private String bankName;
+
+	@Column(name = "branchCode")
 	private String branchCode;
+
+	@Column(name = "ifscCode")
 	private String ifscCode;
+
+	@Column(name = "micr")
 	private String micr;
+
+	@Column
 	private Address branchAddress;
 
 	public String getAccountHolderName() {

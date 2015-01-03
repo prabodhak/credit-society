@@ -128,4 +128,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type-delete.jsp"/>
 	</definition>
 	
+	<definition name="depositForm" extends="base.definition">
+		<put-attribute name="title" value="Account Deposit"/>
+		<put-attribute name="main" value="/WEB-INF/jsp/teller/deposit.jsp"/>
+	</definition>
+	
+	
 </tiles-definitions>

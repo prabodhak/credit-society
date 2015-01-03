@@ -77,11 +77,11 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="pages/teller-services/1.html"><i class="fa fa-angle-double-right"></i>Deposite</a></li>
-                    <li><a href="pages/teller-services/2.html"><i class="fa fa-angle-double-right"></i>Withdraw</a></li>
-                    <li><a href="pages/teller-services/3.html"><i class="fa fa-angle-double-right"></i>Fund Transfer</a></li>
-                    <li><a href="pages/teller-services/3.html"><i class="fa fa-angle-double-right"></i>Passbook Update</a></li>
-                    <li><a href="pages/teller-services/3.html"><i class="fa fa-angle-double-right"></i>Ledger Enquiry</a></li>
+                    <li><a href="teller/deposit"><i class="fa fa-angle-double-right"></i>Deposit</a></li>
+                    <li><a href="teller/withdraw"><i class="fa fa-angle-double-right"></i>Withdraw</a></li>
+                    <li><a href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i>Fund Transfer</a></li>
+                    <li><a href="teller/passbook-update"><i class="fa fa-angle-double-right"></i>Passbook Update</a></li>
+                    <li><a href="teller/ledger-enquiry"><i class="fa fa-angle-double-right"></i>Ledger Enquiry</a></li>
                 </ul>
             </li>
             <li class="treeview">

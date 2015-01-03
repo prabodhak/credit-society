@@ -2,6 +2,7 @@ package com.bank.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -10,13 +11,28 @@ import javax.persistence.Table;
 @Table(name="member_type")
 public class MemberType extends BaseEntity {
 
+	@Column(name="type")
 	private String type;
+	
+	@Column(name="share_amount")
 	private BigDecimal sharesAmount;
+	
+	@Column(name="membership_fee")
 	private BigDecimal memberFee;
+	
+	@Column(name="miscellaneous_charge")
 	private BigDecimal miscellaneousCharge;
+	
+	@Column(name="participate_in_election")
 	private boolean participateInElection;
+	
+	@Column(name="eligible_for_voting")
 	private boolean eligibleForVoting;
+	
+	@Column(name="eligible_lor_loan")
 	private boolean eligibleForLoan;
+	
+	@Column(name="eligible_for_guarantor")
 	private boolean eligibleforGuarantor;
 
 	public MemberType() {
