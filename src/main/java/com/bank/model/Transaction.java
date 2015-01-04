@@ -22,6 +22,11 @@ public class Transaction extends BaseEntity {
 	
 	private DateTime transactionDate;
 	
+	private Person initiator;
+	
+	private Long empId;
+	
+	
 	@Column(name="narration")
 	private String narration;
 	

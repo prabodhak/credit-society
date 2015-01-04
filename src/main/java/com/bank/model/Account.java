@@ -6,6 +6,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,6 +26,10 @@ import com.bank.utils.StatementFrequency;
 @SuppressWarnings("serial")
 @Entity
 @Table(name="account")
+@NamedQueries({
+	@NamedQuery(name="Account.findByAccountNo",
+				query="SELECT a FROM Account a WHERE a.accountNumber = :accountNumber")
+})
 public class Account extends BaseEntity {
 
 	/*
@@ -31,6 +37,11 @@ public class Account extends BaseEntity {
 	 */
 	@Column(name="account_number", unique=true)
 	private Long accountNumber;
+	
+	/*
+	 * Tell the member information of this account
+	 */
+	private Member member;
 	
 	/*
 	 * 
@@ -87,6 +98,7 @@ public class Account extends BaseEntity {
 	 * Total amount in the account (availableBalance + unclearedFunds) 
 	 */
 	private BigDecimal accountBalance;
+	
 	/*
 	 * Amount which you can withdraw right now
 	 */
@@ -107,6 +119,14 @@ public class Account extends BaseEntity {
 
 	public void setAccountNumber(Long accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+
+	public Member getMember() {
+		return member;
+	}
+
+	public void setMember(Member member) {
+		this.member = member;
 	}
 
 	public AccountType getAccountType() {

@@ -1,13 +1,10 @@
 package com.bank.model;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -100,10 +97,6 @@ public class Member extends Person {
 	@Column(name = "senior_citizen")
 	private boolean seniorCitizen;
 
-	@ElementCollection
-	@JoinTable(name = "member_other_account_details")
-	private Set<OtherAccountDetails> otherAccountDetails;
-
 	@Column(name = "creation_date")
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -114,9 +107,6 @@ public class Member extends Person {
 
 	@Column(name = "active")
 	private boolean active;
-	
-	@Column(name = "special_instruction")
-	private String specialInstruction;
 
 	public Member() {
 		
@@ -306,15 +296,6 @@ public class Member extends Person {
 		this.seniorCitizen = seniorCitizen;
 	}
 
-	public Set<OtherAccountDetails> getOtherAccountDetails() {
-		return otherAccountDetails;
-	}
-
-	public void setOtherAccountDetails(
-			Set<OtherAccountDetails> otherAccountDetails) {
-		this.otherAccountDetails = otherAccountDetails;
-	}
-
 	public DateTime getCreationDate() {
 		return creationDate;
 	}
@@ -339,13 +320,7 @@ public class Member extends Person {
 		this.active = active;
 	}
 
-	public String getSpecialInstruction() {
-		return specialInstruction;
-	}
-
-	public void setSpecialInstruction(String specialInstruction) {
-		this.specialInstruction = specialInstruction;
-	}
+	
 
 	@Override
 	public int hashCode() {

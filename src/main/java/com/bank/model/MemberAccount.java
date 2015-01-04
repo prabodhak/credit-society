@@ -2,11 +2,14 @@ package com.bank.model;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -49,6 +52,16 @@ public class MemberAccount extends BaseEntity {
 
 	@OneToMany(cascade = CascadeType.ALL)
 	private Collection<Nominee> nominees = new HashSet<Nominee>();
+	
+	@ElementCollection
+	@JoinTable(name = "member_other_account_details")
+	private Set<OtherAccountDetails> otherAccountDetails;
+	
+	@Column(name="loan_locked")
+	private boolean loanLocked;
+	
+	@Column(name = "special_instruction")
+	private String specialInstruction;
 
 	public MemberAccount() {
 		// TODO Auto-generated constructor stub
@@ -108,5 +121,30 @@ public class MemberAccount extends BaseEntity {
 
 	public void setNominees(Collection<Nominee> nominees) {
 		this.nominees = nominees;
+	}
+
+	public Set<OtherAccountDetails> getOtherAccountDetails() {
+		return otherAccountDetails;
+	}
+
+	public void setOtherAccountDetails(
+			Set<OtherAccountDetails> otherAccountDetails) {
+		this.otherAccountDetails = otherAccountDetails;
+	}
+	
+	public boolean isLoanLocked() {
+		return loanLocked;
+	}
+
+	public void setLoanLocked(boolean loanLocked) {
+		this.loanLocked = loanLocked;
+	}
+
+	public String getSpecialInstruction() {
+		return specialInstruction;
+	}
+
+	public void setSpecialInstruction(String specialInstruction) {
+		this.specialInstruction = specialInstruction;
 	}
 }

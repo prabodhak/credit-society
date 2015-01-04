@@ -1,6 +1,11 @@
 package com.bank.repository;
 
-public interface AccountDao {
+import com.bank.model.Account;
+import com.bank.model.Member;
 
+public interface AccountDao extends GenericDao<Account, Long>{
 	
+	Account findByAccountNo(Long accountNo);
+	
+	Member getMemberByAccountNo(Long accountNo);
 }
