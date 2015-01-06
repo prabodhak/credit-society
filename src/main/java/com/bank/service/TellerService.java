@@ -2,8 +2,8 @@ package com.bank.service;
 
 import java.math.BigDecimal;
 
+import com.bank.exception.CashCerditExceedsException;
 import com.bank.exception.InSufficientBalanaceException;
-import com.bank.model.DepositForm;
 
 public interface TellerService {
 
@@ -13,6 +13,13 @@ public interface TellerService {
 	 * @param amount
 	 */
 	void deposit(Long accountNo, BigDecimal amount);
+	
+	/**
+	 * Deposit cash money in the specified account
+	 * 
+	 * @param amount
+	 */
+	void cashDeposit(Long accountNo, BigDecimal amount) throws CashCerditExceedsException;
 
 	/**
 	 * Withdraw money from specified account

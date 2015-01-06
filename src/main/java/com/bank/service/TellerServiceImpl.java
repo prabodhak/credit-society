@@ -5,8 +5,10 @@ import java.math.BigDecimal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bank.exception.CashCerditExceedsException;
 import com.bank.exception.InSufficientBalanaceException;
 import com.bank.model.Account;
+import com.bank.model.DepositAccountType;
 import com.bank.model.Member;
 import com.bank.repository.AccountDao;
 import com.bank.repository.MemberAccountDao;
@@ -30,6 +32,17 @@ public class TellerServiceImpl implements TellerService {
 		 * Add this transaction in the transaction table
 		 */
 		
+	}
+	
+	public void cashDeposit(Long accountNo, BigDecimal amount) throws CashCerditExceedsException {
+		Account account = accountDao.findByAccountNo(accountNo);
+		if (account.getAccountType() instanceof DepositAccountType) {
+			DepositAccountType accountType = (DepositAccountType) account.getAccountType();
+			if(amount.compareTo(accountType.getCreditCashLimit()) > 0) {
+				throw new CashCerditExceedsException();
+			}	
+		}
+		deposit(accountNo, amount);
 	}
 
 	@Override
