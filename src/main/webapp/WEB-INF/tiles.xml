@@ -148,7 +148,6 @@
 	<definition name="ledgerEnquiryForm" extends="base.definition">
 		<put-attribute name="title" value="Account Deposit"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/teller/ledger-enquiry.jsp"/>
-	</definition>
-	
+	</definition>	
 	
 </tiles-definitions>
