@@ -71,19 +71,41 @@ $(document).on('change', '#accountTypeAddId', function(){
 	} */
 	
 	var accountType =  $(this).find(":selected").text();
-	alert(accountType);
+	//alert(accountType);
 	$.ajax({
 		url: "master/account-type/addAjax",
-		dataType: "text",
+		dataType: "html",
 		data:	{	"accountType" : accountType},
 		type:	"get",
-		success: function(text) {
-			alert(text);
-			consol.log("Success");
-			$('#accountTypeAddBodyId').html(text);
+		success: function(response) {
+			//alert(response);
+			//var ajaxResponse = $($.parseHTML(response)).filter("#ajaxResponseId");
+			//alert($(response).find('#ajaxResponseId').html());
+			//alert($(response).filter('#ajaxResponseId').html());
+			//var head = $(response).find('body').html();
+			//alert(head);
+			//alert($("head").html());
+			//$("head").html($("head").html());
+
+			//alert($('html').find("#footerCommonScriptId").html());
+			//$("#footerCommonScriptId").html($("#footerCommonScriptId").html());
+
+			var ajaxResponse = $(response).find('#ajaxResponseId').html();
+			$('#accountTypeAddBodyId').html(ajaxResponse);
+			$('html').find("script").each(function(i) {
+				//alert($(this).text());
+				//alert($(this).attr('src'));
+				//js = $(this).attr('src');
+				//$.getScript(js, function() {
+					  //alert('Load was performed.');
+				//	});
+                //eval($(this).text());
+            });
+			
+			console.log("Success");
 		},
 		error: function(xhr) {
-			consol.log("Error");
+			console.log("Error");
 		}
 	});
 });
