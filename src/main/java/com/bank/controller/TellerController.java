@@ -55,13 +55,33 @@ public class TellerController {
 		return "redirect:/teller/withdrawal";
 	}
 	
-	@RequestMapping(value="fundTransfer", method=RequestMethod.GET)
+	@RequestMapping(value="fund-transfer", method=RequestMethod.GET)
 	public String initFundTransferForm() {
-		return "fundTransfer";
+		return "fundTransferForm";
 	}
 
-	@RequestMapping(value="fundTransfer", method=RequestMethod.POST)
+	@RequestMapping(value="fund-transfer", method=RequestMethod.POST)
 	public String processFundTransferForm() {
-		return "redirect:/teller/fundTransfer";
+		return "redirect:/teller/fund-transfer";
+	}
+	
+	@RequestMapping(value="passbook-update", method=RequestMethod.GET)
+	public String initFundPassbookUpdateForm() {
+		return "passbookUpdateForm";
+	}
+
+	@RequestMapping(value="passbook-update", method=RequestMethod.POST)
+	public String processPassbookUpdateForm() {
+		return "redirect:/teller/passbook-update";
+	}
+	
+	@RequestMapping(value="ledger-enquiry", method=RequestMethod.GET)
+	public String initFundLedgerEnquiryForm() {
+		return "ledgerEnquiryForm";
+	}
+
+	@RequestMapping(value="ledger-enquiry", method=RequestMethod.POST)
+	public String processLedgerEnquiryForm() {
+		return "redirect:/teller/ledger-enquiry";
 	}
 }

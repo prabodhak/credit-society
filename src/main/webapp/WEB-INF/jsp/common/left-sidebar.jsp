@@ -78,7 +78,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="teller/deposit"><i class="fa fa-angle-double-right"></i>Deposit</a></li>
-                    <li><a href="teller/withdraw"><i class="fa fa-angle-double-right"></i>Withdraw</a></li>
+                    <li><a href="teller/withdrawal"><i class="fa fa-angle-double-right"></i>Withdrawal</a></li>
                     <li><a href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i>Fund Transfer</a></li>
                     <li><a href="teller/passbook-update"><i class="fa fa-angle-double-right"></i>Passbook Update</a></li>
                     <li><a href="teller/ledger-enquiry"><i class="fa fa-angle-double-right"></i>Ledger Enquiry</a></li>
