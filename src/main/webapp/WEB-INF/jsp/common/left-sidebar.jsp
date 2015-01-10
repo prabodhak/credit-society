@@ -73,15 +73,15 @@
             </li>
             <li class="treeview">
                 <a href="pages/teller-services/index.html">
-                    <i class="fa fa-edit"></i> <span>Teller Services</span>
+                    <i class="fa fa-edit"></i> <span><spring:message code="tellerServices"/></span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a id="depositId" href="teller/deposit"><i class="fa fa-angle-double-right"></i>Deposit</a></li>
-                    <li><a href="teller/withdrawal"><i class="fa fa-angle-double-right"></i>Withdrawal</a></li>
-                    <li><a href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i>Fund Transfer</a></li>
-                    <li><a href="teller/passbook-update"><i class="fa fa-angle-double-right"></i>Passbook Update</a></li>
-                    <li><a href="teller/ledger-enquiry"><i class="fa fa-angle-double-right"></i>Ledger Enquiry</a></li>
+                    <li><a href="teller/deposit"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$deposit"/></a></li>
+                    <li><a href="teller/withdrawal"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$withdrawal"/></a></li>
+                    <li><a href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$fundTransfer"/></a></li>
+                    <li><a href="teller/passbook-update"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$passbookUpdate"/></a></li>
+                    <li><a href="teller/ledger-enquiry"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$ledgerEnquiry"/></a></li>
                 </ul>
             </li>
             <li class="treeview">
