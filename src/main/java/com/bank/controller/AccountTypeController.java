@@ -23,7 +23,7 @@ import com.bank.utils.AjaxUtils;
 
 @Controller
 @RequestMapping("/master/account-type")
-@SessionAttributes("accountType")
+@SessionAttributes("accountType, accountTypes")
 public class AccountTypeController {
 
 	private AccountTypeService accountTypeService;

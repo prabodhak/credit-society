@@ -4,7 +4,7 @@
 
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
-<div id="body">	
+<div id="mainContent">	
 	<aside class="right-side">
 		<!-- Main content -->
  		<section class="content" style="padding-top:0px;">

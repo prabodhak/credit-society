@@ -1,9 +1,12 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<div id="crudMenuId">
+	<jsp:directive.include file="../common/crud-menu.jsp" />
+</div>
+<div id="mainContentId">
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<!-- Right side column. Contains the navbar and content of the page -->
-<div id="body">
+	<!-- Right side column. Contains the navbar and content of the page -->
 	<aside class="right-side">
 		<!-- Account Opening Form -->
 		<section class="content">
@@ -129,35 +132,35 @@
 	<%-- <jsp:directive.include file="guardian.jsp" /> --%>
 	<!-- introducer form -->
 	<%-- <jsp:directive.include file="introducer.jsp" /> --%>
+
+	<link href="resources/css/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+	<script type="text/javascript" src="resources/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+	
+	<script>
+	var currentBoxNumber = 0;
+	$(".username").keyup(function (event) {
+	    if (event.keyCode == 13) {
+	        textboxes = $("input.username");
+	        currentBoxNumber = textboxes.index(this);
+	        console.log(textboxes.index(this));
+	        if (textboxes[currentBoxNumber + 1] != null) {
+	            nextBox = textboxes[currentBoxNumber + 1];
+	            nextBox.focus();
+	            nextBox.select();
+	            event.preventDefault();
+	            return false;
+	        }
+	    }
+	});
+	//datetimepicker
+	$('#applicationDateId').datetimepicker({
+	    weekStart: 1,
+	    todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+	});
+	</script>
 </div>
-
-<link href="resources/css/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
-<script type="text/javascript" src="resources/js/plugins/datetimepicker/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
-
-<script>
-var currentBoxNumber = 0;
-$(".username").keyup(function (event) {
-    if (event.keyCode == 13) {
-        textboxes = $("input.username");
-        currentBoxNumber = textboxes.index(this);
-        console.log(textboxes.index(this));
-        if (textboxes[currentBoxNumber + 1] != null) {
-            nextBox = textboxes[currentBoxNumber + 1];
-            nextBox.focus();
-            nextBox.select();
-            event.preventDefault();
-            return false;
-        }
-    }
-});
-//datetimepicker
-$('#applicationDateId').datetimepicker({
-    weekStart: 1,
-    todayBtn:  1,
-	autoclose: 1,
-	todayHighlight: 1,
-	startView: 2,
-	minView: 2,
-	forceParse: 0
-});
-</script>

@@ -1,37 +1,37 @@
-<div id="ajaxResponseId">
+<div id="crudMenuId">
 	<jsp:directive.include file="../common/crud-menu.jsp" />
-	<div id="body">	
-		<aside class="right-side">
-			<!-- Main content -->
-			<section class="content">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="box">
-							<div class="box-header">
-								<h3 class="box-title">Account Type List</h3>
-							</div>
-							<div class="form-group col-md-3">
-								<label class="form-label" for="accountTypeView">Account Type</label>
-								<select name="accountTypeView" class="form-control" id="accountTypeViewId">
-									<option value="1">Select Account Type</option>
-									<option value="2">Loan</option>
-									<option value="3">Deposit</option>
-								</select>
-							</div>
-							<div class="clearfix"></div>
-							<div id="loanAccountTypeViewBodyId" style="display:none;">
-								<jsp:directive.include file="../template/account-type-view-loan-template.jsp" />
-							</div>
-							<div id="depositAccountTypeViewBodyId" style="display:none;">
-								<jsp:directive.include file="../template/account-type-view-loan-template.jsp" />
-							</div>						
-						
+</div>
+<div id="mainContentId">
+	<aside class="right-side">
+		<!-- Main content -->
+		<section class="content" style="padding-top:0px;">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box">
+						<div class="box-header">
+							<h3 class="box-title">Account Type List</h3>
 						</div>
+						<div class="form-group col-md-3">
+							<label class="form-label" for="accountTypeView">Account Type</label>
+							<select name="accountTypeView" class="form-control" id="accountTypeViewId">
+								<option value="1">Select Account Type</option>
+								<option value="2">Loan</option>
+								<option value="3">Deposit</option>
+							</select>
+						</div>
+						<div class="clearfix"></div>
+						<div id="loanAccountTypeViewBodyId" style="display:none;">
+							<jsp:directive.include file="../template/account-type-view-loan-template.jsp" />
+						</div>
+						<div id="depositAccountTypeViewBodyId" style="display:none;">
+							<jsp:directive.include file="../template/account-type-view-loan-template.jsp" />
+						</div>						
+					
 					</div>
 				</div>
-			</section>	
-		</aside>
-	</div>
+			</div>
+		</section>	
+	</aside>
 	
 	<script>
 	$(document).on('change', '#accountTypeId', function(){

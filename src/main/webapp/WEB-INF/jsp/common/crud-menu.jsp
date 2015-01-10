@@ -5,24 +5,27 @@
 
 <link href="resources/css/datatables/dataTables.bootstrap.css"
 	rel="stylesheet" type="text/css" />
-<div id="menu">
-	<aside class="right-side">
-		<section class="content" style="padding-bottom:0px;">
-			<div class="row" align="left">
-				<!-- left column -->
-				<div class="col-md-12">
-					<div class="box box-primary crud-menu" style="padding:2px;">
-						<a id="crudMenuAddId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/add"> <i class="fa fa-plus"></i> <spring:message code="crud$menu$add"/>
-						</a> <a id="crudMenuEditId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/edit"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$edit"/>
-						</a> <a id="crudMenuViewId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/view"> <i class="fa fa-search"></i> <spring:message code="crud$menu$view"/>
-						</a> <a id="crudMenuDeleteId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/delete"> <i class="fa fa-trash-o"></i><spring:message code="crud$menu$delete"/></a>
-					</div>
+
+<aside class="right-side">
+	<section class="content" style="padding-bottom:0px;">
+		<div class="row" align="left">
+			<!-- left column -->
+			<div class="col-md-12">
+				<div class="box box-primary crud-menu" style="padding:2px;">
+					<a id="crudMenuAddId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/add"> <i class="fa fa-plus"></i> <spring:message code="crud$menu$add"/>
+					</a> <a id="crudMenuEditId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/edit"> <i class="fa fa-edit"></i> <spring:message code="crud$menu$edit"/>
+					</a> <a id="crudMenuViewId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/view"> <i class="fa fa-search"></i> <spring:message code="crud$menu$view"/>
+					</a> <a id="crudMenuDeleteId" class="btn btn-app" style="margin:0px;" href="${baseUrl}/delete"> <i class="fa fa-trash-o"></i><spring:message code="crud$menu$delete"/></a>
 				</div>
 			</div>
-		</section>
-	</aside>
-</div>
+		</div>
+	</section>
+</aside>
 <script>
+$( document ).ready(function() {
+	$('#crudMenuViewId').addClass('active');
+	alert('hi');
+});
 $('#crudMenuAddId,#crudMenuEditId,#crudMenuViewId,#crudMenuDeleteId').click(function (e) {
 	e.preventDefault();
 	$('#crudMenuAddId').removeClass('active');
@@ -32,15 +35,16 @@ $('#crudMenuAddId,#crudMenuEditId,#crudMenuViewId,#crudMenuDeleteId').click(func
 	
 	activeMenuId = '#' + $(this).attr('id');
 	$(activeMenuId).addClass('active');
-	
+	//alert(activeMenuId);
     url = $(this).attr('href');
+    //alert(url);
 	$.ajax({
 		url: url,
 		dataType: "html",
 		type:	"get",
 		success: function(response) {
-			var ajaxResponse = $(response).find('#ajaxResponseId').html();
-			$('#body').html(ajaxResponse);
+			var ajaxResponse = $(response).find('#mainContentId').html();
+			$('#mainContentId').html(ajaxResponse);
 			console.log("Success");
 		},
 		error: function(xhr) {

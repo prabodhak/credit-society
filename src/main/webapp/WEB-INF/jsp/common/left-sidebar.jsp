@@ -158,14 +158,21 @@ $('#accountMasterTypeId,#accountTypeId,#memberTypeId,#associatedBankId,#verifica
 	$(activeMenuId).addClass('active');
 	
     url = $(this).attr('href');
+    //alert(url);
 	$.ajax({
 		url: url,
 		dataType: "html",
 		type:	"get",
 		success: function(response) {
 			//alert(response);
-			var ajaxResponse = $(response).find('#ajaxResponseId').html();
-			$('#body').html(ajaxResponse);
+			//var ajaxResponse = $(response).find('#ajaxResponseId').html();
+			//$('#mainContent').html(ajaxResponse);
+			
+			var crudMenu = $(response).find('#crudMenuId').html();
+			var mainContent = $(response).find('#mainContentId').html();
+			$('#crudMenuId').html(crudMenu);
+			$('#mainContentId').html(mainContent);			
+			
 			console.log("Success");
 		},
 		error: function(xhr) {

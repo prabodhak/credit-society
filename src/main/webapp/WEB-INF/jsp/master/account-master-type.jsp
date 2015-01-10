@@ -1,4 +1,7 @@
-<div id="ajaxResponseId">
+<div id="crudMenuId">
+	<jsp:directive.include file="../common/crud-menu.jsp" />
+</div>
+<div id="mainContentId">
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
@@ -6,8 +9,7 @@
 	
 	<link href="resources/css/datatables/dataTables.bootstrap.css"
 		rel="stylesheet" type="text/css" />
-	<jsp:directive.include file="../common/crud-menu.jsp" />
-	<div id="body">
+
 	<aside class="right-side">
 		<!-- Main content -->
 		<section class="content" style="padding-top:0px;">
@@ -90,7 +92,6 @@
 		</section>
 		<!-- /.content -->
 	</aside>
-	</div>
 	<!-- /.right-side -->
 	
 	<!-- DATA TABES SCRIPT -->

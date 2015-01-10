@@ -22,27 +22,27 @@
 		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp"/>
 	</definition>
 	
-	<definition name="login" extends="base.definition">
+	<!-- <definition name="login" extends="base.definition">
 		<put-attribute name="title" value="Login Page"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp"/>
-	</definition>
+	</definition> -->
 		
 	<definition name="home" extends="base.definition">
 		<put-attribute name="title" value="Home Page"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/common/home.jsp"/>
 	</definition>
 	
-	<definition name="accountMasterType" extends="baseWithMenu.definition">
+	<definition name="accountMasterType" extends="base.definition">
 		<put-attribute name="title" value="Account Master Type"/>
-		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
+		<!-- <put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/> -->
 		<put-attribute name="body" value="/WEB-INF/jsp/master/account-master-type.jsp"/>
 	</definition>
 	
 	<!-- Account Type tiles definitions -->
-	<definition name="accountType.definition" extends="baseWithMenu.definition">
+	<definition name="accountType.definition" extends="base.definition">
 		<put-attribute name="title" value="Account Type"/>
-		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
-		<put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/>
+		<!-- <put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/> -->
+		<!-- <put-attribute name="body" value="/WEB-INF/jsp/master/account-type.jsp"/> -->
 	</definition>
 	
 	<definition name="createOrUpdateAccounttypeForm" extends="accountType.definition">
@@ -69,7 +69,7 @@
 	
 	
 	<!-- Associated Banks Tiles Definitions -->
-	<definition name="associatedBank.definition" extends="baseWithMenu.definition">
+	<definition name="associatedBank.definition" extends="base.definition">
 		<put-attribute name="title" value="Associated Bank"/>
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/associated-bank.jsp"/>
@@ -88,33 +88,33 @@
 	</definition>
 	
 	<!-- Verification documents tiles definitions -->
-	<definition name="verificationDocument" extends="baseWithMenu.definition">
+	<definition name="verificationDocument" extends="base.definition">
 		<put-attribute name="title" value="Verification Document"/>
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/verification-document.jsp"/>
 	</definition>
 
 	<!-- Member tiles definitions -->
-	<definition name="createOrUpdateMemberForm" extends="baseWithMenu.definition">
+	<definition name="createOrUpdateMemberForm" extends="base.definition">
 		<put-attribute name="title" value="Member Management"/>
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/members/member-information.jsp"/>
 	</definition>
 	
-	<definition name="addAccountMasterTypeForm" extends="baseWithMenu.definition">
+	<definition name="addAccountMasterTypeForm" extends="base.definition">
 		<put-attribute name="title" value="Account Master Type"/>
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/account-master-type-add.jsp"/>
 	</definition>
 
-	<definition name="createOrUpdateMemberAccountForm" extends="baseWithMenu.definition">
+	<definition name="createOrUpdateMemberAccountForm" extends="base.definition">
 		<put-attribute name="title" value="Member Account"/>
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/members/member-account.jsp"/>
 	</definition>
 	
 	<!-- Member Type definitions -->
-	<definition name="memberType.definition" extends="baseWithMenu.definition">
+	<definition name="memberType.definition" extends="base.definition">
 		<put-attribute name="title" value="Member Type"/>
 		<put-attribute name="menu" value="/WEB-INF/jsp/common/crud-menu.jsp"/>
 		<put-attribute name="body" value="/WEB-INF/jsp/master/member-type.jsp"/>
