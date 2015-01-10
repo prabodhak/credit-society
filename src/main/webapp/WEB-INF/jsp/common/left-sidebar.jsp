@@ -77,7 +77,7 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="teller/deposit"><i class="fa fa-angle-double-right"></i>Deposit</a></li>
+                    <li><a id="depositId" href="teller/deposit"><i class="fa fa-angle-double-right"></i>Deposit</a></li>
                     <li><a href="teller/withdrawal"><i class="fa fa-angle-double-right"></i>Withdrawal</a></li>
                     <li><a href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i>Fund Transfer</a></li>
                     <li><a href="teller/passbook-update"><i class="fa fa-angle-double-right"></i>Passbook Update</a></li>
@@ -149,7 +149,42 @@
     </section>
     <!-- /.sidebar -->
 </aside>
+<script>
+$('#accountMasterTypeId,#accountTypeId,#memberTypeId,#associatedBankId,#verificationDocumentId,#memberInfoId,#memberAccountId,#depositId').click(function (e) {
+	e.preventDefault();
+	removeActiveClassFromAll();
+	
+	activeMenuId = '#' + $(this).attr('id');
+	$(activeMenuId).addClass('active');
+	
+    url = $(this).attr('href');
+	$.ajax({
+		url: url,
+		dataType: "html",
+		type:	"get",
+		success: function(response) {
+			//alert(response);
+			var ajaxResponse = $(response).find('#ajaxResponseId').html();
+			$('#body').html(ajaxResponse);
+			console.log("Success");
+		},
+		error: function(xhr) {
+			console.log("Error");
+		}
+	});
+});
 
+function removeActiveClassFromAll(){
+	$("#accountMasterTypeId").removeClass('active');
+	$("#accountTypeId").removeClass('active');
+	$("#memberTypeId").removeClass('active');
+	$("#associatedBankId").removeClass('active');
+	$("#verificationDocumentId").removeClass('active');
+	$("#memberInfoId").removeClass('active');
+	$("#memberAccountId").removeClass('active');
+	$("#depositId").removeClass('active');
+}
+</script>
 <%-- <script type="text/javascript">
 dojo.addOnLoad(function() {
 	Spring.addDecoration(new Spring.AjaxEventDecoration({

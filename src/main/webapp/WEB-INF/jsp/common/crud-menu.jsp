@@ -22,3 +22,30 @@
 		</section>
 	</aside>
 </div>
+<script>
+$('#crudMenuAddId,#crudMenuEditId,#crudMenuViewId,#crudMenuDeleteId').click(function (e) {
+	e.preventDefault();
+	$('#crudMenuAddId').removeClass('active');
+	$('#crudMenuEditId').removeClass('active');
+	$('#crudMenuViewId').removeClass('active');
+	$('#crudMenuDeleteId').removeClass('active');
+	
+	activeMenuId = '#' + $(this).attr('id');
+	$(activeMenuId).addClass('active');
+	
+    url = $(this).attr('href');
+	$.ajax({
+		url: url,
+		dataType: "html",
+		type:	"get",
+		success: function(response) {
+			var ajaxResponse = $(response).find('#ajaxResponseId').html();
+			$('#body').html(ajaxResponse);
+			console.log("Success");
+		},
+		error: function(xhr) {
+			console.log("Error");
+		}
+	});
+});
+</script>
