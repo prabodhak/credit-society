@@ -77,11 +77,11 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="teller/deposit"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$deposit"/></a></li>
-                    <li><a href="teller/withdrawal"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$withdrawal"/></a></li>
-                    <li><a href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$fundTransfer"/></a></li>
-                    <li><a href="teller/passbook-update"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$passbookUpdate"/></a></li>
-                    <li><a href="teller/ledger-enquiry"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$ledgerEnquiry"/></a></li>
+                    <li><a id="depositId" href="teller/deposit"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$deposit"/></a></li>
+                    <li><a id="withdrawId" href="teller/withdrawal"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$withdrawal"/></a></li>
+                    <li><a id="fundTransferId" href="teller/fund-transfer"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$fundTransfer"/></a></li>
+                    <li><a id="passbookUpdateId" href="teller/passbook-update"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$passbookUpdate"/></a></li>
+                    <li><a id="ledgerEnquiryId" href="teller/ledger-enquiry"><i class="fa fa-angle-double-right"></i><spring:message code="tellerServices$ledgerEnquiry"/></a></li>
                 </ul>
             </li>
             <li class="treeview">
@@ -150,7 +150,8 @@
     <!-- /.sidebar -->
 </aside>
 <script>
-$('#accountMasterTypeId,#accountTypeId,#memberTypeId,#associatedBankId,#verificationDocumentId,#memberInfoId,#memberAccountId,#depositId').click(function (e) {
+$('#accountMasterTypeId,#accountTypeId,#memberTypeId,#associatedBankId,#verificationDocumentId,#memberInfoId,#memberAccountId,#depositId,#withdrawId,#fundTransferId,#fundTransferId,#passbookUpdateId,#ledgerEnquiryId')
+	.click(function (e) {
 	e.preventDefault();
 	removeActiveClassFromAll();
 	
@@ -190,6 +191,11 @@ function removeActiveClassFromAll(){
 	$("#memberInfoId").removeClass('active');
 	$("#memberAccountId").removeClass('active');
 	$("#depositId").removeClass('active');
+	$("#withdrawId").removeClass('active');
+	$("#fundTransferId").removeClass('active');
+	$("#fundTransferId").removeClass('active');
+	$("#passbookUpdateId").removeClass('active');
+	$("#ledgerEnquiryId").removeClass('active');
 }
 </script>
 <%-- <script type="text/javascript">
