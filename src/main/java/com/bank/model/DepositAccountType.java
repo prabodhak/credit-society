@@ -4,13 +4,10 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @SuppressWarnings("serial")
 public class DepositAccountType extends AccountType {
 
 	@Column(name = "minimum_balance")
-	@NotEmpty
 	private BigDecimal minimumBalance;
 	
 	private BigDecimal debitCashLimit;
@@ -40,5 +37,4 @@ public class DepositAccountType extends AccountType {
 	public void setCreditCashLimit(BigDecimal creditCashLimit) {
 		this.creditCashLimit = creditCashLimit;
 	}
-	
 }

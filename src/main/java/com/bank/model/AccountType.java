@@ -11,9 +11,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import com.bank.utils.InterestCalculationMode;
+import org.hibernate.annotations.Type;
+import org.joda.time.DateTime;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Represent JavaBean domain object for generic account. This class represent a
@@ -39,30 +39,33 @@ public class AccountType extends NamedEntity {
 	private List<String> memberTypes;
 
 	@Column(name = "interest_rate")
-	@NotEmpty
 	private BigDecimal interestRate;
 
 	@Column(name = "interest_calculation_mode")
-	@NotEmpty
-	private InterestCalculationMode interestCalculationMode;
+	private String interestCalculationMode;
 
 	@Column(name = "pan_number_required")
-	@NotEmpty
 	private boolean panNumberRequired;
+	
+	@ElementCollection
+	private List<String> requiredDocuments;
 
-	@Column(name = "identity_proof_required")
-	@NotEmpty
+	/*@Column(name = "identity_proof_required")
 	private boolean identityProofRequired;
 
 	@Column(name = "address_proof_required")
-	@NotEmpty
-	private boolean addressProofRequired;
+	private boolean addressProofRequired;*/
+	
+	@Column(name = "apply_date")
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentDateTime")
+	@DateTimeFormat(pattern = "dd/MMMM/yyyy")
+	private DateTime applyDate;
 
-	@OneToMany()
-	private List<VerificationDocument> identityProofDocuments;
+	@ElementCollection
+	private List<String> identityProofDocuments;
 
-	@OneToMany
-	private List<VerificationDocument> addressProofDocuments;
+	@ElementCollection
+	private List<String> addressProofDocuments;
 
 	public AccountType() {
 		// TODO Auto-generated constructor stub
@@ -76,6 +79,14 @@ public class AccountType extends NamedEntity {
 		this.accountTypeMaster = accountTypeMaster;
 	}
 
+	public List<String> getMemberTypes() {
+		return memberTypes;
+	}
+
+	public void setMemberTypes(List<String> memberTypes) {
+		this.memberTypes = memberTypes;
+	}
+
 	public BigDecimal getInterestRate() {
 		return interestRate;
 	}
@@ -84,12 +95,11 @@ public class AccountType extends NamedEntity {
 		this.interestRate = interestRate;
 	}
 
-	public InterestCalculationMode getInterestCalculationMode() {
+	public String getInterestCalculationMode() {
 		return interestCalculationMode;
 	}
 
-	public void setInterestCalculationMode(
-			InterestCalculationMode interestCalculationMode) {
+	public void setInterestCalculationMode(String interestCalculationMode) {
 		this.interestCalculationMode = interestCalculationMode;
 	}
 
@@ -101,7 +111,15 @@ public class AccountType extends NamedEntity {
 		this.panNumberRequired = panNumberRequired;
 	}
 
-	public boolean isIdentityProofRequired() {
+	public List<String> getRequiredDocuments() {
+		return requiredDocuments;
+	}
+
+	public void setRequiredDocuments(List<String> requiredDocuments) {
+		this.requiredDocuments = requiredDocuments;
+	}
+
+	/*public boolean isIdentityProofRequired() {
 		return identityProofRequired;
 	}
 
@@ -115,23 +133,29 @@ public class AccountType extends NamedEntity {
 
 	public void setAddressProofRequired(boolean addressProofRequired) {
 		this.addressProofRequired = addressProofRequired;
+	}*/
+
+	public DateTime getApplyDate() {
+		return applyDate;
 	}
 
-	public List<VerificationDocument> getIdentityProofDocuments() {
+	public void setApplyDate(DateTime applyDate) {
+		this.applyDate = applyDate;
+	}
+
+	public List<String> getIdentityProofDocuments() {
 		return identityProofDocuments;
 	}
 
-	public void setIdentityProofDocuments(
-			List<VerificationDocument> identityProofDocuments) {
+	public void setIdentityProofDocuments(List<String> identityProofDocuments) {
 		this.identityProofDocuments = identityProofDocuments;
 	}
 
-	public List<VerificationDocument> getAddressProofDocuments() {
+	public List<String> getAddressProofDocuments() {
 		return addressProofDocuments;
 	}
 
-	public void setAddressProofDocuments(
-			List<VerificationDocument> addressProofDocuments) {
+	public void setAddressProofDocuments(List<String> addressProofDocuments) {
 		this.addressProofDocuments = addressProofDocuments;
 	}
 }

@@ -79,4 +79,25 @@ public class MasterDataLoaderDaoImpl implements MasterDataLoaderDao {
 		Query query = em.createQuery(queryString);
 		return (List<String>)query.getResultList();
 	}
+
+	@Override
+	public List<String> findAllInterestCalculationMode() {
+		String queryString = "select i.mode from InterestCalculationMode i";
+		Query query = em.createQuery(queryString);
+		return (List<String>)query.getResultList();
+	}
+
+	@Override
+	public List<String> findAllPenalityCalculationMode() {
+		String queryString = "select p.mode from PenaltyCalculationMode p";
+		Query query = em.createQuery(queryString);
+		return (List<String>)query.getResultList();
+	}
+
+	@Override
+	public List<String> findAllVerificationDocumentTypes() {
+		String queryString = "select v.documentType from VerificationDocumentType v";
+		Query query = em.createQuery(queryString);
+		return (List<String>)query.getResultList();
+	}
 }

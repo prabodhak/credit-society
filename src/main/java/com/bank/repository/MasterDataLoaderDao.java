@@ -45,5 +45,12 @@ public interface MasterDataLoaderDao {
 	 * 		list of gender names
 	 */
 	List<String> findAllGender();
-
+	
+	List<String> findAllInterestCalculationMode();
+	
+	List<String> findAllPenalityCalculationMode();
+	
+	List<String> findAllVerificationDocumentTypes();
+	
+	
 }

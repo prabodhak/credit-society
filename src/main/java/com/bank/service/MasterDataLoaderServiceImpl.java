@@ -25,7 +25,9 @@ public class MasterDataLoaderServiceImpl implements MasterDataLoaderService {
 		masterTableData.getMap().put("qualifications", masterDataLoaderDao.findAllEducationalQualification());
 		masterTableData.getMap().put("genders", masterDataLoaderDao.findAllGender());
 		masterTableData.getMap().put("maritalStatus", masterDataLoaderDao.findAllMaritalStatus());
-		
+		masterTableData.getMap().put("penaltyCalculationMode", masterDataLoaderDao.findAllPenalityCalculationMode());
+		masterTableData.getMap().put("interestCalculationMode", masterDataLoaderDao.findAllInterestCalculationMode());
+		masterTableData.getMap().put("verificationDocumentTypes", masterDataLoaderDao.findAllVerificationDocumentTypes());
 	}
 
 	public MasterDataLoaderDao getMasterDataLoaderDao() {

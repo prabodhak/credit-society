@@ -1,6 +1,7 @@
 package com.bank.service;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,12 @@ public class VerificationDocumentServiceImpl implements
 		documents.add(new VerificationDocument(11L, "Address", "Aadhar Card", "description for Aadhar", true));
 		documents.add(new VerificationDocument(12L, "Identity", "Pan Card", "description for Pan Card", false));
 		return documents;*/
+	}
+
+	@Override
+	public List<VerificationDocument> findAllDocumentsByType(
+			String documentType) {
+		return verificationDocumentDao.findAllDocumentsByType(documentType);
 	}
 
 	
