@@ -20,6 +20,7 @@ public class AssociatedBankServiceImpl implements AssociatedBankService{
 	public AssociatedBankServiceImpl(AssociatedBankDao associatedBankDao) {
 		this.associatedBankDao = associatedBankDao;
 	}
+	
 	@Override
 	public Collection<AssociatedBank> findAllAssociatedBanks() {
 		return associatedBankDao.findAll();

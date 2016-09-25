@@ -65,4 +65,14 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
+	@Override
+	public void update(User user) {
+		userDao.save(user);
+	}
+
+	@Override
+	public void save(User user) {
+		userDao.add(user);
+	}
+
 }

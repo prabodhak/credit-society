@@ -6,28 +6,26 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.bank.model.Member;
 import com.bank.service.MasterDataLoaderService;
 import com.bank.service.MemberService;
 
 /**
- * 
- * @author Ajay
- *
+ * This is a controller which exposes APIs for member related operations
+ * @author Ajay Gupta
+ * @since 1.0
  */
-@Controller
+
+@RestController
 @RequestMapping("/member")
 public class MemberController {
 	private final MemberService memberService;
@@ -38,11 +36,6 @@ public class MemberController {
 		this.memberService = memberService;
 		this.masterDataLoaderService = masterDataLoaderService;
 	}
-
-	/*@InitBinder
-	public void setAllowedFields(WebDataBinder dataBinder) {
-		dataBinder.setDisallowedFields("id");
-	}*/
 
 	@RequestMapping(value={"/member-info" ,"/member-info/add"}, method=RequestMethod.GET)
 	public String initCreationForm(Model model) {
@@ -58,18 +51,10 @@ public class MemberController {
 		return "createOrUpdateMemberForm";
 	}
 
+	
 	@RequestMapping(value="/member-info/add", method=RequestMethod.POST)
-	public String processCreationForm(@ModelAttribute Member member) {
-		
+	public void addMember(@RequestBody Member member) {
 		memberService.save(member);
-		return "redirect:/member/member-info/add";
-		/*if (result.hasErrors()) {
-			return "members/createOrUpdateMemberForm";
-		} else {
-			this.memberService.save(member);
-			status.setComplete();
-			return "redirect:/members/" + member.getId();
-		}*/
 	}
 	
 	@RequestMapping(value="/view", method=RequestMethod.GET)
@@ -122,24 +107,9 @@ public class MemberController {
 		}
 	}
 
-	@RequestMapping(value = "/members/{memberId}/edit", method = RequestMethod.GET)
-	public String initUpdateMemberForm(@PathVariable("memberId") Long memberId,
-			Model model) {
-		Member member = this.memberService.findById(memberId);
-		model.addAttribute(member);
-		return "members/createOrUpdateMemberForm";
-	}
-
-	@RequestMapping(value = "/members/{memberId}/edit", method = RequestMethod.PUT)
-	public String processUpdateMemberForm(@Valid Member member,
-			BindingResult result, SessionStatus status) {
-		if (result.hasErrors()) {
-			return "members/createOrUpdateMemberForm";
-		} else {
-			this.memberService.save(member);
-			status.setComplete();
-			return "redirect:/members/{memberId}";
-		}
+	@RequestMapping(value = "/members/{memberId}/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void updateMember(@Valid Member member) {
+		this.memberService.save(member);
 	}
 
 	/**
@@ -149,11 +119,9 @@ public class MemberController {
 	 *            the ID of the member to display
 	 * @return a ModelMap with the model attributes for the view
 	 */
-	@RequestMapping("/members/{memberId}")
-	public ModelAndView showMember(@PathVariable("memberId") Long memberId) {
-		ModelAndView mav = new ModelAndView("members/memberDetails");
-		mav.addObject(this.memberService.findById(memberId));
-		return mav;
+	@RequestMapping(value = "/members/{memberId}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Member showMember(@PathVariable("memberId") Long memberId) {
+		return this.memberService.findById(memberId);
 	}
 	
 }

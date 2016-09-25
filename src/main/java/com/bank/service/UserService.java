@@ -24,4 +24,8 @@ public interface UserService {
 	void setCurrentUser(User currentUser);
 
 	User getCurrentUser();
+
+	void update(User user);
+	
+	void save(User user);
 }
