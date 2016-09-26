@@ -26,7 +26,11 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public Member findById(Long memberId) {
-		return memberDao.findById(memberId);
+		
+		Member member = new Member();
+		return member;
+		
+		//return memberDao.findById(memberId);
 	}
 
 	@Override

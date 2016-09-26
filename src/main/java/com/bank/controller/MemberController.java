@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,7 +27,7 @@ import com.bank.service.MemberService;
  */
 
 @RestController
-@RequestMapping("/member")
+@RequestMapping("/members")
 public class MemberController {
 	private final MemberService memberService;
 	private MasterDataLoaderService masterDataLoaderService;
@@ -51,25 +52,21 @@ public class MemberController {
 		return "createOrUpdateMemberForm";
 	}
 
-	
-	@RequestMapping(value="/member-info/add", method=RequestMethod.POST)
-	public void addMember(@RequestBody Member member) {
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public void getAllMembers(@RequestBody Member member) {
 		memberService.save(member);
 	}
 	
-	@RequestMapping(value="/view", method=RequestMethod.GET)
-	public String showMember(Map<String, Object> model) {
-		Member member = new Member();
-		model.put("member", member);
-		return "members/createOrUpdateMemberForm";
-	}
-
-	@RequestMapping(value = "/find", method = RequestMethod.GET)
-	public String initFindForm(Map<String, Object> model) {
-		model.put("member", new Member());
-		return "members/findMembers";
+	@RequestMapping(value = "/{memberId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	public void updateMember(@Valid Member member) {
+		this.memberService.save(member);
 	}
 	
+	@RequestMapping(value="/", method=RequestMethod.POST)
+	public void addMember(@RequestBody Member member) {
+		memberService.save(member);
+	}
+		
 	@RequestMapping(value="/member-account")
 	public String initMemberAccountCreationForm(Model model) {
 		Member member = new Member(); 
@@ -107,10 +104,7 @@ public class MemberController {
 		}
 	}
 
-	@RequestMapping(value = "/members/{memberId}/edit", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-	public void updateMember(@Valid Member member) {
-		this.memberService.save(member);
-	}
+	
 
 	/**
 	 * Custom handler for displaying an member.
@@ -119,8 +113,8 @@ public class MemberController {
 	 *            the ID of the member to display
 	 * @return a ModelMap with the model attributes for the view
 	 */
-	@RequestMapping(value = "/members/{memberId}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Member showMember(@PathVariable("memberId") Long memberId) {
+	@RequestMapping(value = "/{memberId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public Member getMember(@PathVariable("memberId") Long memberId) {
 		return this.memberService.findById(memberId);
 	}
 	
